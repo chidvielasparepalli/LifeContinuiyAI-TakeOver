@@ -141,7 +141,7 @@ export default function SafetyPanel({ uid }: SafetyPanelProps) {
       `Active window configured from ${winStart} to ${winEnd}`,
       "Checking device activity heartbeats...",
       "Simulating heartbeat trigger: SUCCESS.",
-      "LifeContinuity proof-of-life state: VERIFIED and safe."
+      "LifeContinuity AI proof-of-life state: VERIFIED and safe."
     ];
 
     setHeartbeatLog([]);
@@ -249,7 +249,7 @@ export default function SafetyPanel({ uid }: SafetyPanelProps) {
       ? "💬 SMS 'SAFE' keyword received from verified mobile number."
       : "📲 Push Action check-in triggered from lock-screen widget. Verification: SAFE."
     );
-    appendLog("LifeContinuity status updated to: Verified.");
+    appendLog("LifeContinuity AI status updated to: Verified.");
     setSimStage(0);
 
     try {

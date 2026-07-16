@@ -1,6 +1,6 @@
 {
-  "name": "Remix: Untitled",
-  "description": "",
+  "name": "LifeContinuity AI",
+  "description": "LifeContinuity AI securely organizes the important parts of your life before an emergency ever happens.",
   "requestFramePermissions": [],
   "majorCapabilities": [
     "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"

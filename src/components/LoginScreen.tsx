@@ -191,7 +191,7 @@ export default function LoginScreen({ onLoginSuccess }: LoginScreenProps) {
             <Shield className="w-6 h-6 text-indigo-700" id="logo-icon" />
           </div>
           <span className="text-xl sm:text-2xl font-black tracking-tight uppercase text-inherit" id="portal-title">
-            LifeContinuity<span className="text-indigo-600 dark:text-indigo-300">OS</span>
+            {t("brandName")}
           </span>
         </div>
 

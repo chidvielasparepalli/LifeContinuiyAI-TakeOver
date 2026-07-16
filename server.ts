@@ -1176,7 +1176,7 @@ app.post("/api/documents/:uid/export-zip", async (req, res) => {
     }
     
     // Create a beautiful readme file inside the zip containing metadata
-    let readmeText = `Lighthouse / LifeContinuity Secure Vault Export\n`;
+    let readmeText = `Lighthouse / LifeContinuity AI Secure Vault Export\n`;
     readmeText += `Generated on: ${new Date().toISOString()}\n`;
     readmeText += `Total Documents: ${userDocs.length}\n\n`;
     readmeText += `--- Document Metadata list ---\n\n`;

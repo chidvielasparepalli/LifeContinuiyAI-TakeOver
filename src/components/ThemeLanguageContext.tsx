@@ -38,7 +38,7 @@ interface ThemeLanguageContextType {
 const translations: Record<string, Record<string, string>> = {
   en: {
     // Brand
-    brandName: "LifeContinuity",
+    brandName: "LifeContinuity AI",
     brandTagline: "Family Vital Assets & Care Playbooks",
     brandBadge: "Active",
     secureSession: "Secure Session",
@@ -72,8 +72,8 @@ const translations: Record<string, Record<string, string>> = {
     titleNomineeDashboard: "Nominee Handover Portal Preview",
 
     // Login page
-    loginIntro: "LifeContinuity securely organizes the important parts of your life, before an emergency ever happens.",
-    loginTitle: "LifeContinuity securely organizes the important parts of your life, before an emergency ever happens.",
+    loginIntro: "LifeContinuity securely organizes the important parts of your life before an emergency ever happens.",
+    loginTitle: "LifeContinuity securely organizes the important parts of your life before an emergency ever happens.",
     welcomeBack: "Welcome Back",
     portalDesc: "Secure access to your personal life graph",
     userPortal: "User Portal",
@@ -101,7 +101,7 @@ const translations: Record<string, Record<string, string>> = {
   },
   es: {
     // Brand
-    brandName: "LifeContinuity",
+    brandName: "LifeContinuity AI",
     brandTagline: "Activos Vitales Familiares y Guías de Cuidado",
     brandBadge: "Activo",
     secureSession: "Sesión Segura",
@@ -135,8 +135,8 @@ const translations: Record<string, Record<string, string>> = {
     titleNomineeDashboard: "Vista Previa del Portal de Entrega del Nominado",
 
     // Login page
-    loginIntro: "LifeContinuity organiza de forma segura las partes importantes de su vida, antes de que ocurra una emergencia.",
-    loginTitle: "LifeContinuity organiza de forma segura las partes importantes de su vida, antes de que ocurra una emergencia.",
+    loginIntro: "LifeContinuity organiza de forma segura las partes importantes de su vida antes de que ocurra una emergencia.",
+    loginTitle: "LifeContinuity organiza de forma segura las partes importantes de su vida antes de que ocurra una emergencia.",
     welcomeBack: "Bienvenido de nuevo",
     portalDesc: "Acceso seguro a su gráfico de vida personal",
     userPortal: "Portal de Usuario",
@@ -164,7 +164,7 @@ const translations: Record<string, Record<string, string>> = {
   },
   hi: {
     // Brand
-    brandName: "LifeContinuity",
+    brandName: "LifeContinuity AI",
     brandTagline: "पारिवारिक महत्वपूर्ण संपत्ति और देखभाल पुस्तिका",
     brandBadge: "सक्रिय",
     secureSession: "सुरक्षित सत्र",
@@ -227,7 +227,7 @@ const translations: Record<string, Record<string, string>> = {
   },
   te: {
     // Brand
-    brandName: "LifeContinuity",
+    brandName: "LifeContinuity AI",
     brandTagline: "కుటుంబ ముఖ్యమైన ఆస్తులు & సంరక్షణ నియమావళి",
     brandBadge: "క్రియాశీల",
     secureSession: "సురక్షిత సెషన్",
@@ -530,21 +530,11 @@ export const ThemeLanguageProvider: React.FC<{ children: React.ReactNode }> = ({
 
   const t = (text: string): string => {
     if (!text) return "";
-    if (language === "en") return text;
 
     const textTrimmed = text.trim();
     if (!textTrimmed) return text;
-    
-    const isNumeric = /^\d+(\.\d+)?$/.test(textTrimmed);
-    const isEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(textTrimmed);
-    const isDateOrTime = /^\d{4}-\d{2}-\d{2}$|^\d{1,2}:\d{2}\s?(AM|PM)?$/i.test(textTrimmed);
-    const isShortOrSymbols = textTrimmed.length <= 1 || /^[^a-zA-Z0-9\s]+$/.test(textTrimmed);
 
-    if (isNumeric || isEmail || isDateOrTime || isShortOrSymbols) {
-      return text;
-    }
-
-    // 1. Check if it's a known static key (e.g., "brandName")
+    // 1. Check if it's a known static key (e.g., "brandName") in the current language
     const staticDict = translations[language];
     if (staticDict && staticDict[text]) {
       return staticDict[text];
@@ -555,6 +545,22 @@ export const ThemeLanguageProvider: React.FC<{ children: React.ReactNode }> = ({
     const staticKey = Object.keys(enDict).find(k => enDict[k] === text);
     if (staticKey && staticDict && staticDict[staticKey]) {
       return staticDict[staticKey];
+    }
+
+    if (language === "en") {
+      if (enDict && enDict[text]) {
+        return enDict[text];
+      }
+      return text;
+    }
+
+    const isNumeric = /^\d+(\.\d+)?$/.test(textTrimmed);
+    const isEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(textTrimmed);
+    const isDateOrTime = /^\d{4}-\d{2}-\d{2}$|^\d{1,2}:\d{2}\s?(AM|PM)?$/i.test(textTrimmed);
+    const isShortOrSymbols = textTrimmed.length <= 1 || /^[^a-zA-Z0-9\s]+$/.test(textTrimmed);
+
+    if (isNumeric || isEmail || isDateOrTime || isShortOrSymbols) {
+      return text;
     }
 
     // 3. Check dynamic translation cache
