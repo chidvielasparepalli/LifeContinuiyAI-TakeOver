@@ -87,7 +87,7 @@ export default function App() {
 
       if (!user || user.uid !== uid) {
         setSyncError(null);
-        fetch("https://updated-project-life-continuity-production.up.railway.app/api/auth/clerk-sync", {
+        fetch("/api/auth/clerk-sync", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({ email, name, uid })
