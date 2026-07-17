@@ -28,6 +28,7 @@ const app = express();
 
 const allowedOrigins = [
   "https://updated-project-life-continuity.vercel.app",
+  "https://updated_project-life-continuity.vercel.app",
   "http://localhost:5173",
   "http://localhost:3000"
 ];
@@ -51,7 +52,12 @@ app.use(cors({
       console.log(`[CORS ORIGIN CHECK] Allowed (No origin, e.g. same-origin or server-to-server)`);
       return callback(null, true);
     }
-    const isAllowed = allowedOrigins.indexOf(origin) !== -1 || origin.startsWith("http://localhost:");
+    const isAllowed = allowedOrigins.indexOf(origin) !== -1 || 
+                      origin.startsWith("http://localhost:") ||
+                      (origin.endsWith(".vercel.app") && (
+                        origin.includes("updated-project-life-continuity") || 
+                        origin.includes("updated_project-life-continuity")
+                      ));
     console.log(`[CORS ORIGIN CHECK] Origin "${origin}" allowed: ${isAllowed}`);
     if (isAllowed) {
       callback(null, true);
