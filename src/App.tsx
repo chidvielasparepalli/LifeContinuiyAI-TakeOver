@@ -1,17 +1,17 @@
 import React, { useState, useEffect } from "react";
-import { 
-  Shield, 
-  LayoutDashboard, 
-  KeyRound, 
-  FolderOpen, 
-  Mail, 
-  ShieldAlert, 
-  HeartPulse, 
-  Bell, 
-  LogOut, 
-  CheckCircle, 
-  Calendar, 
-  Sliders, 
+import {
+  Shield,
+  LayoutDashboard,
+  KeyRound,
+  FolderOpen,
+  Mail,
+  ShieldAlert,
+  HeartPulse,
+  Bell,
+  LogOut,
+  CheckCircle,
+  Calendar,
+  Sliders,
   Eye,
   Plus,
   MessageSquare,
@@ -59,7 +59,7 @@ export default function App() {
   // Clerk authentication
   const { isSignedIn, user: clerkUser, isLoaded: isClerkLoaded } = useUser();
   const { signOut } = useClerk();
-  
+
   // Nominee session state
   const [nomineeSession, setNomineeSession] = useState<{
     ownerUid: string;
@@ -82,7 +82,7 @@ export default function App() {
       const uid = clerkUser.id;
 
       if (!user || user.uid !== uid) {
-       fetch("https://YOUR-RAILWAY-DOMAIN/api/auth/clerk-sync", {
+        fetch("https://updated-project-life-continuity-production.up.railway.app/api/auth/clerk-sync", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({ email, name, uid })
@@ -225,14 +225,13 @@ export default function App() {
 
   return (
     <div className={`min-h-screen ${theme === "light" ? "bg-[#e0dafc] text-black theme-light-container" : "bg-[#2c3353] text-[#e0dafc] theme-dark-container"} flex flex-col lg:flex-row relative transition-colors duration-300`}>
-      
+
       {/* -------------------------------------------------------------
           1. PERSISTENT SIDEBAR (Desktop & Tablet Landscape >= 1024px)
           ------------------------------------------------------------- */}
-      <aside className={`h-screen sticky top-0 lg:flex hidden flex-col justify-between shrink-0 select-none border-r transition-all duration-300 z-30 ${
-        theme === "light" ? "bg-white border-indigo-100 text-indigo-950" : "bg-[#1e233a] border-[#5d6fa3]/20 text-[#e0dafc]"
-      } ${isSidebarCollapsed ? "w-20" : "w-64"}`}>
-        
+      <aside className={`h-screen sticky top-0 lg:flex hidden flex-col justify-between shrink-0 select-none border-r transition-all duration-300 z-30 ${theme === "light" ? "bg-white border-indigo-100 text-indigo-950" : "bg-[#1e233a] border-[#5d6fa3]/20 text-[#e0dafc]"
+        } ${isSidebarCollapsed ? "w-20" : "w-64"}`}>
+
         {/* Top Branding / Logo & Collapse button */}
         <div className="p-4 flex items-center justify-between border-b border-[#5d6fa3]/10 shrink-0">
           <div className="flex items-center gap-2.5 overflow-hidden">
@@ -249,7 +248,7 @@ export default function App() {
               </div>
             )}
           </div>
-          
+
           <button
             onClick={() => setIsSidebarCollapsed(!isSidebarCollapsed)}
             className="p-1.5 rounded-lg hover:bg-black/5 dark:hover:bg-white/5 text-inherit cursor-pointer"
@@ -279,11 +278,10 @@ export default function App() {
                 <button
                   key={item.id}
                   onClick={() => setCurrentTab(item.id as Tab)}
-                  className={`w-full flex items-center gap-3 px-3 py-2.5 rounded-xl transition-all cursor-pointer ${
-                    isSelected
-                      ? "bg-indigo-600 text-white font-bold shadow-md"
-                      : "text-inherit hover:bg-black/5 dark:hover:bg-white/5"
-                  } ${isSidebarCollapsed ? "justify-center" : "justify-start"}`}
+                  className={`w-full flex items-center gap-3 px-3 py-2.5 rounded-xl transition-all cursor-pointer ${isSelected
+                    ? "bg-indigo-600 text-white font-bold shadow-md"
+                    : "text-inherit hover:bg-black/5 dark:hover:bg-white/5"
+                    } ${isSidebarCollapsed ? "justify-center" : "justify-start"}`}
                   title={item.label}
                 >
                   <IconComp className="h-5 w-5 shrink-0" />
@@ -310,11 +308,10 @@ export default function App() {
                 <button
                   key={item.id}
                   onClick={() => setCurrentTab(item.id as Tab)}
-                  className={`w-full flex items-center gap-3 px-3 py-2.5 rounded-xl transition-all cursor-pointer ${
-                    isSelected
-                      ? "bg-indigo-600 text-white font-bold shadow-md"
-                      : "text-inherit hover:bg-black/5 dark:hover:bg-white/5"
-                  } ${isSidebarCollapsed ? "justify-center" : "justify-start"}`}
+                  className={`w-full flex items-center gap-3 px-3 py-2.5 rounded-xl transition-all cursor-pointer ${isSelected
+                    ? "bg-indigo-600 text-white font-bold shadow-md"
+                    : "text-inherit hover:bg-black/5 dark:hover:bg-white/5"
+                    } ${isSidebarCollapsed ? "justify-center" : "justify-start"}`}
                   title={item.label}
                 >
                   <IconComp className="h-5 w-5 shrink-0" />
@@ -327,7 +324,7 @@ export default function App() {
 
         {/* Sidebar Footer Controls */}
         <div className="p-3 border-t border-[#5d6fa3]/10 space-y-3 shrink-0">
-          
+
           {/* Quick theme & lang row */}
           {!isSidebarCollapsed ? (
             <div className="flex items-center justify-between gap-1 bg-black/5 dark:bg-white/5 p-1 rounded-xl">
@@ -399,9 +396,8 @@ export default function App() {
       {/* -------------------------------------------------------------
           2. STICKY MOBILE & TABLET HEADER (< 1024px)
           ------------------------------------------------------------- */}
-      <header className={`lg:hidden flex items-center justify-between sticky top-0 z-30 h-16 px-4 sm:px-6 shadow-md border-b shrink-0 transition-colors duration-300 ${
-        theme === "light" ? "bg-white border-indigo-200 text-indigo-950" : "bg-[#1e233a] border-[#5d6fa3]/30 text-[#e0dafc]"
-      }`}>
+      <header className={`lg:hidden flex items-center justify-between sticky top-0 z-30 h-16 px-4 sm:px-6 shadow-md border-b shrink-0 transition-colors duration-300 ${theme === "light" ? "bg-white border-indigo-200 text-indigo-950" : "bg-[#1e233a] border-[#5d6fa3]/30 text-[#e0dafc]"
+        }`}>
         <div className="flex items-center gap-3">
           <button
             onClick={() => setIsMobileDrawerOpen(true)}
@@ -455,9 +451,8 @@ export default function App() {
               animate={{ x: 0 }}
               exit={{ x: "-100%" }}
               transition={{ type: "spring", damping: 25, stiffness: 220 }}
-              className={`fixed top-0 bottom-0 left-0 w-[300px] max-w-[85vw] z-50 flex flex-col justify-between shadow-2xl border-r lg:hidden ${
-                theme === "light" ? "bg-white border-indigo-100 text-indigo-950" : "bg-[#1e233a] border-[#5d6fa3]/20 text-[#e0dafc]"
-              }`}
+              className={`fixed top-0 bottom-0 left-0 w-[300px] max-w-[85vw] z-50 flex flex-col justify-between shadow-2xl border-r lg:hidden ${theme === "light" ? "bg-white border-indigo-100 text-indigo-950" : "bg-[#1e233a] border-[#5d6fa3]/20 text-[#e0dafc]"
+                }`}
             >
               {/* Drawer Top Branding & Close Button */}
               <div className="p-4 flex items-center justify-between border-b border-[#5d6fa3]/10 shrink-0">
@@ -481,7 +476,7 @@ export default function App() {
 
               {/* Drawer Scrollable Navigation Body */}
               <div className="flex-1 overflow-y-auto px-4 py-4 space-y-6">
-                
+
                 {/* General Links */}
                 <div className="space-y-1">
                   <h3 className="px-3 text-[9px] font-bold text-[#5d6fa3] uppercase tracking-wider mb-2">General Portal</h3>
@@ -501,9 +496,8 @@ export default function App() {
                           setCurrentTab(item.id as Tab);
                           setIsMobileDrawerOpen(false);
                         }}
-                        className={`w-full flex items-center gap-3 px-3 py-2.5 rounded-xl transition-all cursor-pointer ${
-                          isSelected ? "bg-indigo-600 text-white font-bold" : "text-inherit hover:bg-black/5 dark:hover:bg-white/5"
-                        }`}
+                        className={`w-full flex items-center gap-3 px-3 py-2.5 rounded-xl transition-all cursor-pointer ${isSelected ? "bg-indigo-600 text-white font-bold" : "text-inherit hover:bg-black/5 dark:hover:bg-white/5"
+                          }`}
                       >
                         <IconComp className="h-5 w-5 shrink-0" />
                         <span className="text-xs">{item.label}</span>
@@ -530,9 +524,8 @@ export default function App() {
                           setCurrentTab(item.id as Tab);
                           setIsMobileDrawerOpen(false);
                         }}
-                        className={`w-full flex items-center gap-3 px-3 py-2.5 rounded-xl transition-all cursor-pointer ${
-                          isSelected ? "bg-indigo-600 text-white font-bold" : "text-inherit hover:bg-black/5 dark:hover:bg-white/5"
-                        }`}
+                        className={`w-full flex items-center gap-3 px-3 py-2.5 rounded-xl transition-all cursor-pointer ${isSelected ? "bg-indigo-600 text-white font-bold" : "text-inherit hover:bg-black/5 dark:hover:bg-white/5"
+                          }`}
                       >
                         <IconComp className="h-5 w-5 shrink-0" />
                         <span className="text-xs">{item.label}</span>
@@ -590,7 +583,7 @@ export default function App() {
           4. MAIN VIEWPORT CONTAINER
           ------------------------------------------------------------- */}
       <div className="flex-1 flex flex-col min-h-screen min-w-0 relative">
-        
+
         {/* Tab Context Sub-Header */}
         <div className={`${theme === "light" ? "bg-white/60 border-b border-indigo-100 text-indigo-950" : "bg-[#2c3353]/45 border-b border-[#5d6fa3]/10 text-[#e0dafc]"} py-3 px-4 sm:px-6 flex items-center justify-between shrink-0 text-xs transition-colors duration-300`}>
           <h2 className="font-black uppercase tracking-wider" id="header-tab-title">
@@ -672,11 +665,10 @@ export default function App() {
             setCurrentTab("Dashboard");
             setShowQuickAccess(false);
           }}
-          className={`flex flex-col items-center gap-1 px-3 py-1.5 rounded-xl transition-all cursor-pointer ${
-            currentTab === "Dashboard"
-              ? "bg-[#e0dafc] text-[#2c3353] shadow-md font-extrabold"
-              : "text-indigo-200/80 hover:bg-white/5"
-          }`}
+          className={`flex flex-col items-center gap-1 px-3 py-1.5 rounded-xl transition-all cursor-pointer ${currentTab === "Dashboard"
+            ? "bg-[#e0dafc] text-[#2c3353] shadow-md font-extrabold"
+            : "text-indigo-200/80 hover:bg-white/5"
+            }`}
         >
           <LayoutDashboard className="h-5 w-5 shrink-0" />
           <span className="text-[9px] font-bold">Dashboard</span>
@@ -730,11 +722,10 @@ export default function App() {
         {/* Mobile AI Chat toggle button */}
         <button
           onClick={() => setIsChatbotOpen(!isChatbotOpen)}
-          className={`flex flex-col items-center gap-1 px-3 py-1.5 rounded-xl transition-all cursor-pointer ${
-            isChatbotOpen
-              ? "bg-[#e0dafc] text-[#2c3353] shadow-md font-extrabold"
-              : "text-indigo-200/80 hover:bg-white/5"
-          }`}
+          className={`flex flex-col items-center gap-1 px-3 py-1.5 rounded-xl transition-all cursor-pointer ${isChatbotOpen
+            ? "bg-[#e0dafc] text-[#2c3353] shadow-md font-extrabold"
+            : "text-indigo-200/80 hover:bg-white/5"
+            }`}
         >
           <MessageSquare className="h-5 w-5 shrink-0" />
           <span className="text-[9px] font-bold">AI Chat</span>
@@ -742,10 +733,10 @@ export default function App() {
       </div>
 
       {/* Global floating context-synced Chatbot */}
-      <FloatingChatbot 
-        uid={user.uid} 
-        externalOpen={isChatbotOpen} 
-        onToggle={setIsChatbotOpen} 
+      <FloatingChatbot
+        uid={user.uid}
+        externalOpen={isChatbotOpen}
+        onToggle={setIsChatbotOpen}
       />
 
       {/* Global Toast Notification */}
@@ -756,13 +747,11 @@ export default function App() {
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 20, scale: 0.95 }}
             transition={{ type: "spring", stiffness: 300, damping: 25 }}
-            className={`fixed bottom-6 right-6 z-[100] max-w-sm w-full bg-slate-900 border ${
-              toast.type === "success" ? "border-emerald-500/30 shadow-emerald-500/10" : "border-rose-500/30 shadow-rose-500/10"
-            } rounded-2xl p-4 shadow-2xl flex items-start gap-3.5 text-white`}
+            className={`fixed bottom-6 right-6 z-[100] max-w-sm w-full bg-slate-900 border ${toast.type === "success" ? "border-emerald-500/30 shadow-emerald-500/10" : "border-rose-500/30 shadow-rose-500/10"
+              } rounded-2xl p-4 shadow-2xl flex items-start gap-3.5 text-white`}
           >
-            <div className={`p-2 rounded-xl shrink-0 ${
-              toast.type === "success" ? "bg-emerald-500/10 text-emerald-400" : "bg-rose-500/10 text-rose-400"
-            }`}>
+            <div className={`p-2 rounded-xl shrink-0 ${toast.type === "success" ? "bg-emerald-500/10 text-emerald-400" : "bg-rose-500/10 text-rose-400"
+              }`}>
               <CheckCircle className="h-5 w-5" />
             </div>
             <div className="flex-1 min-w-0">
