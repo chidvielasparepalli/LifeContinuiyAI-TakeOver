@@ -8,10 +8,22 @@ import crypto from "crypto";
 import JSZip from "jszip";
 import { createClient } from "@supabase/supabase-js";
 import { Composio } from "@composio/core";
+import cors from "cors";
 
 dotenv.config();
 
 const app = express();
+app.use(
+  cors({
+    origin: [
+      "https://updated-project-life-continuity.vercel.app",
+    ],
+    credentials: true,
+  })
+);
+
+app.options("*", cors());
+app.use(express.json());
 const PORT = 3000;
 
 // Increase payload limits for base64 file uploads
