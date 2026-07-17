@@ -23,12 +23,11 @@ app.use(
 );
 
 app.options("*", cors());
-app.use(express.json());
+
 const PORT = 3000;
 
 // Increase payload limits for base64 file uploads
 app.use(express.json({ limit: "50mb" }));
-app.use(express.urlencoded({ limit: "50mb", extended: true }));
 
 // Setup folder for uploads
 const UPLOADS_DIR = path.join(process.cwd(), "uploads");
@@ -51,7 +50,7 @@ interface DatabaseSchema {
   appointments: any[];
   checkIns: Record<string, Record<string, any>>; // uid -> { date: entry }
   checkInStats: Record<string, any>;
-  checkInSettings: Record<string, any>;
+  checkInSettings: Record<string, any>;   
   continuityPlans: Record<string, any>;
   sessions: any[];
   checkInEvents?: any[];
