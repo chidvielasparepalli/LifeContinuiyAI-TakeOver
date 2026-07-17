@@ -33,18 +33,7 @@ const allowedOrigins = [
   "http://localhost:3000"
 ];
 
-// Early logging middleware for debugging CORS and request flow
-app.use((req, res, next) => {
-  console.log(`[EARLY REQUEST LOG] Method: ${req.method}, URL: ${req.url}, Origin: ${req.headers.origin}`);
-  next();
-});
-
-// Middleware log before CORS
-app.use((req, res, next) => {
-  console.log(`[BEFORE CORS MIDDLEWARE] Method: ${req.method}, URL: ${req.url}`);
-  next();
-});
-
+// Configure CORS first
 app.use(cors({
   origin: (origin, callback) => {
     console.log(`[CORS ORIGIN CHECK] Request Origin: "${origin}"`);
@@ -63,9 +52,22 @@ app.use(cors({
     }
   },
   credentials: true,
-  methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
-  allowedHeaders: ["Content-Type", "Authorization"],
+  methods: ["GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"],
+  allowedHeaders: ["Content-Type", "Authorization", "Origin", "Accept"],
+  optionsSuccessStatus: 204
 }));
+
+// Early logging middleware for debugging CORS and request flow
+app.use((req, res, next) => {
+  console.log(`[EARLY REQUEST LOG] Method: ${req.method}, URL: ${req.url}, Origin: ${req.headers.origin}`);
+  next();
+});
+
+// Middleware log before CORS
+app.use((req, res, next) => {
+  console.log(`[BEFORE CORS MIDDLEWARE] Method: ${req.method}, URL: ${req.url}`);
+  next();
+});
 
 // Middleware log before JSON parser
 app.use((req, res, next) => {
@@ -686,6 +688,13 @@ app.post("/api/auth/google-login", async (req, res) => {
     console.error("Google login failed", err);
     res.status(500).json({ error: "Internal server error during Google login" });
   }
+});
+
+app.get("/api/test", (req, res) => {
+  res.json({
+    success: true,
+    message: "Backend reachable"
+  });
 });
 
 // Clerk Authentication User Synchronization
