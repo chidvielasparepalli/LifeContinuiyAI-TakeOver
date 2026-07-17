@@ -82,6 +82,13 @@
   },
   "securityAlerts": [
     {
+      "id": "alert-m6bwp1753",
+      "uid": "user_3Gcona6Lmnf2lyPcQszgGcAOErX",
+      "timestamp": "2026-07-17T22:48:59.175Z",
+      "event": "User Sign In",
+      "details": "Logged in via Clerk Authentication"
+    },
+    {
       "id": "alert-0o10x7wxb",
       "uid": "user_3Gd6gh3imANxBppCOVcfM9XpTVP",
       "timestamp": "2026-07-17T18:14:53.959Z",
@@ -1581,6 +1588,94 @@
       "extractedSummary": "Billing notification: Rockstar Broadcast: New Odd Jobs and Mansion Raid Mode Now in GTA Online.",
       "rawSnippet": "*THIS IS A ROCKSTAR BROADCAST*\r\n\r\nMAKE AN HONEST LIVING IN THREE NEW GTA ONLINE ODD JOBS\r\nGet 2X GTA$ and RP Fighting Fires, Operating Machinery, and ",
       "gmailUrl": "https://mail.google.com/mail/u/0/#all/19c113c725c8a830"
+    },
+    {
+      "id": "email-hc2ilkidl",
+      "uid": "user_3Gcona6Lmnf2lyPcQszgGcAOErX",
+      "subject": "emi",
+      "sender": "Ruthvika NIAT Hyderabad <ruthvikaniathyderabad@gmail.com>",
+      "category": "Bills",
+      "date": "2026-07-17T18:53:55.000Z",
+      "extractedSummary": "Make the pending EMI payment which is currently overdue.",
+      "rawSnippet": "Emi is pending\r\n",
+      "gmailUrl": "https://mail.google.com/mail/u/0/#all/19f716dd0a199d72"
+    },
+    {
+      "id": "email-lfsq8i8za",
+      "uid": "user_3Gcona6Lmnf2lyPcQszgGcAOErX",
+      "subject": "Get Mac or iPad for college with No Cost EMI for a limited time.",
+      "sender": "Apple <News@insideapple.apple.com>",
+      "category": "Bills",
+      "date": "2026-02-02T01:33:18.000Z",
+      "extractedSummary": "Take advantage of the No Cost EMI offer on select Mac and iPad models at the Apple Education Store between January 15, 2026, and February 23, 2026.",
+      "rawSnippet": "Save more for college with education pricing. ͏⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀",
+      "gmailUrl": "https://mail.google.com/mail/u/0/#all/19c1bfbb338e28ef"
+    },
+    {
+      "id": "email-fbxthvn7z",
+      "uid": "user_3Gcona6Lmnf2lyPcQszgGcAOErX",
+      "subject": "💘 Get set for Valentine’s Day.",
+      "sender": "Apple <News@insideapple.apple.com>",
+      "category": "Bills",
+      "date": "2026-01-30T02:59:36.000Z",
+      "extractedSummary": "Shop for Valentine’s Day gifts at Apple with free engraving and monthly payment options.",
+      "rawSnippet": "Find something special for your special someone at Apple. ͏⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀",
+      "gmailUrl": "https://mail.google.com/mail/u/0/#all/19c0cd7cd5e506e8"
+    },
+    {
+      "id": "email-u5va2maqo",
+      "uid": "user_3Gcona6Lmnf2lyPcQszgGcAOErX",
+      "subject": "🤩 Shop for what you’ve wanted all season.",
+      "sender": "Apple <News@insideapple.apple.com>",
+      "category": "Bills",
+      "date": "2026-01-02T07:39:43.000Z",
+      "extractedSummary": "Purchase new Apple products using No Cost EMI and Apple Trade In savings.",
+      "rawSnippet": "iPhone 17 Pro. AirPods Pro 3. MacBook Pro 14″ with M5. Treat yourself to the latest from Apple. ͏⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀",
+      "gmailUrl": "https://mail.google.com/mail/u/0/#all/19b7da5f05a7c929"
+    },
+    {
+      "id": "email-4k3es6vst",
+      "uid": "user_3Gcona6Lmnf2lyPcQszgGcAOErX",
+      "subject": "Introducing the new iPad Pro with M5 chip.",
+      "sender": "Apple <News@insideapple.apple.com>",
+      "category": "Bills",
+      "date": "2025-10-23T02:44:00.000Z",
+      "extractedSummary": "Buy the new iPad Pro with the M5 chip starting at ₹99900.00 or from ₹7992.00 per month.",
+      "rawSnippet": "A giant leap for AI on iPad. Powerfully redesigned iPadOS. Game-changing capabilities everywhere. ͏⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀",
+      "gmailUrl": "https://mail.google.com/mail/u/0/#all/19a0ef3a7033191d"
+    },
+    {
+      "id": "email-1pwj2xwr5",
+      "uid": "user_3Gcona6Lmnf2lyPcQszgGcAOErX",
+      "subject": "Introducing the new 14″ MacBook Pro. Supercharged by M5.",
+      "sender": "Apple <News@insideapple.apple.com>",
+      "category": "Bills",
+      "date": "2025-10-22T07:38:55.000Z",
+      "extractedSummary": "Pre-order or purchase the new 14-inch MacBook Pro starting at ₹13325.00 per month.",
+      "rawSnippet": "Optimised for AI from the silicon up. ͏⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀",
+      "gmailUrl": "https://mail.google.com/mail/u/0/#all/19a0adb52d612d7c"
+    },
+    {
+      "id": "email-4tmmepjlj",
+      "uid": "user_3Gcona6Lmnf2lyPcQszgGcAOErX",
+      "subject": "⏰ Last chance to light up the season.",
+      "sender": "Apple <News@insideapple.apple.com>",
+      "category": "Bills",
+      "date": "2025-10-17T17:46:57.000Z",
+      "extractedSummary": "Secure up to ₹10000 instant cashback and No Cost EMI tenures on Apple products before the promotional offers expire on October 23, 2025.",
+      "rawSnippet": "Get your festive gifts at Apple Store Online. ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀",
+      "gmailUrl": "https://mail.google.com/mail/u/0/#all/199f3482e68ccddc"
+    },
+    {
+      "id": "email-vpl7nl2xn",
+      "uid": "user_3Gcona6Lmnf2lyPcQszgGcAOErX",
+      "subject": "⏰ Last chance to light up the season.",
+      "sender": "Apple <News@insideapple.apple.com>",
+      "category": "Bills",
+      "date": "2025-10-17T02:41:29.000Z",
+      "extractedSummary": "Take advantage of corrected festive pricing on Apple products to get up to ₹10000 instant cashback before the promotion ends on October 23, 2025.",
+      "rawSnippet": "Get your festive gifts at Apple Store Online. ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀",
+      "gmailUrl": "https://mail.google.com/mail/u/0/#all/199f00b388c5d321"
     }
   ],
   "bills": [
