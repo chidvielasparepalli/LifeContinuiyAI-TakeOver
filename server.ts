@@ -26,10 +26,7 @@ const PORT = process.env.PORT || 3000;
 const app = express();
 
 const allowedOrigins = [
-  "https://updated-project-life-continuity.vercel.app",
-  "https://updated_project-life-continuity.vercel.app",
-  "https://life-continuiy-ai-take-over.vercel.app",
-  "http://localhost:5173",
+  "https://life-continuity-ai-take-over.vercel.app",
   "http://localhost:3000"
 ];
 
@@ -41,9 +38,10 @@ app.use(cors({
       console.log(`[CORS ORIGIN CHECK] Allowed (No origin, e.g. same-origin or server-to-server)`);
       return callback(null, true);
     }
-    const isAllowed = allowedOrigins.indexOf(origin) !== -1 || 
-                      origin.startsWith("http://localhost:") ||
-                      origin.endsWith(".vercel.app");
+    const isAllowed = allowedOrigins.indexOf(origin) !== -1 ||
+      origin.startsWith("http://localhost:") ||
+      origin.endsWith(".vercel.app") ||
+      origin.endsWith(".railway.app");
     console.log(`[CORS ORIGIN CHECK] Origin "${origin}" allowed: ${isAllowed}`);
     if (isAllowed) {
       callback(null, true);
@@ -729,7 +727,7 @@ app.post("/api/auth/clerk-sync", async (req, res) => {
       if (user) {
         console.log(`[CLERK-SYNC POST] User found by email fallback: "${user.uid}". Re-mapping user...`);
         const oldUid = user.uid;
-        
+
         // Re-map user under their new Clerk uid
         user.uid = uid;
         await userService.createUser(user);
@@ -841,7 +839,7 @@ app.post("/api/auth/nominee-login", async (req, res) => {
       if (profile) {
         await notificationService.logAlert(profile.uid, "Failed Nominee Access Attempt", `Nominee attempted login with invalid Access PIN.`);
       }
-    } catch (logErr) {}
+    } catch (logErr) { }
     res.status(401).json({ error: err.message });
   }
 });
@@ -959,7 +957,7 @@ app.post("/api/documents", async (req, res) => {
 
     const fileUrl = `/api/uploads/${safeName}`;
     const docId = "doc-" + Math.random().toString(36).substr(2, 9);
-    
+
     const newDoc = await documentsService.createDocument({
       id: docId,
       uid,
@@ -1893,7 +1891,7 @@ app.post("/api/calendar/sync", async (req, res) => {
     }
 
     await notificationService.logAlert(uid, "Calendar Synced", `Pulled ${added} new critical agenda schedules from Google Calendar.`);
-    
+
     const updatedAppointments = await settingsService.getAppointments(uid);
     res.json({ success: true, count: added, appointments: updatedAppointments });
   } catch (err: any) {
