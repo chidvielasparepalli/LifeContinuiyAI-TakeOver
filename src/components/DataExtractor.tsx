@@ -137,13 +137,27 @@ export default function DataExtractor({ uid }: DataExtractorProps) {
     ? emailRecords
     : emailRecords.filter(r => r.category === activeCategory);
 
+  const getGmailUrl = (record: any) => {
+    let url = record.gmailUrl || "";
+    if (url) {
+      return url.replace("#inbox/", "#all/");
+    }
+    // Fallback: extract email address if present in sender
+    let cleanSender = record.sender || "";
+    const emailMatch = cleanSender.match(/<([^>]+)>/);
+    if (emailMatch && emailMatch[1]) {
+      cleanSender = emailMatch[1];
+    }
+    return `https://mail.google.com/mail/u/0/#search/from:${encodeURIComponent(cleanSender)}+subject:(${encodeURIComponent(record.subject || "")})`;
+  };
+
   const handleCardClick = (e: React.MouseEvent, record: any) => {
     const target = e.target as HTMLElement;
     // Do not redirect if user clicks details summary, details content or buttons
     if (target.closest("details") || target.closest("button") || target.closest("a")) {
       return;
     }
-    const url = record.gmailUrl || `https://mail.google.com/mail/u/0/#search/from:${encodeURIComponent(record.sender)}+subject:(${encodeURIComponent(record.subject)})`;
+    const url = getGmailUrl(record);
     window.open(url, "_blank", "noopener,noreferrer");
   };
 
@@ -319,7 +333,7 @@ export default function DataExtractor({ uid }: DataExtractorProps) {
                   <div className="flex items-start justify-between gap-4">
                     <div>
                       <a
-                        href={rec.gmailUrl || `https://mail.google.com/mail/u/0/#search/from:${encodeURIComponent(rec.sender)}+subject:(${encodeURIComponent(rec.subject)})`}
+                        href={getGmailUrl(rec)}
                         target="_blank"
                         rel="noopener noreferrer"
                         className="font-bold text-white text-sm hover:text-indigo-300 transition-colors flex items-center gap-1.5 inline-flex"

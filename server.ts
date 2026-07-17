@@ -870,14 +870,14 @@ app.post("/api/auth/clerk-sync", (req, res) => {
     // If user exists with the same email but different ID, we can link them or keep separate.
     // Given mock DB, let's look up by email as fallback, but primary index is uid (clerk ID).
     user = Object.values(db.users).find((u: any) => u.email.toLowerCase() === email.toLowerCase()) as any;
-    
+
     if (user) {
       // Re-map user under their new Clerk uid
       const oldUid = user.uid;
       user.uid = uid;
       db.users[uid] = user;
       delete db.users[oldUid];
-      
+
       // Update associated tables
       if (db.emergencyProfiles[oldUid]) {
         db.emergencyProfiles[uid] = { ...db.emergencyProfiles[oldUid], uid };
@@ -891,7 +891,7 @@ app.post("/api/auth/clerk-sync", (req, res) => {
         db.checkInStats[uid] = { ...db.checkInStats[oldUid], uid };
         delete db.checkInStats[oldUid];
       }
-      
+
       saveDb(db);
       logAlert(uid, "Account Linked", `Linked existing user account ${email} to Clerk ID ${uid}`);
     } else {
@@ -1188,7 +1188,7 @@ app.post("/api/documents/preset", (req, res) => {
 
   const db = loadDb();
   const docId = "doc-" + Math.random().toString(36).substr(2, 9);
-  
+
   // 1. Create the Document
   const newDoc = {
     id: docId,
@@ -1259,17 +1259,17 @@ app.put("/api/documents/:id/toggle-nominee", (req, res) => {
 app.post("/api/documents/:uid/export-zip", async (req, res) => {
   const { uid } = req.params;
   const { password } = req.body;
-  
+
   try {
     const db = loadDb();
     const userDocs = db.documents.filter(d => d.uid === uid);
-    
+
     if (userDocs.length === 0) {
       return res.status(400).json({ error: "No documents found in vault to export" });
     }
-    
+
     const zip = new JSZip();
-    
+
     // Add documents to zip
     for (const doc of userDocs) {
       const filename = path.basename(doc.fileUrl);
@@ -1279,13 +1279,13 @@ app.post("/api/documents/:uid/export-zip", async (req, res) => {
         zip.file(doc.fileName, content);
       }
     }
-    
+
     // Create a beautiful readme file inside the zip containing metadata
     let readmeText = `Lighthouse / LifeContinuity AI Secure Vault Export\n`;
     readmeText += `Generated on: ${new Date().toISOString()}\n`;
     readmeText += `Total Documents: ${userDocs.length}\n\n`;
     readmeText += `--- Document Metadata list ---\n\n`;
-    
+
     for (let i = 0; i < userDocs.length; i++) {
       const doc = userDocs[i];
       const ext = db.policyExtractions.find(pe => pe.documentId === doc.id);
@@ -1304,11 +1304,11 @@ app.post("/api/documents/:uid/export-zip", async (req, res) => {
       }
       readmeText += `\n`;
     }
-    
+
     zip.file("VAULT_INDEX_SUMMARY.txt", readmeText);
-    
+
     const zipBuffer = await zip.generateAsync({ type: "nodebuffer" });
-    
+
     if (password) {
       const salt = crypto.randomBytes(16);
       const key = crypto.scryptSync(password, salt, 32);
@@ -1316,7 +1316,7 @@ app.post("/api/documents/:uid/export-zip", async (req, res) => {
       const cipher = crypto.createCipheriv("aes-256-cbc", key, iv);
       const encrypted = Buffer.concat([cipher.update(zipBuffer), cipher.final()]);
       const finalBuffer = Buffer.concat([salt, iv, encrypted]);
-      
+
       res.setHeader("Content-Type", "application/octet-stream");
       res.setHeader("Content-Disposition", `attachment; filename="vault_export_secured.zip.enc"`);
       return res.send(finalBuffer);
@@ -1337,24 +1337,24 @@ app.post("/api/documents/decrypt-zip", async (req, res) => {
   if (!fileBase64 || !password) {
     return res.status(400).json({ error: "File payload and password are required" });
   }
-  
+
   try {
     const rawBuffer = Buffer.from(fileBase64.split(",")[1] || fileBase64, "base64");
     if (rawBuffer.length < 32) {
       return res.status(400).json({ error: "Invalid encrypted file. Too small to be valid." });
     }
-    
+
     const salt = rawBuffer.slice(0, 16);
     const iv = rawBuffer.slice(16, 32);
     const encryptedData = rawBuffer.slice(32);
-    
+
     const key = crypto.scryptSync(password, salt, 32);
     const decipher = crypto.createDecipheriv("aes-256-cbc", key, iv);
     const decryptedZip = Buffer.concat([decipher.update(encryptedData), decipher.final()]);
-    
+
     const zip = await JSZip.loadAsync(decryptedZip);
     const filesList: any[] = [];
-    
+
     for (const [relativePath, file] of Object.entries(zip.files)) {
       if (!file.dir) {
         const fileBuffer = await file.async("nodebuffer");
@@ -1364,7 +1364,7 @@ app.post("/api/documents/decrypt-zip", async (req, res) => {
         });
       }
     }
-    
+
     res.json({ success: true, files: filesList });
   } catch (err: any) {
     console.error("Decryption failed", err);
@@ -1563,9 +1563,9 @@ app.get("/api/composio/status/:uid", async (req, res) => {
   if (!client) return res.json({ success: true, connected: false, message: "Composio is disabled" });
   try {
     const accounts = await client.connectedAccounts.list({ userIds: [uid], statuses: ["ACTIVE"] });
-    const isConnected = (accounts.items || []).some((acc: any) => 
-      (acc.toolkit && (acc.toolkit.slug === "gmail" || acc.toolkit.id === "gmail")) || 
-      (acc.app && (acc.app.slug === "gmail" || acc.app.id === "gmail")) || 
+    const isConnected = (accounts.items || []).some((acc: any) =>
+      (acc.toolkit && (acc.toolkit.slug === "gmail" || acc.toolkit.id === "gmail")) ||
+      (acc.app && (acc.app.slug === "gmail" || acc.app.id === "gmail")) ||
       acc.appId === "gmail"
     );
     res.json({ success: true, connected: isConnected });
@@ -1658,7 +1658,7 @@ app.post("/api/gmail/sync", async (req, res) => {
 
     for (const email of emailList) {
       if (!email) continue;
-      
+
       let subject = email.subject || email.title || email.messageSubject || "No Subject";
       let sender = email.from || email.sender || email.senderAddress || email.messageSender || "Unknown Sender";
       let dateStr = email.date || email.dateTime || email.receivedAt || email.messageDate || new Date().toISOString();
@@ -1678,13 +1678,28 @@ app.post("/api/gmail/sync", async (req, res) => {
       let body = email.body || email.snippet || email.content || email.messageText || "";
       if (body.includes("<html") || body.includes("<body") || body.includes("<div")) {
         body = body.replace(/<style[^>]*>[\s\S]*?<\/style>/gi, "")
-                   .replace(/<script[^>]*>[\s\S]*?<\/script>/gi, "")
-                   .replace(/<[^>]+>/g, " ")
-                   .replace(/\s+/g, " ")
-                   .trim();
+          .replace(/<script[^>]*>[\s\S]*?<\/script>/gi, "")
+          .replace(/<[^>]+>/g, " ")
+          .replace(/\s+/g, " ")
+          .trim();
       }
 
-      const gmailUrl = email.gmailUrl || email.webLink || email.display_url || `https://mail.google.com/mail/u/0/#search/from:${encodeURIComponent(sender)}+subject:(${encodeURIComponent(subject)})`;
+      let gmailUrl = email.gmailUrl || email.webLink || email.display_url;
+      if (gmailUrl) {
+        gmailUrl = gmailUrl.replace("#inbox/", "#all/");
+      } else {
+        const emailId = email.threadId || email.id;
+        if (emailId) {
+          gmailUrl = `https://mail.google.com/mail/u/0/#all/${emailId}`;
+        } else {
+          let cleanSender = sender;
+          const emailMatch = sender.match(/<([^>]+)>/);
+          if (emailMatch && emailMatch[1]) {
+            cleanSender = emailMatch[1];
+          }
+          gmailUrl = `https://mail.google.com/mail/u/0/#search/from:${encodeURIComponent(cleanSender)}+subject:(${encodeURIComponent(subject)})`;
+        }
+      }
 
       fetchedEmails.push({ subject, sender, body, date: new Date(dateStr).toISOString(), gmailUrl });
     }
@@ -1805,7 +1820,7 @@ app.get("/api/gmail/records/:uid", (req, res) => {
 app.get("/api/life-graph/:uid", (req, res) => {
   const db = loadDb();
   const uid = req.params.uid;
-  
+
   let modified = false;
   let userBills = db.bills.filter(b => b.uid === uid);
   if (userBills.length === 0) {
@@ -2066,10 +2081,10 @@ Provide a concise, extremely reassuring but urgent 2-3 paragraph brief. Emphasiz
     } catch (e: any) {
       console.log("Emergency overview seamlessly compiled via high-reliability backup engine.");
       const profile = db.emergencyProfiles[uid] || {};
-      const triggerDesc = plan.triggeredBy === "missedCheckIn" 
-        ? "Automated system trigger due to missed proof-of-life daily check-in" 
+      const triggerDesc = plan.triggeredBy === "missedCheckIn"
+        ? "Automated system trigger due to missed proof-of-life daily check-in"
         : "Manual trigger by account holder";
-        
+
       aiSummary = `### 🚨 EMERGENCY OVERVIEW & HANDOVER PROTOCOL (HIGH-RELIABILITY FALLBACK)
 
 This is an automated fail-safe continuity overview prepared for the designated Nominee of **${profile.name || "User"}**.
@@ -2215,7 +2230,7 @@ app.post("/api/checkin", (req, res) => {
   if (!uid) return res.status(400).json({ error: "uid required" });
 
   const db = loadDb();
-  
+
   // Rate limiting / duplicate prevention within a short interval (5 seconds)
   const userEvents = (db.checkInEvents || []).filter((e: any) => e.uid === uid && e.method === (method || "manualButton"));
   if (userEvents.length > 0) {
@@ -2230,7 +2245,7 @@ app.post("/api/checkin", (req, res) => {
   }
 
   const stats = recordCheckIn(uid, method || "manualButton");
-  
+
   const updatedDb = loadDb();
   const history = Object.values(updatedDb.checkIns[uid] || {});
   const events = (updatedDb.checkInEvents || []).filter((e: any) => e.uid === uid);
@@ -2531,11 +2546,11 @@ If any conflict exists, proactively surface it. Be concise, warm, helpful, and p
     res.json({ text: response.text || "I'm processing your query, but didn't generate text." });
   } catch (err: any) {
     console.warn("Gemini API Chat call failed, falling back to local processing:", err.message || err);
-    
+
     // Get last user message
     const lastUserMsg = messages[messages.length - 1]?.text || "";
     const lower = lastUserMsg.toLowerCase();
-    
+
     let reply = "";
     if (lower.includes("check-in") || lower.includes("checkin")) {
       reply = `I see you are asking about safety check-ins. You currently have a check-in streak of ${stats.currentStreak || 0} days, and your safety status is "${stats.status || "Verified"}". `;

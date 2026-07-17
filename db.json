@@ -82,6 +82,27 @@
   },
   "securityAlerts": [
     {
+      "id": "alert-0o10x7wxb",
+      "uid": "user_3Gd6gh3imANxBppCOVcfM9XpTVP",
+      "timestamp": "2026-07-17T18:14:53.959Z",
+      "event": "User Sign In",
+      "details": "Logged in via Clerk Authentication"
+    },
+    {
+      "id": "alert-22s7yqsae",
+      "uid": "user_3Gd6gh3imANxBppCOVcfM9XpTVP",
+      "timestamp": "2026-07-17T13:32:25.631Z",
+      "event": "User Sign In",
+      "details": "Logged in via Clerk Authentication"
+    },
+    {
+      "id": "alert-1cersdam3",
+      "uid": "user_3Gd6gh3imANxBppCOVcfM9XpTVP",
+      "timestamp": "2026-07-17T13:15:46.181Z",
+      "event": "User Sign In",
+      "details": "Logged in via Clerk Authentication"
+    },
+    {
       "id": "alert-cv6e146xa",
       "uid": "user_3Gd6gh3imANxBppCOVcfM9XpTVP",
       "timestamp": "2026-07-17T13:04:33.427Z",
@@ -1416,7 +1437,7 @@
       "date": "2026-03-29T10:07:16.000Z",
       "extractedSummary": "Billing notification: Chidvi_pro, remember this?.",
       "rawSnippet": "On 9 August 2020... ​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​",
-      "gmailUrl": "https://mail.google.com/mail/u/0/#inbox/19d390fe9f8ab005"
+      "gmailUrl": "https://mail.google.com/mail/u/0/#all/19d390fe9f8ab005"
     },
     {
       "id": "email-ob8jju8ic",
@@ -1427,7 +1448,7 @@
       "date": "2026-03-27T10:38:57.000Z",
       "extractedSummary": "Billing notification: Chidvi_pro, remember this?.",
       "rawSnippet": "On 10 August 2020... ​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​",
-      "gmailUrl": "https://mail.google.com/mail/u/0/#inbox/19d2ee033ded2215"
+      "gmailUrl": "https://mail.google.com/mail/u/0/#all/19d2ee033ded2215"
     },
     {
       "id": "email-r1i4x3zid",
@@ -1438,7 +1459,7 @@
       "date": "2025-08-29T02:56:57.000Z",
       "extractedSummary": "Billing notification: Changes to your Play Games profile.",
       "rawSnippet": "\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\nChanges to your Play Games profile\r\n\r\nHello,\r\n\r\nWe’ll soon update the way gamer profiles work on Google Play.\r\n\r\nStarting ",
-      "gmailUrl": "https://mail.google.com/mail/u/0/#inbox/198f3c1c0dfdd07a"
+      "gmailUrl": "https://mail.google.com/mail/u/0/#all/198f3c1c0dfdd07a"
     },
     {
       "id": "email-4mtz9xwji",
@@ -1449,7 +1470,7 @@
       "date": "2025-08-24T09:25:56.000Z",
       "extractedSummary": "Billing notification: Welcome to Rockstar Games.",
       "rawSnippet": "2025-08-24 09:25\n\r\n\r  \n\r\n\r    Thanks for joining! Your new account provides full access to features like the Rockstar Games Launcher, and also makes y",
-      "gmailUrl": "https://mail.google.com/mail/u/0/#inbox/198db66157de7767"
+      "gmailUrl": "https://mail.google.com/mail/u/0/#all/198db66157de7767"
     },
     {
       "id": "email-7r1jniw9o",
@@ -1460,7 +1481,7 @@
       "date": "2025-08-24T09:25:26.000Z",
       "extractedSummary": "Billing notification: Your Rockstar Games verification code.",
       "rawSnippet": "245643\r\n\r\n\r\n\r\nRockstar Games\r\n\r\n\r\n\r\n\r\nEmail Verification Code\r\n\r\n\r\n\r\n\r\nEnter this code on the identity verification screen:\r\n\r\n\r\n\r\n245643\r\n\r\n\r\n\r\nThis ",
-      "gmailUrl": "https://mail.google.com/mail/u/0/#inbox/198db65a14d8492b"
+      "gmailUrl": "https://mail.google.com/mail/u/0/#all/198db65a14d8492b"
     },
     {
       "id": "email-ru9bztfal",
@@ -1471,7 +1492,7 @@
       "date": "2025-02-09T09:14:06.000Z",
       "extractedSummary": "Billing notification: Play Angry Birds 2 on PC with Google Play Games beta.",
       "rawSnippet": "\r\n   \r\n<https://notifications.google.com/g/p/ANiao5rPRB7AIPZuwz1YQM5-5Mqj6NhTManHNRLjziS23Y2V3Mxh4OjknaRLRxmArzE3YSk4OndRrph3hbeyO8Fo_5uhVqHNWTdTBT5D5",
-      "gmailUrl": "https://mail.google.com/mail/u/0/#inbox/194e9fcce1661974"
+      "gmailUrl": "https://mail.google.com/mail/u/0/#all/194e9fcce1661974"
     },
     {
       "id": "email-1ewaf5cbt",
@@ -1482,7 +1503,7 @@
       "date": "2026-07-01T14:35:05.000Z",
       "extractedSummary": "Billing notification: Join CHIDVIELAS's family group?.",
       "rawSnippet": "Family group invitation\r\nCHIDVIELAS PAREPALLI wants you to join his family group\r\n\r\ngamingwithchidvi@gmail.com <#>\r\n\r\nDear Gaming with,\r\n\r\nYou can joi",
-      "gmailUrl": "https://mail.google.com/mail/u/0/#inbox/19f1e1ae18bbd92c"
+      "gmailUrl": "https://mail.google.com/mail/u/0/#all/19f1e1ae18bbd92c"
     },
     {
       "id": "email-rp1c1sx2u",
@@ -1493,7 +1514,7 @@
       "date": "2026-06-28T14:35:06.000Z",
       "extractedSummary": "Billing notification: Join CHIDVIELAS's family group?.",
       "rawSnippet": "Family group invitation\r\nCHIDVIELAS PAREPALLI wants you to join his family group\r\n\r\ngamingwithchidvi@gmail.com <#>\r\n\r\nDear Gaming with,\r\n\r\nYou can joi",
-      "gmailUrl": "https://mail.google.com/mail/u/0/#inbox/19f0ea7cff808dcd"
+      "gmailUrl": "https://mail.google.com/mail/u/0/#all/19f0ea7cff808dcd"
     },
     {
       "id": "email-pj1ha9akf",
@@ -1504,7 +1525,7 @@
       "date": "2026-06-25T16:39:25.000Z",
       "extractedSummary": "Billing notification: Pre-Order Grand Theft Auto VI.",
       "rawSnippet": "GRAND THEFT AUTO VI\r\n\r\n\r\nCOMING NOVEMBER 19 2026\r\n\r\nPlayStation 5 > https://click.newsletter.rockstargames.com/?qs=ABB7InYiOjEsImQiOjQ5MTh9AAYAAAAAAmd",
-      "gmailUrl": "https://mail.google.com/mail/u/0/#inbox/19effbbb41d7163a"
+      "gmailUrl": "https://mail.google.com/mail/u/0/#all/19effbbb41d7163a"
     },
     {
       "id": "email-lxso1x0w0",
@@ -1515,7 +1536,7 @@
       "date": "2026-06-18T20:03:37.000Z",
       "extractedSummary": "Billing notification: Grand Theft Auto VI Pre-Orders Begin on June 25.",
       "rawSnippet": "COMING NOVEMBER 19 2026\r\n\r\nPlayStation 5 > https://www.playstation.com/games/grand-theft-auto-vi/\r\nXbox Series X|S > https://www.xbox.com/games/store/",
-      "gmailUrl": "https://mail.google.com/mail/u/0/#inbox/19edce4094c2bf16"
+      "gmailUrl": "https://mail.google.com/mail/u/0/#all/19edce4094c2bf16"
     },
     {
       "id": "email-gej0v516i",
@@ -1526,7 +1547,7 @@
       "date": "2026-05-17T04:56:23.000Z",
       "extractedSummary": "Billing notification: Quarterly reminder about Google Play terms and policies.",
       "rawSnippet": "\r\nHello Google Play user,\r\n\r\nThis email is a quarterly reminder that your use of Google Play and the  \r\napps, games, music, movies, books, magazines, ",
-      "gmailUrl": "https://mail.google.com/mail/u/0/#inbox/19e344ae4ad745a3"
+      "gmailUrl": "https://mail.google.com/mail/u/0/#all/19e344ae4ad745a3"
     },
     {
       "id": "email-43r0rgx1h",
@@ -1537,7 +1558,7 @@
       "date": "2026-03-07T10:08:09.000Z",
       "extractedSummary": "Billing notification: See yourself in the halfpipe.",
       "rawSnippet": "Give your photos a winter sports spin Get your winter sport action shot From icy landings to sky-high ski jumps, see yourself as one of the winter gam",
-      "gmailUrl": "https://mail.google.com/mail/u/0/#inbox/19cc7c4cf9e9547c"
+      "gmailUrl": "https://mail.google.com/mail/u/0/#all/19cc7c4cf9e9547c"
     },
     {
       "id": "email-xp26o4d1a",
@@ -1548,7 +1569,7 @@
       "date": "2026-02-13T19:59:18.000Z",
       "extractedSummary": "Billing notification: Break Up Rival Couples in GTA Online's New Deadline Duet Mode.",
       "rawSnippet": "BREAK HEARTS IN DEADLINE DUET\r\nPartner up and prove your chemistry is downright explosive by blowing your opposition to smithereens in *Deadline Duet*",
-      "gmailUrl": "https://mail.google.com/mail/u/0/#inbox/19c58ab3ceb276ae"
+      "gmailUrl": "https://mail.google.com/mail/u/0/#all/19c58ab3ceb276ae"
     },
     {
       "id": "email-cjel5yzn7",
@@ -1559,7 +1580,7 @@
       "date": "2026-01-30T23:15:14.000Z",
       "extractedSummary": "Billing notification: Rockstar Broadcast: New Odd Jobs and Mansion Raid Mode Now in GTA Online.",
       "rawSnippet": "*THIS IS A ROCKSTAR BROADCAST*\r\n\r\nMAKE AN HONEST LIVING IN THREE NEW GTA ONLINE ODD JOBS\r\nGet 2X GTA$ and RP Fighting Fires, Operating Machinery, and ",
-      "gmailUrl": "https://mail.google.com/mail/u/0/#inbox/19c113c725c8a830"
+      "gmailUrl": "https://mail.google.com/mail/u/0/#all/19c113c725c8a830"
     }
   ],
   "bills": [
