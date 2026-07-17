@@ -1,24 +1,62 @@
 import React, { useState, useEffect } from "react";
-import { Mail, RefreshCw, Sliders, CheckSquare, Sparkles, FolderSync, ExternalLink, ShieldCheck } from "lucide-react";
+import { Mail, RefreshCw, Sliders, Sparkles, FolderSync, ExternalLink, ShieldCheck } from "lucide-react";
 
 interface DataExtractorProps {
   uid: string;
 }
 
 export default function DataExtractor({ uid }: DataExtractorProps) {
-  const [senders, setSenders] = useState("");
   const [keywords, setKeywords] = useState("");
   const [emailRecords, setEmailRecords] = useState<any[]>([]);
   const [isSyncing, setIsSyncing] = useState(false);
-  const [authorized, setAuthorized] = useState(false);
+  const [composioAuthorized, setComposioAuthorized] = useState(false);
+  const [isLinkingComposio, setIsLinkingComposio] = useState(false);
   const [activeCategory, setActiveCategory] = useState<string>("All");
+  const [syncError, setSyncError] = useState<string | null>(null);
+  const [needsComposioAuth, setNeedsComposioAuth] = useState(false);
+
+  const checkComposioStatus = async () => {
+    try {
+      const res = await fetch(`/api/composio/status/${uid}`);
+      const data = await res.json();
+      if (data && data.success) {
+        setComposioAuthorized(data.connected);
+      }
+    } catch (e) {
+      console.error("Error checking Composio connection status:", e);
+    }
+  };
+
+  const handleConnectComposio = async () => {
+    setIsLinkingComposio(true);
+    setSyncError(null);
+    try {
+      const res = await fetch("/api/composio/link", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ uid })
+      });
+      const data = await res.json();
+      if (!res.ok) {
+        throw new Error(data.error || "Failed to generate Composio authorization link");
+      }
+      if (data.redirectUrl) {
+        window.open(data.redirectUrl, "_blank", "noopener,noreferrer");
+        alert("A window has been opened to connect your Gmail via Composio. Once authorized, click 'Check connection status' or 'Verify' to update status.");
+      }
+    } catch (err: any) {
+      console.error(err);
+      setSyncError(err.message || "Could not start Composio authorization flow.");
+    } finally {
+      setIsLinkingComposio(false);
+    }
+  };
 
   const fetchSettingsAndRecords = async () => {
     try {
       const sRes = await fetch(`/api/gmail/settings/${uid}`);
       const sData = await sRes.json();
       if (sData) {
-        setSenders(sData.sendersToSync || "");
         setKeywords(sData.targetKeywords || "");
       }
 
@@ -32,6 +70,7 @@ export default function DataExtractor({ uid }: DataExtractorProps) {
 
   useEffect(() => {
     fetchSettingsAndRecords();
+    checkComposioStatus();
   }, [uid]);
 
   const handleSaveSettings = async () => {
@@ -40,7 +79,6 @@ export default function DataExtractor({ uid }: DataExtractorProps) {
         method: "PUT",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
-          sendersToSync: senders,
           targetKeywords: keywords
         })
       });
@@ -49,8 +87,12 @@ export default function DataExtractor({ uid }: DataExtractorProps) {
     }
   };
 
+
+
   const handleSyncNow = async () => {
     setIsSyncing(true);
+    setSyncError(null);
+    setNeedsComposioAuth(false);
     // Persist active settings first
     await handleSaveSettings();
 
@@ -60,11 +102,21 @@ export default function DataExtractor({ uid }: DataExtractorProps) {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ uid })
       });
-      if (res.ok) {
+      
+      const data = await res.json().catch(() => ({}));
+      if (!res.ok) {
+        if (data.error === "NEEDS_COMPOSIO_AUTH" || data.error === "GMAIL_AUTH_ERROR") {
+          setNeedsComposioAuth(true);
+          setSyncError(null); // clear generic error, show specific banner instead
+        } else {
+          setSyncError(data.message || "Failed to execute Gmail synchronization.");
+        }
+      } else {
         fetchSettingsAndRecords();
       }
-    } catch (err) {
+    } catch (err: any) {
       console.error(err);
+      setSyncError(err.message || "An unexpected error occurred during synchronization.");
     } finally {
       setIsSyncing(false);
     }
@@ -84,6 +136,16 @@ export default function DataExtractor({ uid }: DataExtractorProps) {
   const filteredRecords = activeCategory === "All"
     ? emailRecords
     : emailRecords.filter(r => r.category === activeCategory);
+
+  const handleCardClick = (e: React.MouseEvent, record: any) => {
+    const target = e.target as HTMLElement;
+    // Do not redirect if user clicks details summary, details content or buttons
+    if (target.closest("details") || target.closest("button") || target.closest("a")) {
+      return;
+    }
+    const url = record.gmailUrl || `https://mail.google.com/mail/u/0/#search/from:${encodeURIComponent(record.sender)}+subject:(${encodeURIComponent(record.subject)})`;
+    window.open(url, "_blank", "noopener,noreferrer");
+  };
 
   return (
     <div className="max-w-7xl mx-auto p-4 sm:p-6 grid grid-cols-1 lg:grid-cols-3 gap-8 text-[#e0dafc]">
@@ -107,21 +169,56 @@ export default function DataExtractor({ uid }: DataExtractorProps) {
             By connecting Google Workspace, Lighthouse securely scans your inbox and scheduled agendas for important alerts (renewals, bills, appointments, healthcare summaries) to map out a complete real-time continuity timeline automatically.
           </p>
 
-          {authorized ? (
-            <div className="flex items-center gap-2 text-xs font-semibold text-green-400 bg-green-950/40 p-3 rounded-xl border border-green-800/60">
-              <ShieldCheck className="h-4 w-4 text-green-400" />
-              Google Workspace Account Authorized
+
+          {/* Gmail via Composio */}
+          <div className="space-y-2">
+            <div className="flex items-center justify-between">
+              <h4 className="text-[10px] font-bold text-white uppercase tracking-wider">Gmail Connection</h4>
+              {composioAuthorized && (
+                <button
+                  onClick={checkComposioStatus}
+                  className="text-[10px] text-[#e0dafc] hover:underline flex items-center gap-1 font-bold cursor-pointer"
+                  title="Verify connection status"
+                >
+                  Verify
+                </button>
+              )}
             </div>
-          ) : (
-            <button
-              onClick={() => setAuthorized(true)}
-              className="w-full bg-[#e0dafc] hover:brightness-110 text-[#2c3353] font-black text-xs py-2.5 px-4 rounded-xl flex items-center justify-center gap-2 transition-all shadow-md cursor-pointer"
-              id="btn-workspace-authorize"
-            >
-              Authorize Google Workspace Sync
-              <ExternalLink className="h-3.5 w-3.5 text-[#2c3353]" />
-            </button>
-          )}
+            {composioAuthorized ? (
+              <div className="flex items-center gap-2 text-xs font-semibold text-green-400 bg-green-950/40 p-2.5 rounded-xl border border-green-800/60">
+                <ShieldCheck className="h-4 w-4 text-green-400" />
+                Connected via Composio
+              </div>
+            ) : (
+              <div className="flex flex-col gap-2">
+                {needsComposioAuth && (
+                  <div className="text-xs bg-amber-950/60 border border-amber-700/60 text-amber-300 p-3 rounded-xl leading-relaxed">
+                    <span className="font-extrabold text-[10px] uppercase tracking-widest block mb-1 text-amber-400">⚡ Action Required</span>
+                    Click <strong>"Connect Gmail via Composio"</strong> below to authorize Gmail access, then click <strong>"Check connection status"</strong> and retry syncing.
+                  </div>
+                )}
+                <button
+                  onClick={handleConnectComposio}
+                  disabled={isLinkingComposio}
+                  className={`w-full font-black text-xs py-2 px-3 rounded-xl flex items-center justify-center gap-2 transition-all cursor-pointer ${
+                    needsComposioAuth
+                      ? "bg-amber-400 hover:bg-amber-300 text-[#1e233a] animate-pulse"
+                      : "bg-[#e0dafc] hover:brightness-110 text-[#2c3353]"
+                  }`}
+                  id="btn-composio-connect"
+                >
+                  {isLinkingComposio ? "Generating Link..." : "Connect Gmail via Composio"}
+                  <ExternalLink className="h-3 w-3" />
+                </button>
+                <button
+                  onClick={() => { setNeedsComposioAuth(false); checkComposioStatus(); }}
+                  className="w-full bg-transparent hover:bg-[#3b426b] text-[#e0dafc] font-bold text-xs py-1.5 px-3 rounded-xl border border-[#5d6fa3]/25 transition-all cursor-pointer"
+                >
+                  Check connection status
+                </button>
+              </div>
+            )}
+          </div>
         </div>
 
         {/* Sync Filters Setting */}
@@ -132,19 +229,7 @@ export default function DataExtractor({ uid }: DataExtractorProps) {
           </h3>
 
           <div className="space-y-3">
-            <div className="space-y-1">
-              <label className="block text-[10px] font-bold uppercase text-[#5d6fa3] tracking-wider">Specific Senders to Sync</label>
-              <input
-                type="text"
-                value={senders}
-                onChange={(e) => setSenders(e.target.value)}
-                onBlur={handleSaveSettings}
-                className="w-full bg-[#1e233a] border border-[#5d6fa3]/30 rounded-xl p-2.5 text-xs text-[#e0dafc] focus:outline-none focus:border-[#e0dafc]"
-                placeholder="billing@pge.com, loan@hdfc.com"
-                id="input-sync-senders"
-              />
-              <p className="text-[9px] text-[#5d6fa3] opacity-80">Restrict scanning to particular senders. Comma-separated.</p>
-            </div>
+
 
             <div className="space-y-1">
               <label className="block text-[10px] font-bold uppercase text-[#5d6fa3] tracking-wider">Target Subject Keywords</label>
@@ -160,11 +245,18 @@ export default function DataExtractor({ uid }: DataExtractorProps) {
               <p className="text-[9px] text-[#5d6fa3] opacity-80">Restrict search queries to terms. Comma-separated.</p>
             </div>
 
+            {syncError && (
+              <div className="text-xs text-red-400 bg-red-950/40 p-3 rounded-xl border border-red-900/50 text-left leading-relaxed">
+                <span className="font-extrabold text-[10px] uppercase text-red-300 block tracking-widest mb-0.5">Authorization Sync Error</span>
+                {syncError}
+              </div>
+            )}
+
             <button
               onClick={handleSyncNow}
-              disabled={isSyncing || !authorized}
+              disabled={isSyncing || !uid}
               className={`w-full font-black text-xs py-2.5 px-4 rounded-xl flex items-center justify-center gap-2 transition-all ${
-                authorized
+                uid && !isSyncing
                   ? "bg-[#e0dafc] hover:brightness-110 text-[#2c3353] shadow-md border border-[#5d6fa3]/10 cursor-pointer"
                   : "bg-[#1e233a] text-[#5d6fa3] border border-[#5d6fa3]/20 cursor-not-allowed"
               }`}
@@ -220,14 +312,24 @@ export default function DataExtractor({ uid }: DataExtractorProps) {
               filteredRecords.map((rec) => (
                 <div
                   key={rec.id}
-                  className="p-4 border border-[#5d6fa3]/20 rounded-xl hover:border-[#5d6fa3]/40 bg-[#1e233a] space-y-2.5 transition-all"
+                  onClick={(e) => handleCardClick(e, rec)}
+                  className="p-4 border border-[#5d6fa3]/20 rounded-xl hover:border-indigo-400/60 hover:bg-[#1e233a]/80 bg-[#1e233a] space-y-2.5 transition-all cursor-pointer relative group"
+                  title="Click to view original email in Gmail"
                 >
                   <div className="flex items-start justify-between gap-4">
                     <div>
-                      <h4 className="font-bold text-white text-sm">{rec.subject}</h4>
+                      <a
+                        href={rec.gmailUrl || `https://mail.google.com/mail/u/0/#search/from:${encodeURIComponent(rec.sender)}+subject:(${encodeURIComponent(rec.subject)})`}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="font-bold text-white text-sm hover:text-indigo-300 transition-colors flex items-center gap-1.5 inline-flex"
+                      >
+                        {rec.subject}
+                        <ExternalLink className="h-3.5 w-3.5 text-[#5d6fa3] hover:text-indigo-300 transition-all shrink-0" />
+                      </a>
                       <p className="text-[10px] text-[#5d6fa3] mt-0.5">Sender: {rec.sender} • {new Date(rec.date).toLocaleDateString()}</p>
                     </div>
-                    <span className={`text-[10px] font-bold px-2.5 py-0.5 rounded-full ${getCategoryColor(rec.category)}`}>
+                    <span className={`text-[10px] font-bold px-2.5 py-0.5 rounded-full ${getCategoryColor(rec.category)} shrink-0`}>
                       {rec.category}
                     </span>
                   </div>

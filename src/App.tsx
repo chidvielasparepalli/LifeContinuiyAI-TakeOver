@@ -37,6 +37,7 @@ import NomineeDashboard from "./components/NomineeDashboard";
 import FloatingChatbot from "./components/FloatingChatbot";
 import SafetyPanel from "./components/SafetyPanel";
 import { useThemeLanguage } from "./components/ThemeLanguageContext";
+import { useUser, useClerk } from "@clerk/clerk-react";
 
 
 type Tab =
@@ -54,6 +55,10 @@ export default function App() {
   const { theme, toggleTheme, language, setLanguage, t, languages, isTranslating } = useThemeLanguage();
   const [user, setUser] = useState<any | null>(null);
   const [role, setRole] = useState<"user" | "nominee" | null>(null);
+
+  // Clerk authentication
+  const { isSignedIn, user: clerkUser, isLoaded: isClerkLoaded } = useUser();
+  const { signOut } = useClerk();
   
   // Nominee session state
   const [nomineeSession, setNomineeSession] = useState<{
@@ -68,6 +73,38 @@ export default function App() {
   const [isChatbotOpen, setIsChatbotOpen] = useState(false);
   const [isSidebarCollapsed, setIsSidebarCollapsed] = useState(false);
   const [isMobileDrawerOpen, setIsMobileDrawerOpen] = useState(false);
+
+  // Sync Clerk session with backend mock DB
+  useEffect(() => {
+    if (isClerkLoaded && isSignedIn && clerkUser) {
+      const email = clerkUser.primaryEmailAddress?.emailAddress;
+      const name = clerkUser.fullName || clerkUser.username || email?.split("@")[0] || "Clerk User";
+      const uid = clerkUser.id;
+
+      if (!user || user.uid !== uid) {
+        fetch("/api/auth/clerk-sync", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ email, name, uid })
+        })
+          .then((res) => {
+            if (!res.ok) throw new Error("Failed to sync Clerk session with backend");
+            return res.json();
+          })
+          .then((data) => {
+            setUser(data.user);
+            setRole("user");
+          })
+          .catch((err) => {
+            console.error("Clerk sync error:", err);
+          });
+      }
+    } else if (isClerkLoaded && !isSignedIn && role === "user" && user && (user.uid?.startsWith("user_") || user.uid?.startsWith("user-clerk"))) {
+      // Clear session when logged out of Clerk (but don't affect sandbox session which uses normal ID)
+      setUser(null);
+      setRole(null);
+    }
+  }, [isClerkLoaded, isSignedIn, clerkUser, user, role]);
 
   // Shared check-in state
   const [justCheckedIn, setJustCheckedIn] = useState(false);
@@ -109,6 +146,9 @@ export default function App() {
   };
 
   const handleLogout = () => {
+    if (isSignedIn) {
+      signOut();
+    }
     setUser(null);
     setRole(null);
     setNomineeSession(null);
@@ -141,6 +181,29 @@ export default function App() {
       }
     }
   }, [user]);
+
+  if (!isClerkLoaded) {
+    return (
+      <div className="min-h-screen bg-[#2c3353] text-[#e0dafc] flex flex-col justify-center items-center gap-4">
+        <div className="h-12 w-12 bg-[#e0dafc] rounded-xl flex items-center justify-center text-[#2c3353] shadow-md border border-indigo-300/30 animate-pulse">
+          <Shield className="h-6 w-6 text-indigo-700 animate-spin" />
+        </div>
+        <p className="text-xs uppercase tracking-widest font-bold text-[#5d6fa3]">Connecting Secure Session...</p>
+      </div>
+    );
+  }
+
+  // Prevent blinking: do not render LoginScreen if signed in with Clerk but not yet synced
+  if (isSignedIn && !role) {
+    return (
+      <div className="min-h-screen bg-[#2c3353] text-[#e0dafc] flex flex-col justify-center items-center gap-4">
+        <div className="h-12 w-12 bg-[#e0dafc] rounded-xl flex items-center justify-center text-[#2c3353] shadow-md border border-indigo-300/30 animate-pulse">
+          <Shield className="h-6 w-6 text-indigo-700 animate-spin" />
+        </div>
+        <p className="text-xs uppercase tracking-widest font-bold text-[#5d6fa3]">Syncing Secure Vault...</p>
+      </div>
+    );
+  }
 
   if (!role) {
     return <LoginScreen onLoginSuccess={handleLoginSuccess} />;

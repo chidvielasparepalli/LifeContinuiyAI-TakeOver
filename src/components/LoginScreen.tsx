@@ -1,6 +1,35 @@
 import React, { useState, useEffect } from "react";
 import { Shield, Key, Sparkles, Phone, Lock, ArrowRight, UserCheck, Sun, Moon, Languages } from "lucide-react";
 import { useThemeLanguage } from "./ThemeLanguageContext";
+import { SignIn, SignUp } from "@clerk/clerk-react";
+
+const clerkAppearance = {
+  variables: {
+    colorPrimary: '#6366f1',
+    colorBackground: '#1e233a',
+    colorInputBackground: '#2c3353',
+    colorText: '#e0dafc',
+    colorTextSecondary: '#a5b4fc',
+    colorInputText: '#e0dafc',
+    colorTextOnPrimaryBackground: '#ffffff',
+  },
+  elements: {
+    card: 'bg-[#1e233a] border border-[#5d6fa3]/30 rounded-xl shadow-xl w-full p-4',
+    headerTitle: 'text-white font-bold text-lg',
+    headerSubtitle: 'text-[#a5b4fc] text-xs mt-1',
+    socialButtonsBlockButton: 'border border-[#5d6fa3]/30 hover:bg-[#2c3353] text-[#e0dafc] font-semibold py-2 rounded-lg transition-all w-full flex items-center justify-center gap-2 cursor-pointer',
+    socialButtonsBlockButtonText: 'text-[#e0dafc] font-semibold text-sm',
+    socialButtonsBlockButtonArrow: 'hidden',
+    formButtonPrimary: 'w-full py-2.5 bg-indigo-600 hover:bg-indigo-500 text-white font-bold rounded-lg shadow-lg hover:shadow-indigo-500/25 transition-all text-sm uppercase tracking-wider cursor-pointer',
+    formFieldLabel: 'text-[10px] uppercase tracking-widest text-[#a5b4fc] font-bold mb-1',
+    formFieldInput: 'w-full bg-[#2c3353] border border-[#5d6fa3]/30 rounded-lg p-2.5 text-sm text-[#e0dafc] focus:outline-none focus:border-indigo-400 transition-all placeholder-[#5d6fa3]/70',
+    footerActionText: 'text-[#a5b4fc] text-xs',
+    footerActionLink: 'text-indigo-400 hover:text-indigo-300 font-bold transition-all underline text-xs cursor-pointer',
+    dividerText: 'text-[#5d6fa3] font-bold text-[10px] uppercase tracking-widest',
+    dividerLine: 'bg-[#5d6fa3]/20',
+    formFieldErrorText: 'text-xs text-red-400 bg-red-950/40 p-2 rounded-lg border border-red-900/50 mt-1',
+  }
+};
 
 interface LoginScreenProps {
   onLoginSuccess: (user: any, role: "user" | "nominee") => void;
@@ -360,112 +389,51 @@ export default function LoginScreen({ onLoginSuccess }: LoginScreenProps) {
             </div>
 
             {activeTab === "user" ? (
-              <div className="space-y-4">
-                {/* PRIMARY USER LOGIN/SIGNUP FORM */}
-                <form className="space-y-4" onSubmit={handleUserSubmit}>
-                  {isSignUp && (
-                    <div className="space-y-2">
-                      <label className="text-[10px] uppercase tracking-widest text-[#5d6fa3] font-bold">Full Name</label>
-                      <input
-                        type="text"
-                        required
-                        value={name}
-                        onChange={(e) => setName(e.target.value)}
-                        className="w-full bg-[#1e233a] border border-[#5d6fa3]/30 rounded-lg p-3 text-sm text-[#e0dafc] focus:outline-none focus:border-[#e0dafc]"
-                        placeholder="Alex Mercer"
-                        id="input-signup-name"
-                      />
-                    </div>
-                  )}
-
-                  <div className="space-y-2">
-                    <label className="text-[10px] uppercase tracking-widest text-[#5d6fa3] font-bold">Email Address</label>
-                    <input
-                      type="email"
-                      required
-                      value={email}
-                      onChange={(e) => setEmail(e.target.value)}
-                      className="w-full bg-[#1e233a] border border-[#5d6fa3]/30 rounded-lg p-3 text-sm text-[#e0dafc] focus:outline-none focus:border-[#e0dafc]"
-                      placeholder="alex@example.com"
-                      id="input-user-email"
-                    />
-                  </div>
-
-                  <div className="space-y-2">
-                    <label className="text-[10px] uppercase tracking-widest text-[#5d6fa3] font-bold">Secure Password</label>
-                    <input
-                      type="password"
-                      required
-                      value={password}
-                      onChange={(e) => setPassword(e.target.value)}
-                      className="w-full bg-[#1e233a] border border-[#5d6fa3]/30 rounded-lg p-3 text-sm text-[#e0dafc] focus:outline-none focus:border-[#e0dafc]"
-                      placeholder="••••••••"
-                      id="input-user-password"
-                    />
-                  </div>
-
-                  {error && (
-                    <p className="text-xs text-red-400 bg-red-950/40 p-3 rounded-lg border border-red-900/50" id="user-auth-error">
-                      {error}
+              <div className="space-y-4 w-full flex flex-col items-center">
+                {!import.meta.env.VITE_CLERK_PUBLISHABLE_KEY ? (
+                  <div className="w-full bg-amber-950/40 border border-amber-900/50 rounded-xl p-4 text-xs text-amber-250 space-y-2 text-left">
+                    <span className="font-extrabold text-[10px] uppercase text-amber-400 block tracking-widest">Clerk Integration Required</span>
+                    <p className="leading-relaxed text-[11px]">
+                      Google Sign-In and User Authentication requires Clerk. To configure this:
                     </p>
+                    <ol className="list-decimal pl-4 space-y-1 text-[11px] text-amber-200">
+                      <li>Create an account/project at <a href="https://clerk.com" target="_blank" rel="noopener noreferrer" className="underline font-bold text-white hover:text-indigo-300">clerk.com</a>.</li>
+                      <li>Enable **Google** under User & Auth &rarr; Social Connections.</li>
+                      <li>Copy your **Publishable Key**.</li>
+                      <li>Create a file named <code className="bg-black/45 px-1 py-0.5 rounded font-mono text-white text-[10px]">.env</code> in the project root.</li>
+                      <li>Add: <code className="bg-black/45 px-1.5 py-0.5 rounded font-mono text-white text-[10px] block mt-1 break-all select-all">VITE_CLERK_PUBLISHABLE_KEY=your_publishable_key</code></li>
+                    </ol>
+                  </div>
+                ) : (
+                  <div className="w-full flex justify-center clerk-auth-container">
+                    {isSignUp ? (
+                      <SignUp routing="virtual" appearance={clerkAppearance} signInUrl="#" />
+                    ) : (
+                      <SignIn routing="virtual" appearance={clerkAppearance} signUpUrl="#" />
+                    )}
+                  </div>
+                )}
+
+                {/* Additional Actions & Sandbox Fallback */}
+                <div className="w-full border-t border-[#5d6fa3]/10 pt-4 mt-2 flex flex-col gap-3">
+                  {import.meta.env.VITE_CLERK_PUBLISHABLE_KEY && (
+                    <button
+                      onClick={() => setIsSignUp(!isSignUp)}
+                      className="text-xs font-semibold text-[#5d6fa3] hover:text-[#e0dafc] underline text-center block w-full cursor-pointer"
+                      id="btn-toggle-auth-mode"
+                    >
+                      {isSignUp ? "Already registered? Sign In" : "Need an account? Sign Up"}
+                    </button>
                   )}
 
                   <button
-                    type="submit"
-                    disabled={loading}
-                    className="w-full py-3.5 bg-[#e0dafc] text-[#2c3353] font-bold rounded-lg hover:brightness-110 shadow-xl transition-all flex items-center justify-center gap-2"
-                    id="btn-user-submit"
+                    onClick={handleSandboxLogin}
+                    className="py-2.5 text-[11px] uppercase tracking-wider font-bold border border-[#e0dafc]/30 rounded-lg hover:bg-[#e0dafc]/10 text-[#e0dafc] transition-colors flex items-center justify-center gap-1.5 cursor-pointer w-full"
+                    id="btn-sandbox-login"
                   >
-                    {loading ? "Decrypting..." : isSignUp ? "Create Secure Account" : "Access Security Vault"}
-                    <ArrowRight className="h-4 w-4 text-[#2c3353]" />
+                    <Sparkles className="h-3.5 w-3.5" />
+                    Sandbox Demo Login
                   </button>
-                </form>
-
-                <div className="flex items-center justify-between pt-1">
-                  <button
-                    onClick={() => setIsSignUp(!isSignUp)}
-                    className="text-xs font-semibold text-[#5d6fa3] hover:text-[#e0dafc] underline"
-                    id="btn-toggle-auth-mode"
-                  >
-                    {isSignUp ? "Already registered? Sign In" : "Need an account? Sign Up"}
-                  </button>
-                </div>
-
-                {/* Identity providers */}
-                <div className="relative py-4">
-                  <div className="absolute inset-0 flex items-center">
-                    <div className="w-full border-t border-[#5d6fa3]/20"></div>
-                  </div>
-                  <div className="relative flex justify-center text-[10px] uppercase tracking-widest">
-                    <span className="bg-[#2c3353] px-4 text-[#5d6fa3] font-bold">Secure Identity Providers</span>
-                  </div>
-                </div>
-
-                <div className="flex flex-col gap-3">
-                  <button
-                    onClick={handleGoogleLogin}
-                    className="w-full py-3 bg-white text-gray-800 rounded-lg flex items-center justify-center gap-3 font-medium hover:bg-gray-100 transition-colors shadow-lg text-sm"
-                    id="btn-google-login"
-                  >
-                    <svg className="w-5 h-5" viewBox="0 0 48 48">
-                      <path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z"/>
-                      <path fill="#4285F4" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z"/>
-                      <path fill="#FBBC05" d="M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z"/>
-                      <path fill="#34A853" d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.15 1.45-4.92 2.3-8.16 2.3-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z"/>
-                    </svg>
-                    Sign in with Google
-                  </button>
-
-                  <div className="grid grid-cols-1 gap-3">
-                    <button
-                      onClick={handleSandboxLogin}
-                      className="py-2.5 text-[11px] uppercase tracking-wider font-bold border border-[#e0dafc]/30 rounded-lg hover:bg-[#e0dafc]/10 text-[#e0dafc] transition-colors flex items-center justify-center gap-1.5"
-                      id="btn-sandbox-login"
-                    >
-                      <Sparkles className="h-3.5 w-3.5" />
-                      Sandbox Demo Login
-                    </button>
-                  </div>
                 </div>
               </div>
             ) : (

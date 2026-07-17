@@ -1,0 +1,2149 @@
+{
+  "users": {
+    "sandbox-demo": {
+      "uid": "sandbox-demo",
+      "email": "sandbox@lighthouseresilience.com",
+      "name": "Alex Mercer",
+      "createdAt": "2026-07-17T09:14:07.100Z"
+    },
+    "user_3Gcona6Lmnf2lyPcQszgGcAOErX": {
+      "uid": "user_3Gcona6Lmnf2lyPcQszgGcAOErX",
+      "email": "chidvigamer@gmail.com",
+      "name": "CHIDVIELAS PAREPALLI",
+      "createdAt": "2026-07-17T09:26:26.123Z"
+    },
+    "user_3GcqPLi4XNH5hXNkQF479COiUhX": {
+      "uid": "user_3GcqPLi4XNH5hXNkQF479COiUhX",
+      "email": "dhoolapro@gmail.com",
+      "name": "Dhoola Pro",
+      "createdAt": "2026-07-17T09:39:39.497Z"
+    },
+    "user_3Gd6gh3imANxBppCOVcfM9XpTVP": {
+      "uid": "user_3Gd6gh3imANxBppCOVcfM9XpTVP",
+      "email": "gamingwithchidvi@gmail.com",
+      "name": "Gaming with Chidvi",
+      "createdAt": "2026-07-17T11:53:33.635Z"
+    }
+  },
+  "emergencyProfiles": {
+    "sandbox-demo": {
+      "uid": "sandbox-demo",
+      "name": "Alex Mercer",
+      "age": 34,
+      "bloodGroup": "A+",
+      "emergencyContactName": "Sarah Mercer (Spouse)",
+      "emergencyContactPhone": "+1 (555) 019-2834",
+      "medicalInfo": "Penicillin allergy. Mild asthma (uses Albuterol inhaler). Previous appendectomy (2021). Blood type A+ verified.",
+      "nomineePin": "1234",
+      "nomineePhone": "+1 (555) 012-3456",
+      "nomineeName": "Sarah Mercer",
+      "trustedContacts": [],
+      "lastNomineeActive": "2026-07-17T05:44:07.100Z"
+    },
+    "user_3Gcona6Lmnf2lyPcQszgGcAOErX": {
+      "uid": "user_3Gcona6Lmnf2lyPcQszgGcAOErX",
+      "name": "CHIDVIELAS PAREPALLI",
+      "age": 30,
+      "bloodGroup": "O+",
+      "emergencyContactName": "",
+      "emergencyContactPhone": "",
+      "medicalInfo": "",
+      "nomineePin": "1111",
+      "nomineePhone": "",
+      "nomineeName": "",
+      "trustedContacts": []
+    },
+    "user_3GcqPLi4XNH5hXNkQF479COiUhX": {
+      "uid": "user_3GcqPLi4XNH5hXNkQF479COiUhX",
+      "name": "Dhoola Pro",
+      "age": 30,
+      "bloodGroup": "O+",
+      "emergencyContactName": "",
+      "emergencyContactPhone": "",
+      "medicalInfo": "",
+      "nomineePin": "1111",
+      "nomineePhone": "",
+      "nomineeName": "",
+      "trustedContacts": []
+    },
+    "user_3Gd6gh3imANxBppCOVcfM9XpTVP": {
+      "uid": "user_3Gd6gh3imANxBppCOVcfM9XpTVP",
+      "name": "Gaming with Chidvi",
+      "age": 30,
+      "bloodGroup": "O+",
+      "emergencyContactName": "",
+      "emergencyContactPhone": "",
+      "medicalInfo": "",
+      "nomineePin": "1111",
+      "nomineePhone": "",
+      "nomineeName": "",
+      "trustedContacts": []
+    }
+  },
+  "securityAlerts": [
+    {
+      "id": "alert-cv6e146xa",
+      "uid": "user_3Gd6gh3imANxBppCOVcfM9XpTVP",
+      "timestamp": "2026-07-17T13:04:33.427Z",
+      "event": "User Sign In",
+      "details": "Logged in via Clerk Authentication"
+    },
+    {
+      "id": "alert-cempfuwsr",
+      "uid": "user_3Gd6gh3imANxBppCOVcfM9XpTVP",
+      "timestamp": "2026-07-17T12:45:49.611Z",
+      "event": "User Sign In",
+      "details": "Logged in via Clerk Authentication"
+    },
+    {
+      "id": "alert-qrrg5az5f",
+      "uid": "user_3Gd6gh3imANxBppCOVcfM9XpTVP",
+      "timestamp": "2026-07-17T12:45:39.576Z",
+      "event": "User Sign In",
+      "details": "Logged in via Clerk Authentication"
+    },
+    {
+      "id": "alert-357ztq1sb",
+      "uid": "user_3Gd6gh3imANxBppCOVcfM9XpTVP",
+      "timestamp": "2026-07-17T12:44:48.256Z",
+      "event": "Gmail Sync Completed",
+      "details": "Synchronized and classified 8 new critical timeline emails"
+    },
+    {
+      "id": "alert-suz4rig3n",
+      "uid": "user_3Gd6gh3imANxBppCOVcfM9XpTVP",
+      "timestamp": "2026-07-17T12:44:37.179Z",
+      "event": "User Sign In",
+      "details": "Logged in via Clerk Authentication"
+    },
+    {
+      "id": "alert-m42n4p3wt",
+      "uid": "user_3Gd6gh3imANxBppCOVcfM9XpTVP",
+      "timestamp": "2026-07-17T12:36:12.557Z",
+      "event": "Gmail Sync Completed",
+      "details": "Synchronized and classified 4 new critical timeline emails"
+    },
+    {
+      "id": "alert-24xj276r8",
+      "uid": "user_3Gd6gh3imANxBppCOVcfM9XpTVP",
+      "timestamp": "2026-07-17T12:35:35.633Z",
+      "event": "Gmail Sync Completed",
+      "details": "Synchronized and classified 0 new critical timeline emails"
+    },
+    {
+      "id": "alert-8a3ehipje",
+      "uid": "user_3Gd6gh3imANxBppCOVcfM9XpTVP",
+      "timestamp": "2026-07-17T12:35:23.702Z",
+      "event": "User Sign In",
+      "details": "Logged in via Clerk Authentication"
+    },
+    {
+      "id": "alert-11mtq3fd8",
+      "uid": "user_3Gd6gh3imANxBppCOVcfM9XpTVP",
+      "timestamp": "2026-07-17T12:35:02.015Z",
+      "event": "User Sign In",
+      "details": "Logged in via Clerk Authentication"
+    },
+    {
+      "id": "alert-f9tk7mw8d",
+      "uid": "user_3Gd6gh3imANxBppCOVcfM9XpTVP",
+      "timestamp": "2026-07-17T12:31:23.474Z",
+      "event": "Gmail Sync Completed",
+      "details": "Synchronized and classified 0 new critical timeline emails"
+    },
+    {
+      "id": "alert-612upi1w0",
+      "uid": "user_3Gd6gh3imANxBppCOVcfM9XpTVP",
+      "timestamp": "2026-07-17T12:28:06.245Z",
+      "event": "Gmail Sync Completed",
+      "details": "Synchronized and classified 2 new critical timeline emails"
+    },
+    {
+      "id": "alert-bbff1ydv5",
+      "uid": "user_3Gd6gh3imANxBppCOVcfM9XpTVP",
+      "timestamp": "2026-07-17T12:27:57.928Z",
+      "event": "User Sign In",
+      "details": "Logged in via Clerk Authentication"
+    },
+    {
+      "id": "alert-rlccdt25r",
+      "uid": "user_3Gd6gh3imANxBppCOVcfM9XpTVP",
+      "timestamp": "2026-07-17T12:27:04.025Z",
+      "event": "User Sign In",
+      "details": "Logged in via Clerk Authentication"
+    },
+    {
+      "id": "alert-sl3ejb4z4",
+      "uid": "user_3Gd6gh3imANxBppCOVcfM9XpTVP",
+      "timestamp": "2026-07-17T12:26:57.998Z",
+      "event": "User Sign In",
+      "details": "Logged in via Clerk Authentication"
+    },
+    {
+      "id": "alert-votc5mqti",
+      "uid": "user_3Gd6gh3imANxBppCOVcfM9XpTVP",
+      "timestamp": "2026-07-17T12:20:11.309Z",
+      "event": "User Sign In",
+      "details": "Logged in via Clerk Authentication"
+    },
+    {
+      "id": "alert-rppuq7d65",
+      "uid": "user_3Gd6gh3imANxBppCOVcfM9XpTVP",
+      "timestamp": "2026-07-17T12:19:43.634Z",
+      "event": "User Sign In",
+      "details": "Logged in via Clerk Authentication"
+    },
+    {
+      "id": "alert-a15zz2imw",
+      "uid": "user_3Gd6gh3imANxBppCOVcfM9XpTVP",
+      "timestamp": "2026-07-17T12:04:41.463Z",
+      "event": "User Sign In",
+      "details": "Logged in via Clerk Authentication"
+    },
+    {
+      "id": "alert-lhcp50hed",
+      "uid": "user_3Gd6gh3imANxBppCOVcfM9XpTVP",
+      "timestamp": "2026-07-17T12:03:51.057Z",
+      "event": "User Sign In",
+      "details": "Logged in via Clerk Authentication"
+    },
+    {
+      "id": "alert-d5vms1m8f",
+      "uid": "user_3Gd6gh3imANxBppCOVcfM9XpTVP",
+      "timestamp": "2026-07-17T11:59:25.522Z",
+      "event": "User Sign In",
+      "details": "Logged in via Clerk Authentication"
+    },
+    {
+      "id": "alert-vcbfb4z9g",
+      "uid": "user_3Gd6gh3imANxBppCOVcfM9XpTVP",
+      "timestamp": "2026-07-17T11:58:43.052Z",
+      "event": "User Sign In",
+      "details": "Logged in via Clerk Authentication"
+    },
+    {
+      "id": "alert-3frdxhfxb",
+      "uid": "user_3Gd6gh3imANxBppCOVcfM9XpTVP",
+      "timestamp": "2026-07-17T11:58:23.031Z",
+      "event": "User Sign In",
+      "details": "Logged in via Clerk Authentication"
+    },
+    {
+      "id": "alert-tnj9qqkl5",
+      "uid": "user_3Gd6gh3imANxBppCOVcfM9XpTVP",
+      "timestamp": "2026-07-17T11:57:53.190Z",
+      "event": "User Sign In",
+      "details": "Logged in via Clerk Authentication"
+    },
+    {
+      "id": "alert-uquui6mbj",
+      "uid": "user_3Gd6gh3imANxBppCOVcfM9XpTVP",
+      "timestamp": "2026-07-17T11:53:33.717Z",
+      "event": "User Sign In",
+      "details": "Logged in via Clerk Authentication"
+    },
+    {
+      "id": "alert-lm2p1nph4",
+      "uid": "user_3Gd6gh3imANxBppCOVcfM9XpTVP",
+      "timestamp": "2026-07-17T11:53:33.642Z",
+      "event": "Account Created",
+      "details": "User signed up/registered via Clerk."
+    },
+    {
+      "id": "alert-qhsal3fhj",
+      "uid": "user_3GcqPLi4XNH5hXNkQF479COiUhX",
+      "timestamp": "2026-07-17T11:37:11.100Z",
+      "event": "User Sign In",
+      "details": "Logged in via Clerk Authentication"
+    },
+    {
+      "id": "alert-3qsnx7018",
+      "uid": "user_3GcqPLi4XNH5hXNkQF479COiUhX",
+      "timestamp": "2026-07-17T11:37:06.184Z",
+      "event": "User Sign In",
+      "details": "Logged in via Clerk Authentication"
+    },
+    {
+      "id": "alert-zbjhg4yl0",
+      "uid": "user_3GcqPLi4XNH5hXNkQF479COiUhX",
+      "timestamp": "2026-07-17T11:30:05.308Z",
+      "event": "User Sign In",
+      "details": "Logged in via Clerk Authentication"
+    },
+    {
+      "id": "alert-tpld4lqm0",
+      "uid": "user_3GcqPLi4XNH5hXNkQF479COiUhX",
+      "timestamp": "2026-07-17T11:29:48.609Z",
+      "event": "User Sign In",
+      "details": "Logged in via Clerk Authentication"
+    },
+    {
+      "id": "alert-5mjcrbsca",
+      "uid": "user_3GcqPLi4XNH5hXNkQF479COiUhX",
+      "timestamp": "2026-07-17T11:29:16.031Z",
+      "event": "User Sign In",
+      "details": "Logged in via Clerk Authentication"
+    },
+    {
+      "id": "alert-yph70kug7",
+      "uid": "user_3GcqPLi4XNH5hXNkQF479COiUhX",
+      "timestamp": "2026-07-17T11:26:33.100Z",
+      "event": "User Sign In",
+      "details": "Logged in via Clerk Authentication"
+    },
+    {
+      "id": "alert-8nqnk84y1",
+      "uid": "user_3GcqPLi4XNH5hXNkQF479COiUhX",
+      "timestamp": "2026-07-17T11:00:01.215Z",
+      "event": "User Sign In",
+      "details": "Logged in via Clerk Authentication"
+    },
+    {
+      "id": "alert-ipcy808tq",
+      "uid": "user_3GcqPLi4XNH5hXNkQF479COiUhX",
+      "timestamp": "2026-07-17T10:58:19.858Z",
+      "event": "User Sign In",
+      "details": "Logged in via Clerk Authentication"
+    },
+    {
+      "id": "alert-f6d78t6o8",
+      "uid": "user_3GcqPLi4XNH5hXNkQF479COiUhX",
+      "timestamp": "2026-07-17T10:58:08.101Z",
+      "event": "User Sign In",
+      "details": "Logged in via Clerk Authentication"
+    },
+    {
+      "id": "alert-jnzb9wm2d",
+      "uid": "user_3GcqPLi4XNH5hXNkQF479COiUhX",
+      "timestamp": "2026-07-17T10:55:30.993Z",
+      "event": "User Sign In",
+      "details": "Logged in via Clerk Authentication"
+    },
+    {
+      "id": "alert-ptz8bhizo",
+      "uid": "user_3GcqPLi4XNH5hXNkQF479COiUhX",
+      "timestamp": "2026-07-17T10:54:44.999Z",
+      "event": "User Sign In",
+      "details": "Logged in via Clerk Authentication"
+    },
+    {
+      "id": "alert-bce89m7a3",
+      "uid": "user_3GcqPLi4XNH5hXNkQF479COiUhX",
+      "timestamp": "2026-07-17T10:41:44.068Z",
+      "event": "User Sign In",
+      "details": "Logged in via Clerk Authentication"
+    },
+    {
+      "id": "alert-fmxqltir3",
+      "uid": "user_3GcqPLi4XNH5hXNkQF479COiUhX",
+      "timestamp": "2026-07-17T10:29:35.075Z",
+      "event": "User Sign In",
+      "details": "Logged in via Clerk Authentication"
+    },
+    {
+      "id": "alert-jsdphq3k0",
+      "uid": "user_3Gcona6Lmnf2lyPcQszgGcAOErX",
+      "timestamp": "2026-07-17T10:29:25.635Z",
+      "event": "User Sign In",
+      "details": "Logged in via Clerk Authentication"
+    },
+    {
+      "id": "alert-cs52srj73",
+      "uid": "user_3Gcona6Lmnf2lyPcQszgGcAOErX",
+      "timestamp": "2026-07-17T10:29:22.937Z",
+      "event": "User Sign In",
+      "details": "Logged in via Clerk Authentication"
+    },
+    {
+      "id": "alert-893q8i2ig",
+      "uid": "user_3Gcona6Lmnf2lyPcQszgGcAOErX",
+      "timestamp": "2026-07-17T10:29:03.025Z",
+      "event": "User Sign In",
+      "details": "Logged in via Clerk Authentication"
+    },
+    {
+      "id": "alert-m4qkqhy5s",
+      "uid": "user_3Gcona6Lmnf2lyPcQszgGcAOErX",
+      "timestamp": "2026-07-17T10:28:45.333Z",
+      "event": "User Sign In",
+      "details": "Logged in via Clerk Authentication"
+    },
+    {
+      "id": "alert-f6dlxd8zv",
+      "uid": "user_3Gcona6Lmnf2lyPcQszgGcAOErX",
+      "timestamp": "2026-07-17T10:15:54.108Z",
+      "event": "User Sign In",
+      "details": "Logged in via Clerk Authentication"
+    },
+    {
+      "id": "alert-wo24ctnlw",
+      "uid": "user_3Gcona6Lmnf2lyPcQszgGcAOErX",
+      "timestamp": "2026-07-17T10:15:37.736Z",
+      "event": "User Sign In",
+      "details": "Logged in via Clerk Authentication"
+    },
+    {
+      "id": "alert-umeuwxabl",
+      "uid": "user_3Gcona6Lmnf2lyPcQszgGcAOErX",
+      "timestamp": "2026-07-17T10:15:33.858Z",
+      "event": "User Sign In",
+      "details": "Logged in via Clerk Authentication"
+    },
+    {
+      "id": "alert-fc7iwrk42",
+      "uid": "user_3Gcona6Lmnf2lyPcQszgGcAOErX",
+      "timestamp": "2026-07-17T10:12:47.623Z",
+      "event": "User Sign In",
+      "details": "Logged in via Clerk Authentication"
+    },
+    {
+      "id": "alert-ys3iilp7n",
+      "uid": "user_3Gcona6Lmnf2lyPcQszgGcAOErX",
+      "timestamp": "2026-07-17T09:59:28.995Z",
+      "event": "User Sign In",
+      "details": "Logged in via Clerk Authentication"
+    },
+    {
+      "id": "alert-8mhve1i8l",
+      "uid": "user_3GcqPLi4XNH5hXNkQF479COiUhX",
+      "timestamp": "2026-07-17T09:59:12.441Z",
+      "event": "User Sign In",
+      "details": "Logged in via Clerk Authentication"
+    },
+    {
+      "id": "alert-q29bjh0no",
+      "uid": "user_3GcqPLi4XNH5hXNkQF479COiUhX",
+      "timestamp": "2026-07-17T09:58:22.667Z",
+      "event": "User Sign In",
+      "details": "Logged in via Clerk Authentication"
+    },
+    {
+      "id": "alert-0eq1jdrla",
+      "uid": "user_3GcqPLi4XNH5hXNkQF479COiUhX",
+      "timestamp": "2026-07-17T09:55:46.587Z",
+      "event": "User Sign In",
+      "details": "Logged in via Clerk Authentication"
+    },
+    {
+      "id": "alert-q5mvcltxy",
+      "uid": "user_3GcqPLi4XNH5hXNkQF479COiUhX",
+      "timestamp": "2026-07-17T09:54:29.338Z",
+      "event": "User Sign In",
+      "details": "Logged in via Clerk Authentication"
+    },
+    {
+      "id": "alert-oeo9ij61g",
+      "uid": "user_3GcqPLi4XNH5hXNkQF479COiUhX",
+      "timestamp": "2026-07-17T09:54:24.712Z",
+      "event": "User Sign In",
+      "details": "Logged in via Clerk Authentication"
+    },
+    {
+      "id": "alert-tn4p93dm5",
+      "uid": "user_3GcqPLi4XNH5hXNkQF479COiUhX",
+      "timestamp": "2026-07-17T09:53:20.518Z",
+      "event": "User Sign In",
+      "details": "Logged in via Clerk Authentication"
+    },
+    {
+      "id": "alert-vp8tkde9y",
+      "uid": "user_3GcqPLi4XNH5hXNkQF479COiUhX",
+      "timestamp": "2026-07-17T09:53:07.558Z",
+      "event": "User Sign In",
+      "details": "Logged in via Clerk Authentication"
+    },
+    {
+      "id": "alert-ktfotj798",
+      "uid": "user_3GcqPLi4XNH5hXNkQF479COiUhX",
+      "timestamp": "2026-07-17T09:53:01.599Z",
+      "event": "User Sign In",
+      "details": "Logged in via Clerk Authentication"
+    },
+    {
+      "id": "alert-1skt8wn23",
+      "uid": "user_3GcqPLi4XNH5hXNkQF479COiUhX",
+      "timestamp": "2026-07-17T09:51:31.615Z",
+      "event": "User Sign In",
+      "details": "Logged in via Clerk Authentication"
+    },
+    {
+      "id": "alert-5fjwx1k5w",
+      "uid": "user_3GcqPLi4XNH5hXNkQF479COiUhX",
+      "timestamp": "2026-07-17T09:49:38.062Z",
+      "event": "Gmail Sync Completed",
+      "details": "Synchronized and classified 0 critical timeline emails"
+    },
+    {
+      "id": "alert-eo7jxerj9",
+      "uid": "user_3GcqPLi4XNH5hXNkQF479COiUhX",
+      "timestamp": "2026-07-17T09:49:35.039Z",
+      "event": "Gmail Sync Completed",
+      "details": "Synchronized and classified 0 critical timeline emails"
+    },
+    {
+      "id": "alert-2lozx9jc4",
+      "uid": "user_3GcqPLi4XNH5hXNkQF479COiUhX",
+      "timestamp": "2026-07-17T09:49:08.015Z",
+      "event": "Gmail Sync Completed",
+      "details": "Synchronized and classified 10 critical timeline emails"
+    },
+    {
+      "id": "alert-g4atvr129",
+      "uid": "user_3GcqPLi4XNH5hXNkQF479COiUhX",
+      "timestamp": "2026-07-17T09:48:58.221Z",
+      "event": "User Sign In",
+      "details": "Logged in via Clerk Authentication"
+    },
+    {
+      "id": "alert-1fv3yci6v",
+      "uid": "user_3GcqPLi4XNH5hXNkQF479COiUhX",
+      "timestamp": "2026-07-17T09:40:05.278Z",
+      "event": "Gmail Sync Completed",
+      "details": "Synchronized and classified 3 critical timeline emails"
+    },
+    {
+      "id": "alert-e2hdwx0si",
+      "uid": "user_3GcqPLi4XNH5hXNkQF479COiUhX",
+      "timestamp": "2026-07-17T09:39:39.571Z",
+      "event": "User Sign In",
+      "details": "Logged in via Clerk Authentication"
+    },
+    {
+      "id": "alert-zd4375bku",
+      "uid": "user_3GcqPLi4XNH5hXNkQF479COiUhX",
+      "timestamp": "2026-07-17T09:39:39.500Z",
+      "event": "Account Created",
+      "details": "User signed up/registered via Clerk."
+    },
+    {
+      "id": "alert-yy132nqll",
+      "uid": "user_3Gcona6Lmnf2lyPcQszgGcAOErX",
+      "timestamp": "2026-07-17T09:39:13.862Z",
+      "event": "User Sign In",
+      "details": "Logged in via Clerk Authentication"
+    },
+    {
+      "id": "alert-99s7v51ka",
+      "uid": "user_3Gcona6Lmnf2lyPcQszgGcAOErX",
+      "timestamp": "2026-07-17T09:39:04.287Z",
+      "event": "User Sign In",
+      "details": "Logged in via Clerk Authentication"
+    },
+    {
+      "id": "alert-0t5b483xa",
+      "uid": "user_3Gcona6Lmnf2lyPcQszgGcAOErX",
+      "timestamp": "2026-07-17T09:32:34.040Z",
+      "event": "User Sign In",
+      "details": "Logged in via Clerk Authentication"
+    },
+    {
+      "id": "alert-3rbvgkin0",
+      "uid": "user_3Gcona6Lmnf2lyPcQszgGcAOErX",
+      "timestamp": "2026-07-17T09:32:33.297Z",
+      "event": "User Sign In",
+      "details": "Logged in via Clerk Authentication"
+    },
+    {
+      "id": "alert-kgw5upa3q",
+      "uid": "user_3Gcona6Lmnf2lyPcQszgGcAOErX",
+      "timestamp": "2026-07-17T09:32:32.554Z",
+      "event": "User Sign In",
+      "details": "Logged in via Clerk Authentication"
+    },
+    {
+      "id": "alert-p38i4yrvb",
+      "uid": "user_3Gcona6Lmnf2lyPcQszgGcAOErX",
+      "timestamp": "2026-07-17T09:32:31.544Z",
+      "event": "User Sign In",
+      "details": "Logged in via Clerk Authentication"
+    },
+    {
+      "id": "alert-owovbr9hv",
+      "uid": "user_3Gcona6Lmnf2lyPcQszgGcAOErX",
+      "timestamp": "2026-07-17T09:32:30.736Z",
+      "event": "User Sign In",
+      "details": "Logged in via Clerk Authentication"
+    },
+    {
+      "id": "alert-956wqu6vj",
+      "uid": "user_3Gcona6Lmnf2lyPcQszgGcAOErX",
+      "timestamp": "2026-07-17T09:32:29.889Z",
+      "event": "User Sign In",
+      "details": "Logged in via Clerk Authentication"
+    },
+    {
+      "id": "alert-z7vk6riv4",
+      "uid": "user_3Gcona6Lmnf2lyPcQszgGcAOErX",
+      "timestamp": "2026-07-17T09:32:28.969Z",
+      "event": "User Sign In",
+      "details": "Logged in via Clerk Authentication"
+    },
+    {
+      "id": "alert-g83fksqc1",
+      "uid": "user_3Gcona6Lmnf2lyPcQszgGcAOErX",
+      "timestamp": "2026-07-17T09:32:28.151Z",
+      "event": "User Sign In",
+      "details": "Logged in via Clerk Authentication"
+    },
+    {
+      "id": "alert-y3r9zayjz",
+      "uid": "user_3Gcona6Lmnf2lyPcQszgGcAOErX",
+      "timestamp": "2026-07-17T09:32:27.267Z",
+      "event": "User Sign In",
+      "details": "Logged in via Clerk Authentication"
+    },
+    {
+      "id": "alert-fs6myzv4j",
+      "uid": "user_3Gcona6Lmnf2lyPcQszgGcAOErX",
+      "timestamp": "2026-07-17T09:32:26.358Z",
+      "event": "User Sign In",
+      "details": "Logged in via Clerk Authentication"
+    },
+    {
+      "id": "alert-65qpugaz3",
+      "uid": "user_3Gcona6Lmnf2lyPcQszgGcAOErX",
+      "timestamp": "2026-07-17T09:32:25.483Z",
+      "event": "User Sign In",
+      "details": "Logged in via Clerk Authentication"
+    },
+    {
+      "id": "alert-fpmm51i8m",
+      "uid": "user_3Gcona6Lmnf2lyPcQszgGcAOErX",
+      "timestamp": "2026-07-17T09:32:24.567Z",
+      "event": "User Sign In",
+      "details": "Logged in via Clerk Authentication"
+    },
+    {
+      "id": "alert-uxvxitikc",
+      "uid": "user_3Gcona6Lmnf2lyPcQszgGcAOErX",
+      "timestamp": "2026-07-17T09:32:23.760Z",
+      "event": "User Sign In",
+      "details": "Logged in via Clerk Authentication"
+    },
+    {
+      "id": "alert-1g960kqfp",
+      "uid": "user_3Gcona6Lmnf2lyPcQszgGcAOErX",
+      "timestamp": "2026-07-17T09:32:22.827Z",
+      "event": "User Sign In",
+      "details": "Logged in via Clerk Authentication"
+    },
+    {
+      "id": "alert-ahckixl9l",
+      "uid": "user_3Gcona6Lmnf2lyPcQszgGcAOErX",
+      "timestamp": "2026-07-17T09:32:22.002Z",
+      "event": "User Sign In",
+      "details": "Logged in via Clerk Authentication"
+    },
+    {
+      "id": "alert-f5g8wcrq7",
+      "uid": "user_3Gcona6Lmnf2lyPcQszgGcAOErX",
+      "timestamp": "2026-07-17T09:32:20.985Z",
+      "event": "User Sign In",
+      "details": "Logged in via Clerk Authentication"
+    },
+    {
+      "id": "alert-likev99cm",
+      "uid": "user_3Gcona6Lmnf2lyPcQszgGcAOErX",
+      "timestamp": "2026-07-17T09:32:19.957Z",
+      "event": "User Sign In",
+      "details": "Logged in via Clerk Authentication"
+    },
+    {
+      "id": "alert-23x4rrk2h",
+      "uid": "user_3Gcona6Lmnf2lyPcQszgGcAOErX",
+      "timestamp": "2026-07-17T09:32:17.815Z",
+      "event": "User Sign In",
+      "details": "Logged in via Clerk Authentication"
+    },
+    {
+      "id": "alert-uj2umz6yo",
+      "uid": "user_3Gcona6Lmnf2lyPcQszgGcAOErX",
+      "timestamp": "2026-07-17T09:32:16.660Z",
+      "event": "User Sign In",
+      "details": "Logged in via Clerk Authentication"
+    },
+    {
+      "id": "alert-6a53oewn0",
+      "uid": "user_3Gcona6Lmnf2lyPcQszgGcAOErX",
+      "timestamp": "2026-07-17T09:32:15.551Z",
+      "event": "User Sign In",
+      "details": "Logged in via Clerk Authentication"
+    },
+    {
+      "id": "alert-mfqhp0i7w",
+      "uid": "user_3Gcona6Lmnf2lyPcQszgGcAOErX",
+      "timestamp": "2026-07-17T09:32:14.426Z",
+      "event": "User Sign In",
+      "details": "Logged in via Clerk Authentication"
+    },
+    {
+      "id": "alert-5sjkkoyzu",
+      "uid": "user_3Gcona6Lmnf2lyPcQszgGcAOErX",
+      "timestamp": "2026-07-17T09:32:13.501Z",
+      "event": "User Sign In",
+      "details": "Logged in via Clerk Authentication"
+    },
+    {
+      "id": "alert-p71v4ij6f",
+      "uid": "user_3Gcona6Lmnf2lyPcQszgGcAOErX",
+      "timestamp": "2026-07-17T09:32:12.583Z",
+      "event": "User Sign In",
+      "details": "Logged in via Clerk Authentication"
+    },
+    {
+      "id": "alert-6hfkgghao",
+      "uid": "user_3Gcona6Lmnf2lyPcQszgGcAOErX",
+      "timestamp": "2026-07-17T09:32:11.528Z",
+      "event": "User Sign In",
+      "details": "Logged in via Clerk Authentication"
+    },
+    {
+      "id": "alert-tky6qv216",
+      "uid": "user_3Gcona6Lmnf2lyPcQszgGcAOErX",
+      "timestamp": "2026-07-17T09:32:10.772Z",
+      "event": "User Sign In",
+      "details": "Logged in via Clerk Authentication"
+    },
+    {
+      "id": "alert-sgqgwys0u",
+      "uid": "user_3Gcona6Lmnf2lyPcQszgGcAOErX",
+      "timestamp": "2026-07-17T09:32:09.980Z",
+      "event": "User Sign In",
+      "details": "Logged in via Clerk Authentication"
+    },
+    {
+      "id": "alert-hlc3u3gve",
+      "uid": "user_3Gcona6Lmnf2lyPcQszgGcAOErX",
+      "timestamp": "2026-07-17T09:32:09.199Z",
+      "event": "User Sign In",
+      "details": "Logged in via Clerk Authentication"
+    },
+    {
+      "id": "alert-kclreje0z",
+      "uid": "user_3Gcona6Lmnf2lyPcQszgGcAOErX",
+      "timestamp": "2026-07-17T09:32:08.322Z",
+      "event": "User Sign In",
+      "details": "Logged in via Clerk Authentication"
+    },
+    {
+      "id": "alert-pu6ovss80",
+      "uid": "user_3Gcona6Lmnf2lyPcQszgGcAOErX",
+      "timestamp": "2026-07-17T09:32:07.570Z",
+      "event": "User Sign In",
+      "details": "Logged in via Clerk Authentication"
+    },
+    {
+      "id": "alert-joczb7hhi",
+      "uid": "user_3Gcona6Lmnf2lyPcQszgGcAOErX",
+      "timestamp": "2026-07-17T09:32:06.651Z",
+      "event": "User Sign In",
+      "details": "Logged in via Clerk Authentication"
+    },
+    {
+      "id": "alert-81oinyw1w",
+      "uid": "user_3Gcona6Lmnf2lyPcQszgGcAOErX",
+      "timestamp": "2026-07-17T09:32:05.877Z",
+      "event": "User Sign In",
+      "details": "Logged in via Clerk Authentication"
+    },
+    {
+      "id": "alert-u2b1kmcta",
+      "uid": "user_3Gcona6Lmnf2lyPcQszgGcAOErX",
+      "timestamp": "2026-07-17T09:32:05.113Z",
+      "event": "User Sign In",
+      "details": "Logged in via Clerk Authentication"
+    },
+    {
+      "id": "alert-smjabvdy4",
+      "uid": "user_3Gcona6Lmnf2lyPcQszgGcAOErX",
+      "timestamp": "2026-07-17T09:32:04.143Z",
+      "event": "User Sign In",
+      "details": "Logged in via Clerk Authentication"
+    },
+    {
+      "id": "alert-pixx25xg5",
+      "uid": "user_3Gcona6Lmnf2lyPcQszgGcAOErX",
+      "timestamp": "2026-07-17T09:32:03.262Z",
+      "event": "User Sign In",
+      "details": "Logged in via Clerk Authentication"
+    },
+    {
+      "id": "alert-1ls0axrlg",
+      "uid": "user_3Gcona6Lmnf2lyPcQszgGcAOErX",
+      "timestamp": "2026-07-17T09:31:41.449Z",
+      "event": "User Sign In",
+      "details": "Logged in via Clerk Authentication"
+    },
+    {
+      "id": "alert-64c5ajdzc",
+      "uid": "user_3Gcona6Lmnf2lyPcQszgGcAOErX",
+      "timestamp": "2026-07-17T09:31:40.530Z",
+      "event": "User Sign In",
+      "details": "Logged in via Clerk Authentication"
+    },
+    {
+      "id": "alert-44vjdc1uo",
+      "uid": "user_3Gcona6Lmnf2lyPcQszgGcAOErX",
+      "timestamp": "2026-07-17T09:31:39.599Z",
+      "event": "User Sign In",
+      "details": "Logged in via Clerk Authentication"
+    },
+    {
+      "id": "alert-6i7jn2azf",
+      "uid": "user_3Gcona6Lmnf2lyPcQszgGcAOErX",
+      "timestamp": "2026-07-17T09:31:38.679Z",
+      "event": "User Sign In",
+      "details": "Logged in via Clerk Authentication"
+    },
+    {
+      "id": "alert-ylhjtc93h",
+      "uid": "user_3Gcona6Lmnf2lyPcQszgGcAOErX",
+      "timestamp": "2026-07-17T09:31:37.589Z",
+      "event": "User Sign In",
+      "details": "Logged in via Clerk Authentication"
+    },
+    {
+      "id": "alert-o32tdf65l",
+      "uid": "user_3Gcona6Lmnf2lyPcQszgGcAOErX",
+      "timestamp": "2026-07-17T09:27:18.280Z",
+      "event": "User Sign In",
+      "details": "Logged in via Clerk Authentication"
+    },
+    {
+      "id": "alert-47k57mtyz",
+      "uid": "user_3Gcona6Lmnf2lyPcQszgGcAOErX",
+      "timestamp": "2026-07-17T09:27:17.581Z",
+      "event": "User Sign In",
+      "details": "Logged in via Clerk Authentication"
+    },
+    {
+      "id": "alert-0s6an6p1j",
+      "uid": "user_3Gcona6Lmnf2lyPcQszgGcAOErX",
+      "timestamp": "2026-07-17T09:27:16.664Z",
+      "event": "User Sign In",
+      "details": "Logged in via Clerk Authentication"
+    },
+    {
+      "id": "alert-9u9612kkv",
+      "uid": "user_3Gcona6Lmnf2lyPcQszgGcAOErX",
+      "timestamp": "2026-07-17T09:27:15.982Z",
+      "event": "User Sign In",
+      "details": "Logged in via Clerk Authentication"
+    },
+    {
+      "id": "alert-1sipojuye",
+      "uid": "user_3Gcona6Lmnf2lyPcQszgGcAOErX",
+      "timestamp": "2026-07-17T09:27:15.254Z",
+      "event": "User Sign In",
+      "details": "Logged in via Clerk Authentication"
+    },
+    {
+      "id": "alert-ayxsw7356",
+      "uid": "user_3Gcona6Lmnf2lyPcQszgGcAOErX",
+      "timestamp": "2026-07-17T09:27:14.388Z",
+      "event": "User Sign In",
+      "details": "Logged in via Clerk Authentication"
+    },
+    {
+      "id": "alert-ljhkn0kmh",
+      "uid": "user_3Gcona6Lmnf2lyPcQszgGcAOErX",
+      "timestamp": "2026-07-17T09:27:13.681Z",
+      "event": "User Sign In",
+      "details": "Logged in via Clerk Authentication"
+    },
+    {
+      "id": "alert-u4gpqib2h",
+      "uid": "user_3Gcona6Lmnf2lyPcQszgGcAOErX",
+      "timestamp": "2026-07-17T09:27:12.839Z",
+      "event": "User Sign In",
+      "details": "Logged in via Clerk Authentication"
+    },
+    {
+      "id": "alert-4p6wa8jpr",
+      "uid": "user_3Gcona6Lmnf2lyPcQszgGcAOErX",
+      "timestamp": "2026-07-17T09:27:12.023Z",
+      "event": "User Sign In",
+      "details": "Logged in via Clerk Authentication"
+    },
+    {
+      "id": "alert-b4x8nirg0",
+      "uid": "user_3Gcona6Lmnf2lyPcQszgGcAOErX",
+      "timestamp": "2026-07-17T09:27:11.354Z",
+      "event": "User Sign In",
+      "details": "Logged in via Clerk Authentication"
+    },
+    {
+      "id": "alert-p20zmqir3",
+      "uid": "user_3Gcona6Lmnf2lyPcQszgGcAOErX",
+      "timestamp": "2026-07-17T09:27:10.597Z",
+      "event": "User Sign In",
+      "details": "Logged in via Clerk Authentication"
+    },
+    {
+      "id": "alert-y5bkgbe39",
+      "uid": "user_3Gcona6Lmnf2lyPcQszgGcAOErX",
+      "timestamp": "2026-07-17T09:27:09.839Z",
+      "event": "User Sign In",
+      "details": "Logged in via Clerk Authentication"
+    },
+    {
+      "id": "alert-t4vg85fac",
+      "uid": "user_3Gcona6Lmnf2lyPcQszgGcAOErX",
+      "timestamp": "2026-07-17T09:27:08.998Z",
+      "event": "User Sign In",
+      "details": "Logged in via Clerk Authentication"
+    },
+    {
+      "id": "alert-n8pn6zb94",
+      "uid": "user_3Gcona6Lmnf2lyPcQszgGcAOErX",
+      "timestamp": "2026-07-17T09:27:08.106Z",
+      "event": "User Sign In",
+      "details": "Logged in via Clerk Authentication"
+    },
+    {
+      "id": "alert-41ajiu5vt",
+      "uid": "user_3Gcona6Lmnf2lyPcQszgGcAOErX",
+      "timestamp": "2026-07-17T09:27:07.153Z",
+      "event": "User Sign In",
+      "details": "Logged in via Clerk Authentication"
+    },
+    {
+      "id": "alert-8d92k170s",
+      "uid": "user_3Gcona6Lmnf2lyPcQszgGcAOErX",
+      "timestamp": "2026-07-17T09:27:06.060Z",
+      "event": "User Sign In",
+      "details": "Logged in via Clerk Authentication"
+    },
+    {
+      "id": "alert-m8mg4dmoq",
+      "uid": "user_3Gcona6Lmnf2lyPcQszgGcAOErX",
+      "timestamp": "2026-07-17T09:27:04.726Z",
+      "event": "User Sign In",
+      "details": "Logged in via Clerk Authentication"
+    },
+    {
+      "id": "alert-ookyx8tkw",
+      "uid": "user_3Gcona6Lmnf2lyPcQszgGcAOErX",
+      "timestamp": "2026-07-17T09:27:03.687Z",
+      "event": "User Sign In",
+      "details": "Logged in via Clerk Authentication"
+    },
+    {
+      "id": "alert-2lpkyhb90",
+      "uid": "user_3Gcona6Lmnf2lyPcQszgGcAOErX",
+      "timestamp": "2026-07-17T09:27:02.574Z",
+      "event": "User Sign In",
+      "details": "Logged in via Clerk Authentication"
+    },
+    {
+      "id": "alert-yc8cndt6o",
+      "uid": "user_3Gcona6Lmnf2lyPcQszgGcAOErX",
+      "timestamp": "2026-07-17T09:27:01.453Z",
+      "event": "User Sign In",
+      "details": "Logged in via Clerk Authentication"
+    },
+    {
+      "id": "alert-0f0upu9oj",
+      "uid": "user_3Gcona6Lmnf2lyPcQszgGcAOErX",
+      "timestamp": "2026-07-17T09:27:00.349Z",
+      "event": "User Sign In",
+      "details": "Logged in via Clerk Authentication"
+    },
+    {
+      "id": "alert-w6ldkhtw3",
+      "uid": "user_3Gcona6Lmnf2lyPcQszgGcAOErX",
+      "timestamp": "2026-07-17T09:26:59.307Z",
+      "event": "User Sign In",
+      "details": "Logged in via Clerk Authentication"
+    },
+    {
+      "id": "alert-6o3afjp7d",
+      "uid": "user_3Gcona6Lmnf2lyPcQszgGcAOErX",
+      "timestamp": "2026-07-17T09:26:58.217Z",
+      "event": "User Sign In",
+      "details": "Logged in via Clerk Authentication"
+    },
+    {
+      "id": "alert-tniv6bm6z",
+      "uid": "user_3Gcona6Lmnf2lyPcQszgGcAOErX",
+      "timestamp": "2026-07-17T09:26:57.107Z",
+      "event": "User Sign In",
+      "details": "Logged in via Clerk Authentication"
+    },
+    {
+      "id": "alert-laki7jqa0",
+      "uid": "user_3Gcona6Lmnf2lyPcQszgGcAOErX",
+      "timestamp": "2026-07-17T09:26:56.025Z",
+      "event": "User Sign In",
+      "details": "Logged in via Clerk Authentication"
+    },
+    {
+      "id": "alert-zybmm6ni6",
+      "uid": "user_3Gcona6Lmnf2lyPcQszgGcAOErX",
+      "timestamp": "2026-07-17T09:26:54.946Z",
+      "event": "User Sign In",
+      "details": "Logged in via Clerk Authentication"
+    },
+    {
+      "id": "alert-4hmin4o9u",
+      "uid": "user_3Gcona6Lmnf2lyPcQszgGcAOErX",
+      "timestamp": "2026-07-17T09:26:53.802Z",
+      "event": "User Sign In",
+      "details": "Logged in via Clerk Authentication"
+    },
+    {
+      "id": "alert-pmlxoajwd",
+      "uid": "user_3Gcona6Lmnf2lyPcQszgGcAOErX",
+      "timestamp": "2026-07-17T09:26:52.756Z",
+      "event": "User Sign In",
+      "details": "Logged in via Clerk Authentication"
+    },
+    {
+      "id": "alert-crnjqjzb5",
+      "uid": "user_3Gcona6Lmnf2lyPcQszgGcAOErX",
+      "timestamp": "2026-07-17T09:26:51.746Z",
+      "event": "User Sign In",
+      "details": "Logged in via Clerk Authentication"
+    },
+    {
+      "id": "alert-pojy2liyw",
+      "uid": "user_3Gcona6Lmnf2lyPcQszgGcAOErX",
+      "timestamp": "2026-07-17T09:26:50.899Z",
+      "event": "User Sign In",
+      "details": "Logged in via Clerk Authentication"
+    },
+    {
+      "id": "alert-ti5dh7k3l",
+      "uid": "user_3Gcona6Lmnf2lyPcQszgGcAOErX",
+      "timestamp": "2026-07-17T09:26:50.122Z",
+      "event": "User Sign In",
+      "details": "Logged in via Clerk Authentication"
+    },
+    {
+      "id": "alert-a06ow3h7z",
+      "uid": "user_3Gcona6Lmnf2lyPcQszgGcAOErX",
+      "timestamp": "2026-07-17T09:26:49.188Z",
+      "event": "User Sign In",
+      "details": "Logged in via Clerk Authentication"
+    },
+    {
+      "id": "alert-2r29rcrci",
+      "uid": "user_3Gcona6Lmnf2lyPcQszgGcAOErX",
+      "timestamp": "2026-07-17T09:26:48.358Z",
+      "event": "User Sign In",
+      "details": "Logged in via Clerk Authentication"
+    },
+    {
+      "id": "alert-nnzsns0su",
+      "uid": "user_3Gcona6Lmnf2lyPcQszgGcAOErX",
+      "timestamp": "2026-07-17T09:26:47.563Z",
+      "event": "User Sign In",
+      "details": "Logged in via Clerk Authentication"
+    },
+    {
+      "id": "alert-g8rrne1qx",
+      "uid": "user_3Gcona6Lmnf2lyPcQszgGcAOErX",
+      "timestamp": "2026-07-17T09:26:46.831Z",
+      "event": "User Sign In",
+      "details": "Logged in via Clerk Authentication"
+    },
+    {
+      "id": "alert-q6wzx6zrj",
+      "uid": "user_3Gcona6Lmnf2lyPcQszgGcAOErX",
+      "timestamp": "2026-07-17T09:26:46.080Z",
+      "event": "User Sign In",
+      "details": "Logged in via Clerk Authentication"
+    },
+    {
+      "id": "alert-kvxn6bmxm",
+      "uid": "user_3Gcona6Lmnf2lyPcQszgGcAOErX",
+      "timestamp": "2026-07-17T09:26:45.391Z",
+      "event": "User Sign In",
+      "details": "Logged in via Clerk Authentication"
+    },
+    {
+      "id": "alert-0rbzfv586",
+      "uid": "user_3Gcona6Lmnf2lyPcQszgGcAOErX",
+      "timestamp": "2026-07-17T09:26:44.642Z",
+      "event": "User Sign In",
+      "details": "Logged in via Clerk Authentication"
+    },
+    {
+      "id": "alert-tsmz8ggbm",
+      "uid": "user_3Gcona6Lmnf2lyPcQszgGcAOErX",
+      "timestamp": "2026-07-17T09:26:43.779Z",
+      "event": "User Sign In",
+      "details": "Logged in via Clerk Authentication"
+    },
+    {
+      "id": "alert-q2ij1rmnp",
+      "uid": "user_3Gcona6Lmnf2lyPcQszgGcAOErX",
+      "timestamp": "2026-07-17T09:26:42.951Z",
+      "event": "User Sign In",
+      "details": "Logged in via Clerk Authentication"
+    },
+    {
+      "id": "alert-t7g4ju013",
+      "uid": "user_3Gcona6Lmnf2lyPcQszgGcAOErX",
+      "timestamp": "2026-07-17T09:26:41.937Z",
+      "event": "User Sign In",
+      "details": "Logged in via Clerk Authentication"
+    },
+    {
+      "id": "alert-jrne2ucmi",
+      "uid": "user_3Gcona6Lmnf2lyPcQszgGcAOErX",
+      "timestamp": "2026-07-17T09:26:41.176Z",
+      "event": "User Sign In",
+      "details": "Logged in via Clerk Authentication"
+    },
+    {
+      "id": "alert-coppf84d8",
+      "uid": "user_3Gcona6Lmnf2lyPcQszgGcAOErX",
+      "timestamp": "2026-07-17T09:26:40.423Z",
+      "event": "User Sign In",
+      "details": "Logged in via Clerk Authentication"
+    },
+    {
+      "id": "alert-w8fidythz",
+      "uid": "user_3Gcona6Lmnf2lyPcQszgGcAOErX",
+      "timestamp": "2026-07-17T09:26:39.568Z",
+      "event": "User Sign In",
+      "details": "Logged in via Clerk Authentication"
+    },
+    {
+      "id": "alert-lh6utpoxb",
+      "uid": "user_3Gcona6Lmnf2lyPcQszgGcAOErX",
+      "timestamp": "2026-07-17T09:26:38.654Z",
+      "event": "User Sign In",
+      "details": "Logged in via Clerk Authentication"
+    },
+    {
+      "id": "alert-q3ud6vxu3",
+      "uid": "user_3Gcona6Lmnf2lyPcQszgGcAOErX",
+      "timestamp": "2026-07-17T09:26:37.930Z",
+      "event": "User Sign In",
+      "details": "Logged in via Clerk Authentication"
+    },
+    {
+      "id": "alert-0wzkktly8",
+      "uid": "user_3Gcona6Lmnf2lyPcQszgGcAOErX",
+      "timestamp": "2026-07-17T09:26:37.015Z",
+      "event": "User Sign In",
+      "details": "Logged in via Clerk Authentication"
+    },
+    {
+      "id": "alert-9qae7njzv",
+      "uid": "user_3Gcona6Lmnf2lyPcQszgGcAOErX",
+      "timestamp": "2026-07-17T09:26:36.181Z",
+      "event": "User Sign In",
+      "details": "Logged in via Clerk Authentication"
+    },
+    {
+      "id": "alert-j73e4wtmf",
+      "uid": "user_3Gcona6Lmnf2lyPcQszgGcAOErX",
+      "timestamp": "2026-07-17T09:26:35.348Z",
+      "event": "User Sign In",
+      "details": "Logged in via Clerk Authentication"
+    },
+    {
+      "id": "alert-4iq04fru5",
+      "uid": "user_3Gcona6Lmnf2lyPcQszgGcAOErX",
+      "timestamp": "2026-07-17T09:26:34.618Z",
+      "event": "User Sign In",
+      "details": "Logged in via Clerk Authentication"
+    },
+    {
+      "id": "alert-2b7m6fvs1",
+      "uid": "user_3Gcona6Lmnf2lyPcQszgGcAOErX",
+      "timestamp": "2026-07-17T09:26:33.850Z",
+      "event": "User Sign In",
+      "details": "Logged in via Clerk Authentication"
+    },
+    {
+      "id": "alert-ecyf4hcmk",
+      "uid": "user_3Gcona6Lmnf2lyPcQszgGcAOErX",
+      "timestamp": "2026-07-17T09:26:33.125Z",
+      "event": "User Sign In",
+      "details": "Logged in via Clerk Authentication"
+    },
+    {
+      "id": "alert-svl8kd5sk",
+      "uid": "user_3Gcona6Lmnf2lyPcQszgGcAOErX",
+      "timestamp": "2026-07-17T09:26:32.305Z",
+      "event": "User Sign In",
+      "details": "Logged in via Clerk Authentication"
+    },
+    {
+      "id": "alert-slbj5rljm",
+      "uid": "user_3Gcona6Lmnf2lyPcQszgGcAOErX",
+      "timestamp": "2026-07-17T09:26:31.577Z",
+      "event": "User Sign In",
+      "details": "Logged in via Clerk Authentication"
+    },
+    {
+      "id": "alert-tbbmfltik",
+      "uid": "user_3Gcona6Lmnf2lyPcQszgGcAOErX",
+      "timestamp": "2026-07-17T09:26:30.804Z",
+      "event": "User Sign In",
+      "details": "Logged in via Clerk Authentication"
+    },
+    {
+      "id": "alert-rys9irtcy",
+      "uid": "user_3Gcona6Lmnf2lyPcQszgGcAOErX",
+      "timestamp": "2026-07-17T09:26:30.088Z",
+      "event": "User Sign In",
+      "details": "Logged in via Clerk Authentication"
+    },
+    {
+      "id": "alert-5eiih8rx5",
+      "uid": "user_3Gcona6Lmnf2lyPcQszgGcAOErX",
+      "timestamp": "2026-07-17T09:26:29.335Z",
+      "event": "User Sign In",
+      "details": "Logged in via Clerk Authentication"
+    },
+    {
+      "id": "alert-i366txs9p",
+      "uid": "user_3Gcona6Lmnf2lyPcQszgGcAOErX",
+      "timestamp": "2026-07-17T09:26:28.538Z",
+      "event": "User Sign In",
+      "details": "Logged in via Clerk Authentication"
+    },
+    {
+      "id": "alert-w9wj1ukdo",
+      "uid": "user_3Gcona6Lmnf2lyPcQszgGcAOErX",
+      "timestamp": "2026-07-17T09:26:27.650Z",
+      "event": "User Sign In",
+      "details": "Logged in via Clerk Authentication"
+    },
+    {
+      "id": "alert-rx1wqoq6i",
+      "uid": "user_3Gcona6Lmnf2lyPcQszgGcAOErX",
+      "timestamp": "2026-07-17T09:26:26.923Z",
+      "event": "User Sign In",
+      "details": "Logged in via Clerk Authentication"
+    },
+    {
+      "id": "alert-g56bsk4f4",
+      "uid": "user_3Gcona6Lmnf2lyPcQszgGcAOErX",
+      "timestamp": "2026-07-17T09:26:26.196Z",
+      "event": "User Sign In",
+      "details": "Logged in via Clerk Authentication"
+    },
+    {
+      "id": "alert-zgy7zr7iy",
+      "uid": "user_3Gcona6Lmnf2lyPcQszgGcAOErX",
+      "timestamp": "2026-07-17T09:26:26.126Z",
+      "event": "Account Created",
+      "details": "User signed up/registered via Clerk."
+    },
+    {
+      "id": "alert-1",
+      "uid": "sandbox-demo",
+      "timestamp": "2026-07-17T09:04:07.100Z",
+      "event": "User Sign In",
+      "details": "Successful login into sandbox account"
+    }
+  ],
+  "documents": [],
+  "policyExtractions": [],
+  "emailRecords": [
+    {
+      "id": "email-1",
+      "uid": "sandbox-demo",
+      "subject": "Your PGE energy statement is ready",
+      "sender": "billing@pge.com",
+      "category": "Bills",
+      "date": "2026-07-15T09:14:07.100Z",
+      "extractedSummary": "PG&E bill of $142.50 is due on 2026-07-20. Access account to review usage details.",
+      "rawSnippet": "Your latest energy statement for account ending in 4930 is now available online. Total Amount Due: $142.50. Due Date: 2026-07-20. Direct debit will process on due date if registered."
+    },
+    {
+      "id": "email-2",
+      "uid": "sandbox-demo",
+      "subject": "Lighthouse Life Insurance Policy Renewal Confirmation",
+      "sender": "renewals@lighthouse-ins.com",
+      "category": "Insurance",
+      "date": "2026-07-02T09:14:07.100Z",
+      "extractedSummary": "Life insurance policy #LI-94302-AM renewed successfully. Expiry: 2027-07-15. Standard coverage amount $500,000.",
+      "rawSnippet": "Dear Alex Mercer, your policy number LI-94302-AM has been renewed. Premium of $75/mo will be debited automatically. Expiry date of this current coverage period: 2027-07-15. Designated Nominee on record: Sarah Mercer."
+    },
+    {
+      "id": "email-bdg8worje",
+      "uid": "user_3GcqPLi4XNH5hXNkQF479COiUhX",
+      "subject": "Premium Notice for Policy #LI-94302-AM",
+      "sender": "billing@lighthouse-ins.com",
+      "category": "Insurance",
+      "date": "2026-07-17T09:40:00.762Z",
+      "extractedSummary": "A monthly premium payment of $75 is scheduled for auto-debit on August 1st, 2026, to keep your policy active.",
+      "rawSnippet": "Hi Alex Mercer, your monthly premium of $75 is scheduled for debit on August 1st, 2026. Keep your policy active."
+    },
+    {
+      "id": "email-gmqmt0vya",
+      "uid": "user_3GcqPLi4XNH5hXNkQF479COiUhX",
+      "subject": "Your Auto Loan Statement of Account",
+      "sender": "statement@chase.com",
+      "category": "Bills",
+      "date": "2026-07-17T09:40:00.762Z",
+      "extractedSummary": "Confirm your outstanding $350.00 auto loan payment before July 20th, 2026, to avoid overdue penalties.",
+      "rawSnippet": "Chase Auto Loan EMI amount $350.00 is outstanding for account ending 4032. Please confirm payment before July 20th, 2026 to avoid overdue penalties."
+    },
+    {
+      "id": "email-sibwln680",
+      "uid": "user_3GcqPLi4XNH5hXNkQF479COiUhX",
+      "subject": "Scheduled Pediatrician appointment confirmation",
+      "sender": "appointments@kaiser.org",
+      "category": "Appointments",
+      "date": "2026-07-17T09:40:00.762Z",
+      "extractedSummary": "Attend Emma's scheduled immunization appointment at Kaiser Redwood City, Room 4B, on July 22nd at 2:30 PM.",
+      "rawSnippet": "Hello Alex. Emma is scheduled for immunisations at Kaiser Redwood City on July 22nd at 2:30 PM. Room 4B."
+    },
+    {
+      "id": "email-mn5nswvh7",
+      "uid": "user_3GcqPLi4XNH5hXNkQF479COiUhX",
+      "subject": "Premium Notice for Policy #LI-94302-AM",
+      "sender": "billing@lighthouse-ins.com",
+      "category": "Insurance",
+      "date": "2026-07-17T09:49:06.919Z",
+      "extractedSummary": "Insurance policy update: Premium Notice for Policy #LI-94302-AM.",
+      "rawSnippet": "Hi Alex Mercer, your monthly premium of $75 is scheduled for debit on August 1st, 2026. Keep your policy active.",
+      "gmailUrl": "https://mail.google.com/mail/u/0/#search/from:billing%40lighthouse-ins.com+subject:(Premium%20Notice%20for%20Policy%20%23LI-94302-AM)"
+    },
+    {
+      "id": "email-8u7hpwbl5",
+      "uid": "user_3GcqPLi4XNH5hXNkQF479COiUhX",
+      "subject": "Your Auto Loan Statement of Account - EMI Due",
+      "sender": "statement@chase.com",
+      "category": "Bills",
+      "date": "2026-07-17T09:49:06.920Z",
+      "extractedSummary": "Billing notification: Your Auto Loan Statement of Account - EMI Due.",
+      "rawSnippet": "Chase Auto Loan EMI amount $350.00 is outstanding for account ending 4032. Please confirm payment before July 20th, 2026 to avoid overdue penalties.",
+      "gmailUrl": "https://mail.google.com/mail/u/0/#search/from:statement%40chase.com+subject:(Your%20Auto%20Loan%20Statement%20of%20Account%20-%20EMI%20Due)"
+    },
+    {
+      "id": "email-ev1124hp4",
+      "uid": "user_3GcqPLi4XNH5hXNkQF479COiUhX",
+      "subject": "Scheduled Pediatrician appointment confirmation",
+      "sender": "appointments@kaiser.org",
+      "category": "Appointments",
+      "date": "2026-07-17T09:49:06.920Z",
+      "extractedSummary": "Scheduled appointment: Scheduled Pediatrician appointment confirmation.",
+      "rawSnippet": "Hello Alex. Emma is scheduled for immunisations at Kaiser Redwood City on July 22nd at 2:30 PM. Room 4B.",
+      "gmailUrl": "https://mail.google.com/mail/u/0/#search/from:appointments%40kaiser.org+subject:(Scheduled%20Pediatrician%20appointment%20confirmation)"
+    },
+    {
+      "id": "email-rdf1qarcn",
+      "uid": "user_3GcqPLi4XNH5hXNkQF479COiUhX",
+      "subject": "Electricity Bill Statement for June 2026",
+      "sender": "no-reply@pge.com",
+      "category": "Bills",
+      "date": "2026-07-17T09:49:06.920Z",
+      "extractedSummary": "Billing notification: Electricity Bill Statement for June 2026.",
+      "rawSnippet": "Your PG&E bill of $143.20 is now available. Payment is due by July 28th, 2026.",
+      "gmailUrl": "https://mail.google.com/mail/u/0/#search/from:no-reply%40pge.com+subject:(Electricity%20Bill%20Statement%20for%20June%202026)"
+    },
+    {
+      "id": "email-riqbntnuf",
+      "uid": "user_3GcqPLi4XNH5hXNkQF479COiUhX",
+      "subject": "Flight Confirmation - Delta DL1402 to JFK",
+      "sender": "delta@delta.com",
+      "category": "Travel",
+      "date": "2026-07-17T09:49:06.920Z",
+      "extractedSummary": "Travel booking details: Flight Confirmation - Delta DL1402 to JFK.",
+      "rawSnippet": "Your flight DL1402 from SFO to JFK is confirmed for July 25th, 2026 at 8:30 AM. Terminal 3, Gate B20.",
+      "gmailUrl": "https://mail.google.com/mail/u/0/#search/from:delta%40delta.com+subject:(Flight%20Confirmation%20-%20Delta%20DL1402%20to%20JFK)"
+    },
+    {
+      "id": "email-4emuay7qr",
+      "uid": "user_3GcqPLi4XNH5hXNkQF479COiUhX",
+      "subject": "Lab Results Ready for Review - Patient Center",
+      "sender": "results@onemedical.com",
+      "category": "Healthcare",
+      "date": "2026-07-17T09:49:06.920Z",
+      "extractedSummary": "Healthcare action item: Lab Results Ready for Review - Patient Center.",
+      "rawSnippet": "Dear Alex, your recent blood chemistry panel results are ready. Log into your One Medical portal to view the doctor's notes.",
+      "gmailUrl": "https://mail.google.com/mail/u/0/#search/from:results%40onemedical.com+subject:(Lab%20Results%20Ready%20for%20Review%20-%20Patient%20Center)"
+    },
+    {
+      "id": "email-tal6bxleu",
+      "uid": "user_3GcqPLi4XNH5hXNkQF479COiUhX",
+      "subject": "Comcast Xfinity Internet Bill Payment",
+      "sender": "billing@xfinity.com",
+      "category": "Bills",
+      "date": "2026-07-17T09:49:06.920Z",
+      "extractedSummary": "Billing notification: Comcast Xfinity Internet Bill Payment.",
+      "rawSnippet": "Thank you for your payment of $89.99 on July 15th, 2026. Your account balance is $0.00.",
+      "gmailUrl": "https://mail.google.com/mail/u/0/#search/from:billing%40xfinity.com+subject:(Comcast%20Xfinity%20Internet%20Bill%20Payment)"
+    },
+    {
+      "id": "email-lftfnm9h0",
+      "uid": "user_3GcqPLi4XNH5hXNkQF479COiUhX",
+      "subject": "Annual Dental Clean-up Scheduled Appointment",
+      "sender": "reception@mercerdental.com",
+      "category": "Appointments",
+      "date": "2026-07-17T09:49:06.920Z",
+      "extractedSummary": "Scheduled appointment: Annual Dental Clean-up Scheduled Appointment.",
+      "rawSnippet": "Hi Alex, this is a reminder of your upcoming check-up and clean-up appointment on July 21st, 2026 at 10:00 AM.",
+      "gmailUrl": "https://mail.google.com/mail/u/0/#search/from:reception%40mercerdental.com+subject:(Annual%20Dental%20Clean-up%20Scheduled%20Appointment)"
+    },
+    {
+      "id": "email-lx5ba980a",
+      "uid": "user_3GcqPLi4XNH5hXNkQF479COiUhX",
+      "subject": "Homeowners Insurance Policy Document Update",
+      "sender": "policy@geico.com",
+      "category": "Insurance",
+      "date": "2026-07-17T09:49:06.920Z",
+      "extractedSummary": "Insurance policy update: Homeowners Insurance Policy Document Update.",
+      "rawSnippet": "Geico Policy #H-302948-22 has been updated. The annual premium of $1200 will renew automatically on August 15th, 2026.",
+      "gmailUrl": "https://mail.google.com/mail/u/0/#search/from:policy%40geico.com+subject:(Homeowners%20Insurance%20Policy%20Document%20Update)"
+    },
+    {
+      "id": "email-d8029aue8",
+      "uid": "user_3GcqPLi4XNH5hXNkQF479COiUhX",
+      "subject": "Hotel Booking Confirmation - Cozy Cabin Lake Tahoe",
+      "sender": "support@airbnb.com",
+      "category": "Travel",
+      "date": "2026-07-17T09:49:06.920Z",
+      "extractedSummary": "Travel booking details: Hotel Booking Confirmation - Cozy Cabin Lake Tahoe.",
+      "rawSnippet": "Your stay at Cozy Cabin Lake Tahoe is confirmed from July 30th to August 2nd, 2026. Reservation code: HM394DK02.",
+      "gmailUrl": "https://mail.google.com/mail/u/0/#search/from:support%40airbnb.com+subject:(Hotel%20Booking%20Confirmation%20-%20Cozy%20Cabin%20Lake%20Tahoe)"
+    },
+    {
+      "id": "email-h9g61esex",
+      "uid": "user_3Gd6gh3imANxBppCOVcfM9XpTVP",
+      "subject": "Chidvi_pro, remember this?",
+      "sender": "Team Snapchat <informational@email.snapchat.com>",
+      "category": "Bills",
+      "date": "2026-03-29T10:07:16.000Z",
+      "extractedSummary": "Billing notification: Chidvi_pro, remember this?.",
+      "rawSnippet": "On 9 August 2020... ​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​",
+      "gmailUrl": "https://mail.google.com/mail/u/0/#inbox/19d390fe9f8ab005"
+    },
+    {
+      "id": "email-ob8jju8ic",
+      "uid": "user_3Gd6gh3imANxBppCOVcfM9XpTVP",
+      "subject": "Chidvi_pro, remember this?",
+      "sender": "Team Snapchat <informational@email.snapchat.com>",
+      "category": "Bills",
+      "date": "2026-03-27T10:38:57.000Z",
+      "extractedSummary": "Billing notification: Chidvi_pro, remember this?.",
+      "rawSnippet": "On 10 August 2020... ​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​",
+      "gmailUrl": "https://mail.google.com/mail/u/0/#inbox/19d2ee033ded2215"
+    },
+    {
+      "id": "email-r1i4x3zid",
+      "uid": "user_3Gd6gh3imANxBppCOVcfM9XpTVP",
+      "subject": "Changes to your Play Games profile",
+      "sender": "Google Play <googleplay-noreply@google.com>",
+      "category": "Bills",
+      "date": "2025-08-29T02:56:57.000Z",
+      "extractedSummary": "Billing notification: Changes to your Play Games profile.",
+      "rawSnippet": "\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\nChanges to your Play Games profile\r\n\r\nHello,\r\n\r\nWe’ll soon update the way gamer profiles work on Google Play.\r\n\r\nStarting ",
+      "gmailUrl": "https://mail.google.com/mail/u/0/#inbox/198f3c1c0dfdd07a"
+    },
+    {
+      "id": "email-4mtz9xwji",
+      "uid": "user_3Gd6gh3imANxBppCOVcfM9XpTVP",
+      "subject": "Welcome to Rockstar Games",
+      "sender": "noreply@rockstargames.com",
+      "category": "Bills",
+      "date": "2025-08-24T09:25:56.000Z",
+      "extractedSummary": "Billing notification: Welcome to Rockstar Games.",
+      "rawSnippet": "2025-08-24 09:25\n\r\n\r  \n\r\n\r    Thanks for joining! Your new account provides full access to features like the Rockstar Games Launcher, and also makes y",
+      "gmailUrl": "https://mail.google.com/mail/u/0/#inbox/198db66157de7767"
+    },
+    {
+      "id": "email-7r1jniw9o",
+      "uid": "user_3Gd6gh3imANxBppCOVcfM9XpTVP",
+      "subject": "Your Rockstar Games verification code",
+      "sender": "Rockstar Games <noreply@rockstargames.com>",
+      "category": "Bills",
+      "date": "2025-08-24T09:25:26.000Z",
+      "extractedSummary": "Billing notification: Your Rockstar Games verification code.",
+      "rawSnippet": "245643\r\n\r\n\r\n\r\nRockstar Games\r\n\r\n\r\n\r\n\r\nEmail Verification Code\r\n\r\n\r\n\r\n\r\nEnter this code on the identity verification screen:\r\n\r\n\r\n\r\n245643\r\n\r\n\r\n\r\nThis ",
+      "gmailUrl": "https://mail.google.com/mail/u/0/#inbox/198db65a14d8492b"
+    },
+    {
+      "id": "email-ru9bztfal",
+      "uid": "user_3Gd6gh3imANxBppCOVcfM9XpTVP",
+      "subject": "Play Angry Birds 2 on PC with Google Play Games beta",
+      "sender": "Google Play <googleplay-noreply@google.com>",
+      "category": "Bills",
+      "date": "2025-02-09T09:14:06.000Z",
+      "extractedSummary": "Billing notification: Play Angry Birds 2 on PC with Google Play Games beta.",
+      "rawSnippet": "\r\n   \r\n<https://notifications.google.com/g/p/ANiao5rPRB7AIPZuwz1YQM5-5Mqj6NhTManHNRLjziS23Y2V3Mxh4OjknaRLRxmArzE3YSk4OndRrph3hbeyO8Fo_5uhVqHNWTdTBT5D5",
+      "gmailUrl": "https://mail.google.com/mail/u/0/#inbox/194e9fcce1661974"
+    },
+    {
+      "id": "email-1ewaf5cbt",
+      "uid": "user_3Gd6gh3imANxBppCOVcfM9XpTVP",
+      "subject": "Join CHIDVIELAS's family group?",
+      "sender": "Google <families-noreply@google.com>",
+      "category": "Bills",
+      "date": "2026-07-01T14:35:05.000Z",
+      "extractedSummary": "Billing notification: Join CHIDVIELAS's family group?.",
+      "rawSnippet": "Family group invitation\r\nCHIDVIELAS PAREPALLI wants you to join his family group\r\n\r\ngamingwithchidvi@gmail.com <#>\r\n\r\nDear Gaming with,\r\n\r\nYou can joi",
+      "gmailUrl": "https://mail.google.com/mail/u/0/#inbox/19f1e1ae18bbd92c"
+    },
+    {
+      "id": "email-rp1c1sx2u",
+      "uid": "user_3Gd6gh3imANxBppCOVcfM9XpTVP",
+      "subject": "Join CHIDVIELAS's family group?",
+      "sender": "Google <families-noreply@google.com>",
+      "category": "Bills",
+      "date": "2026-06-28T14:35:06.000Z",
+      "extractedSummary": "Billing notification: Join CHIDVIELAS's family group?.",
+      "rawSnippet": "Family group invitation\r\nCHIDVIELAS PAREPALLI wants you to join his family group\r\n\r\ngamingwithchidvi@gmail.com <#>\r\n\r\nDear Gaming with,\r\n\r\nYou can joi",
+      "gmailUrl": "https://mail.google.com/mail/u/0/#inbox/19f0ea7cff808dcd"
+    },
+    {
+      "id": "email-pj1ha9akf",
+      "uid": "user_3Gd6gh3imANxBppCOVcfM9XpTVP",
+      "subject": "Pre-Order Grand Theft Auto VI",
+      "sender": "Rockstar Propaganda <donotreply@newsletter.rockstargames.com>",
+      "category": "Bills",
+      "date": "2026-06-25T16:39:25.000Z",
+      "extractedSummary": "Billing notification: Pre-Order Grand Theft Auto VI.",
+      "rawSnippet": "GRAND THEFT AUTO VI\r\n\r\n\r\nCOMING NOVEMBER 19 2026\r\n\r\nPlayStation 5 > https://click.newsletter.rockstargames.com/?qs=ABB7InYiOjEsImQiOjQ5MTh9AAYAAAAAAmd",
+      "gmailUrl": "https://mail.google.com/mail/u/0/#inbox/19effbbb41d7163a"
+    },
+    {
+      "id": "email-lxso1x0w0",
+      "uid": "user_3Gd6gh3imANxBppCOVcfM9XpTVP",
+      "subject": "Grand Theft Auto VI Pre-Orders Begin on June 25",
+      "sender": "Rockstar Propaganda <donotreply@newsletter.rockstargames.com>",
+      "category": "Bills",
+      "date": "2026-06-18T20:03:37.000Z",
+      "extractedSummary": "Billing notification: Grand Theft Auto VI Pre-Orders Begin on June 25.",
+      "rawSnippet": "COMING NOVEMBER 19 2026\r\n\r\nPlayStation 5 > https://www.playstation.com/games/grand-theft-auto-vi/\r\nXbox Series X|S > https://www.xbox.com/games/store/",
+      "gmailUrl": "https://mail.google.com/mail/u/0/#inbox/19edce4094c2bf16"
+    },
+    {
+      "id": "email-gej0v516i",
+      "uid": "user_3Gd6gh3imANxBppCOVcfM9XpTVP",
+      "subject": "Quarterly reminder about Google Play terms and policies",
+      "sender": "Google Play <googleplay-noreply@google.com>",
+      "category": "Bills",
+      "date": "2026-05-17T04:56:23.000Z",
+      "extractedSummary": "Billing notification: Quarterly reminder about Google Play terms and policies.",
+      "rawSnippet": "\r\nHello Google Play user,\r\n\r\nThis email is a quarterly reminder that your use of Google Play and the  \r\napps, games, music, movies, books, magazines, ",
+      "gmailUrl": "https://mail.google.com/mail/u/0/#inbox/19e344ae4ad745a3"
+    },
+    {
+      "id": "email-43r0rgx1h",
+      "uid": "user_3Gd6gh3imANxBppCOVcfM9XpTVP",
+      "subject": "See yourself in the halfpipe",
+      "sender": "ChatGPT <noreply@email.openai.com>",
+      "category": "Bills",
+      "date": "2026-03-07T10:08:09.000Z",
+      "extractedSummary": "Billing notification: See yourself in the halfpipe.",
+      "rawSnippet": "Give your photos a winter sports spin Get your winter sport action shot From icy landings to sky-high ski jumps, see yourself as one of the winter gam",
+      "gmailUrl": "https://mail.google.com/mail/u/0/#inbox/19cc7c4cf9e9547c"
+    },
+    {
+      "id": "email-xp26o4d1a",
+      "uid": "user_3Gd6gh3imANxBppCOVcfM9XpTVP",
+      "subject": "Break Up Rival Couples in GTA Online's New Deadline Duet Mode",
+      "sender": "Rockstar Propaganda <donotreply@newsletter.rockstargames.com>",
+      "category": "Bills",
+      "date": "2026-02-13T19:59:18.000Z",
+      "extractedSummary": "Billing notification: Break Up Rival Couples in GTA Online's New Deadline Duet Mode.",
+      "rawSnippet": "BREAK HEARTS IN DEADLINE DUET\r\nPartner up and prove your chemistry is downright explosive by blowing your opposition to smithereens in *Deadline Duet*",
+      "gmailUrl": "https://mail.google.com/mail/u/0/#inbox/19c58ab3ceb276ae"
+    },
+    {
+      "id": "email-cjel5yzn7",
+      "uid": "user_3Gd6gh3imANxBppCOVcfM9XpTVP",
+      "subject": "Rockstar Broadcast: New Odd Jobs and Mansion Raid Mode Now in GTA Online",
+      "sender": "Rockstar Propaganda <donotreply@newsletter.rockstargames.com>",
+      "category": "Bills",
+      "date": "2026-01-30T23:15:14.000Z",
+      "extractedSummary": "Billing notification: Rockstar Broadcast: New Odd Jobs and Mansion Raid Mode Now in GTA Online.",
+      "rawSnippet": "*THIS IS A ROCKSTAR BROADCAST*\r\n\r\nMAKE AN HONEST LIVING IN THREE NEW GTA ONLINE ODD JOBS\r\nGet 2X GTA$ and RP Fighting Fires, Operating Machinery, and ",
+      "gmailUrl": "https://mail.google.com/mail/u/0/#inbox/19c113c725c8a830"
+    }
+  ],
+  "bills": [
+    {
+      "id": "bill-1",
+      "uid": "sandbox-demo",
+      "name": "PG&E Electricity Bill",
+      "dueDate": "2026-07-20",
+      "amount": 142.5,
+      "status": "Pending",
+      "category": "Upcoming Bills"
+    },
+    {
+      "id": "bill-2",
+      "uid": "sandbox-demo",
+      "name": "Chase Auto Loan EMI",
+      "dueDate": "2026-07-22",
+      "amount": 350,
+      "status": "Pending",
+      "category": "Loans/EMIs"
+    },
+    {
+      "id": "bill-3",
+      "uid": "sandbox-demo",
+      "name": "Stanford Healthcare Copay",
+      "dueDate": "2026-07-27",
+      "amount": 50,
+      "status": "Paid",
+      "category": "Upcoming Bills"
+    },
+    {
+      "id": "bill-4",
+      "uid": "sandbox-demo",
+      "name": "Trinity School Fee",
+      "dueDate": "2026-07-18",
+      "amount": 400,
+      "status": "Pending",
+      "category": "School Fees"
+    },
+    {
+      "id": "bill-rent-july4",
+      "uid": "sandbox-demo",
+      "name": "House Rent EMI Payment",
+      "dueDate": "2026-07-04",
+      "amount": 1200,
+      "status": "Pending",
+      "category": "Loans/EMIs",
+      "priority": "High",
+      "notes": "Monthly apartment lease amortization auto-debit process."
+    },
+    {
+      "id": "bill-school-july4",
+      "uid": "sandbox-demo",
+      "name": "School Bus Fees",
+      "dueDate": "2026-07-04",
+      "amount": 180,
+      "status": "Pending",
+      "category": "School Fees",
+      "priority": "Medium",
+      "notes": "Quarterly transportation charges for children school commute."
+    },
+    {
+      "id": "bill-1-user_3Gcona6Lmnf2lyPcQszgGcAOErX-5j3qf",
+      "uid": "user_3Gcona6Lmnf2lyPcQszgGcAOErX",
+      "name": "PG&E Electricity & Gas",
+      "dueDate": "2026-07-20",
+      "amount": 142.5,
+      "status": "Pending",
+      "category": "Upcoming Bills",
+      "priority": "Medium",
+      "notes": "Monthly utilities for electricity and gas heating."
+    },
+    {
+      "id": "bill-2-user_3Gcona6Lmnf2lyPcQszgGcAOErX-nkizl",
+      "uid": "user_3Gcona6Lmnf2lyPcQszgGcAOErX",
+      "name": "Comcast Xfinity Internet",
+      "dueDate": "2026-07-23",
+      "amount": 85,
+      "status": "Pending",
+      "category": "Upcoming Bills",
+      "priority": "Low",
+      "notes": "High-speed broadband internet subscription fee."
+    },
+    {
+      "id": "bill-3-user_3Gcona6Lmnf2lyPcQszgGcAOErX-4a74b",
+      "uid": "user_3Gcona6Lmnf2lyPcQszgGcAOErX",
+      "name": "Chase Auto Loan Amortization",
+      "dueDate": "2026-07-22",
+      "amount": 350,
+      "status": "Pending",
+      "category": "Loans/EMIs",
+      "priority": "High",
+      "notes": "Auto-debit loan payment for household vehicle."
+    },
+    {
+      "id": "bill-4-user_3Gcona6Lmnf2lyPcQszgGcAOErX-nnvw1",
+      "uid": "user_3Gcona6Lmnf2lyPcQszgGcAOErX",
+      "name": "Trinity School Fees",
+      "dueDate": "2026-07-25",
+      "amount": 400,
+      "status": "Pending",
+      "category": "School Fees",
+      "priority": "Medium",
+      "notes": "Quarterly tuition fee payment."
+    },
+    {
+      "id": "bill-1-user_3GcqPLi4XNH5hXNkQF479COiUhX-5qjgi",
+      "uid": "user_3GcqPLi4XNH5hXNkQF479COiUhX",
+      "name": "PG&E Electricity & Gas",
+      "dueDate": "2026-07-20",
+      "amount": 142.5,
+      "status": "Pending",
+      "category": "Upcoming Bills",
+      "priority": "Medium",
+      "notes": "Monthly utilities for electricity and gas heating."
+    },
+    {
+      "id": "bill-2-user_3GcqPLi4XNH5hXNkQF479COiUhX-3nz76",
+      "uid": "user_3GcqPLi4XNH5hXNkQF479COiUhX",
+      "name": "Comcast Xfinity Internet",
+      "dueDate": "2026-07-23",
+      "amount": 85,
+      "status": "Pending",
+      "category": "Upcoming Bills",
+      "priority": "Low",
+      "notes": "High-speed broadband internet subscription fee."
+    },
+    {
+      "id": "bill-3-user_3GcqPLi4XNH5hXNkQF479COiUhX-cjjy4",
+      "uid": "user_3GcqPLi4XNH5hXNkQF479COiUhX",
+      "name": "Chase Auto Loan Amortization",
+      "dueDate": "2026-07-22",
+      "amount": 350,
+      "status": "Pending",
+      "category": "Loans/EMIs",
+      "priority": "High",
+      "notes": "Auto-debit loan payment for household vehicle."
+    },
+    {
+      "id": "bill-4-user_3GcqPLi4XNH5hXNkQF479COiUhX-hz5j7",
+      "uid": "user_3GcqPLi4XNH5hXNkQF479COiUhX",
+      "name": "Trinity School Fees",
+      "dueDate": "2026-07-25",
+      "amount": 400,
+      "status": "Pending",
+      "category": "School Fees",
+      "priority": "Medium",
+      "notes": "Quarterly tuition fee payment."
+    },
+    {
+      "id": "bill-1-user_3Gd6gh3imANxBppCOVcfM9XpTVP-wygj2",
+      "uid": "user_3Gd6gh3imANxBppCOVcfM9XpTVP",
+      "name": "PG&E Electricity & Gas",
+      "dueDate": "2026-07-20",
+      "amount": 142.5,
+      "status": "Pending",
+      "category": "Upcoming Bills",
+      "priority": "Medium",
+      "notes": "Monthly utilities for electricity and gas heating."
+    },
+    {
+      "id": "bill-2-user_3Gd6gh3imANxBppCOVcfM9XpTVP-wqxou",
+      "uid": "user_3Gd6gh3imANxBppCOVcfM9XpTVP",
+      "name": "Comcast Xfinity Internet",
+      "dueDate": "2026-07-23",
+      "amount": 85,
+      "status": "Pending",
+      "category": "Upcoming Bills",
+      "priority": "Low",
+      "notes": "High-speed broadband internet subscription fee."
+    },
+    {
+      "id": "bill-3-user_3Gd6gh3imANxBppCOVcfM9XpTVP-bjg5j",
+      "uid": "user_3Gd6gh3imANxBppCOVcfM9XpTVP",
+      "name": "Chase Auto Loan Amortization",
+      "dueDate": "2026-07-22",
+      "amount": 350,
+      "status": "Pending",
+      "category": "Loans/EMIs",
+      "priority": "High",
+      "notes": "Auto-debit loan payment for household vehicle."
+    },
+    {
+      "id": "bill-4-user_3Gd6gh3imANxBppCOVcfM9XpTVP-xwirj",
+      "uid": "user_3Gd6gh3imANxBppCOVcfM9XpTVP",
+      "name": "Trinity School Fees",
+      "dueDate": "2026-07-25",
+      "amount": 400,
+      "status": "Pending",
+      "category": "School Fees",
+      "priority": "Medium",
+      "notes": "Quarterly tuition fee payment."
+    }
+  ],
+  "appointments": [
+    {
+      "id": "appt-1",
+      "uid": "sandbox-demo",
+      "name": "Dentist Checkup & Cleaning",
+      "date": "2026-07-18",
+      "time": "10:00 AM",
+      "status": "Upcoming",
+      "location": "Dr. Aris Dental Clinic",
+      "notes": "Routine checkup. Do not eat 1 hour before."
+    },
+    {
+      "id": "appt-2",
+      "uid": "sandbox-demo",
+      "name": "Pediatrician Appointment (Emma)",
+      "date": "2026-07-24",
+      "time": "02:30 PM",
+      "status": "Upcoming",
+      "location": "Kaiser Permanente, Redwood City",
+      "notes": "Bring immunisation logs."
+    },
+    {
+      "id": "appt-cardio-july4",
+      "uid": "sandbox-demo",
+      "name": "Cardiology Consult — Dr. Gupta",
+      "date": "2026-07-04",
+      "time": "10:00 AM",
+      "status": "Upcoming",
+      "location": "Desk 4, Apollo Clinic",
+      "priority": "High",
+      "category": "Medical Consults",
+      "notes": "Follow-up consultation for mother. Located at Desk 4, Apollo Clinic."
+    },
+    {
+      "id": "appt-1-user_3Gcona6Lmnf2lyPcQszgGcAOErX-44lu5",
+      "uid": "user_3Gcona6Lmnf2lyPcQszgGcAOErX",
+      "name": "Routine Dental Care & Cleaning",
+      "date": "2026-07-19",
+      "time": "10:00 AM",
+      "status": "Upcoming",
+      "location": "Apex Dentistry Suite 2B",
+      "priority": "Medium",
+      "category": "Medical Consults",
+      "notes": "Bi-annual teeth cleaning and visual dental exam."
+    },
+    {
+      "id": "appt-2-user_3Gcona6Lmnf2lyPcQszgGcAOErX-e3loj",
+      "uid": "user_3Gcona6Lmnf2lyPcQszgGcAOErX",
+      "name": "Kaiser Pediatrician Consult (Emma)",
+      "date": "2026-07-24",
+      "time": "02:30 PM",
+      "status": "Upcoming",
+      "location": "Pediatrics Desk A, Kaiser Permanente",
+      "priority": "High",
+      "category": "Medical Consults",
+      "notes": "Routine vaccination and physical growth checkup."
+    },
+    {
+      "id": "appt-1-user_3GcqPLi4XNH5hXNkQF479COiUhX-h53np",
+      "uid": "user_3GcqPLi4XNH5hXNkQF479COiUhX",
+      "name": "Routine Dental Care & Cleaning",
+      "date": "2026-07-19",
+      "time": "10:00 AM",
+      "status": "Upcoming",
+      "location": "Apex Dentistry Suite 2B",
+      "priority": "Medium",
+      "category": "Medical Consults",
+      "notes": "Bi-annual teeth cleaning and visual dental exam."
+    },
+    {
+      "id": "appt-2-user_3GcqPLi4XNH5hXNkQF479COiUhX-5qb3e",
+      "uid": "user_3GcqPLi4XNH5hXNkQF479COiUhX",
+      "name": "Kaiser Pediatrician Consult (Emma)",
+      "date": "2026-07-24",
+      "time": "02:30 PM",
+      "status": "Upcoming",
+      "location": "Pediatrics Desk A, Kaiser Permanente",
+      "priority": "High",
+      "category": "Medical Consults",
+      "notes": "Routine vaccination and physical growth checkup."
+    },
+    {
+      "id": "appt-1-user_3Gd6gh3imANxBppCOVcfM9XpTVP-5p8nw",
+      "uid": "user_3Gd6gh3imANxBppCOVcfM9XpTVP",
+      "name": "Routine Dental Care & Cleaning",
+      "date": "2026-07-19",
+      "time": "10:00 AM",
+      "status": "Upcoming",
+      "location": "Apex Dentistry Suite 2B",
+      "priority": "Medium",
+      "category": "Medical Consults",
+      "notes": "Bi-annual teeth cleaning and visual dental exam."
+    },
+    {
+      "id": "appt-2-user_3Gd6gh3imANxBppCOVcfM9XpTVP-p4w7e",
+      "uid": "user_3Gd6gh3imANxBppCOVcfM9XpTVP",
+      "name": "Kaiser Pediatrician Consult (Emma)",
+      "date": "2026-07-24",
+      "time": "02:30 PM",
+      "status": "Upcoming",
+      "location": "Pediatrics Desk A, Kaiser Permanente",
+      "priority": "High",
+      "category": "Medical Consults",
+      "notes": "Routine vaccination and physical growth checkup."
+    }
+  ],
+  "checkIns": {
+    "user_3Gcona6Lmnf2lyPcQszgGcAOErX": {
+      "2026-07-17": {
+        "date": "2026-07-17",
+        "timestamp": "2026-07-17T09:26:26.129Z",
+        "method": "login"
+      }
+    },
+    "user_3GcqPLi4XNH5hXNkQF479COiUhX": {
+      "2026-07-17": {
+        "date": "2026-07-17",
+        "timestamp": "2026-07-17T09:39:39.502Z",
+        "method": "login"
+      }
+    },
+    "user_3Gd6gh3imANxBppCOVcfM9XpTVP": {
+      "2026-07-17": {
+        "date": "2026-07-17",
+        "timestamp": "2026-07-17T11:53:33.648Z",
+        "method": "login"
+      }
+    }
+  },
+  "checkInStats": {
+    "sandbox-demo": {
+      "uid": "sandbox-demo",
+      "currentStreak": 12,
+      "longestStreak": 24,
+      "lastCheckInDate": "2026-07-16",
+      "lastCheckInTimestamp": "2026-07-16T09:14:07.100Z",
+      "status": "Verified",
+      "lastKnownLocation": {
+        "latitude": 37.7749,
+        "longitude": -122.4194,
+        "timestamp": "2026-07-17T09:14:07.100Z",
+        "batteryLevel": 14,
+        "isCharging": false
+      }
+    },
+    "user_3Gcona6Lmnf2lyPcQszgGcAOErX": {
+      "uid": "user_3Gcona6Lmnf2lyPcQszgGcAOErX",
+      "currentStreak": 1,
+      "longestStreak": 1,
+      "lastCheckInDate": "2026-07-17",
+      "lastCheckInTimestamp": "2026-07-17T09:26:26.129Z",
+      "status": "Verified",
+      "lastKnownLocation": {
+        "latitude": 37.765165970097755,
+        "longitude": -122.41495977754705,
+        "timestamp": "2026-07-17T09:26:26.129Z",
+        "batteryLevel": 94,
+        "isCharging": true
+      }
+    },
+    "user_3GcqPLi4XNH5hXNkQF479COiUhX": {
+      "uid": "user_3GcqPLi4XNH5hXNkQF479COiUhX",
+      "currentStreak": 1,
+      "longestStreak": 1,
+      "lastCheckInDate": "2026-07-17",
+      "lastCheckInTimestamp": "2026-07-17T09:39:39.502Z",
+      "status": "Verified",
+      "lastKnownLocation": {
+        "latitude": 37.77009216121586,
+        "longitude": -122.42844601882003,
+        "timestamp": "2026-07-17T09:39:39.503Z",
+        "batteryLevel": 94,
+        "isCharging": true
+      }
+    },
+    "user_3Gd6gh3imANxBppCOVcfM9XpTVP": {
+      "uid": "user_3Gd6gh3imANxBppCOVcfM9XpTVP",
+      "currentStreak": 1,
+      "longestStreak": 1,
+      "lastCheckInDate": "2026-07-17",
+      "lastCheckInTimestamp": "2026-07-17T11:53:33.648Z",
+      "status": "Verified",
+      "lastKnownLocation": {
+        "latitude": 37.76506546166669,
+        "longitude": -122.4283348087641,
+        "timestamp": "2026-07-17T11:53:33.648Z",
+        "batteryLevel": 94,
+        "isCharging": true
+      }
+    }
+  },
+  "checkInSettings": {
+    "sandbox-demo": {
+      "uid": "sandbox-demo",
+      "checkInWindowStart": "08:00",
+      "checkInWindowEnd": "21:00",
+      "reminderIntervals": [
+        120,
+        60,
+        15
+      ],
+      "gracePeriodMinutes": 120
+    },
+    "user_3Gcona6Lmnf2lyPcQszgGcAOErX": {
+      "uid": "user_3Gcona6Lmnf2lyPcQszgGcAOErX",
+      "checkInWindowStart": "08:00",
+      "checkInWindowEnd": "20:00",
+      "reminderIntervals": [
+        120,
+        60,
+        15
+      ],
+      "gracePeriodMinutes": 120,
+      "sendersToSync": "dhoolapro@gmail.com",
+      "targetKeywords": "emi"
+    },
+    "user_3GcqPLi4XNH5hXNkQF479COiUhX": {
+      "uid": "user_3GcqPLi4XNH5hXNkQF479COiUhX",
+      "checkInWindowStart": "08:00",
+      "checkInWindowEnd": "20:00",
+      "reminderIntervals": [
+        120,
+        60,
+        15
+      ],
+      "gracePeriodMinutes": 120,
+      "sendersToSync": "dhoolapro@gmail.com",
+      "targetKeywords": "emi"
+    },
+    "user_3Gd6gh3imANxBppCOVcfM9XpTVP": {
+      "uid": "user_3Gd6gh3imANxBppCOVcfM9XpTVP",
+      "checkInWindowStart": "08:00",
+      "checkInWindowEnd": "20:00",
+      "reminderIntervals": [
+        120,
+        60,
+        15
+      ],
+      "gracePeriodMinutes": 120,
+      "sendersToSync": "",
+      "targetKeywords": "Games"
+    }
+  },
+  "continuityPlans": {},
+  "sessions": [
+    {
+      "id": "sess-1",
+      "uid": "sandbox-demo",
+      "device": "Chrome on macOS (14.5)",
+      "location": "San Francisco, CA, USA",
+      "lastActive": "2026-07-17T09:14:07.100Z"
+    },
+    {
+      "id": "sess-2",
+      "uid": "sandbox-demo",
+      "device": "Safari on iPhone 15",
+      "location": "San Jose, CA, USA",
+      "lastActive": "2026-07-17T05:14:07.100Z"
+    }
+  ],
+  "checkInEvents": [
+    {
+      "id": "evt-6ueb7rdw4",
+      "uid": "user_3Gd6gh3imANxBppCOVcfM9XpTVP",
+      "timestamp": "2026-07-17T11:53:33.653Z",
+      "date": "2026-07-17",
+      "time": "5:23:33 PM",
+      "method": "login",
+      "methodLabel": "App Login",
+      "status": "Success"
+    },
+    {
+      "id": "evt-pp31m7iev",
+      "uid": "user_3GcqPLi4XNH5hXNkQF479COiUhX",
+      "timestamp": "2026-07-17T09:39:39.506Z",
+      "date": "2026-07-17",
+      "time": "3:09:39 PM",
+      "method": "login",
+      "methodLabel": "App Login",
+      "status": "Success"
+    },
+    {
+      "id": "evt-l5tv822a8",
+      "uid": "user_3Gcona6Lmnf2lyPcQszgGcAOErX",
+      "timestamp": "2026-07-17T09:26:26.133Z",
+      "date": "2026-07-17",
+      "time": "2:56:26 PM",
+      "method": "login",
+      "methodLabel": "App Login",
+      "status": "Success"
+    },
+    {
+      "id": "evt-demo-1",
+      "uid": "sandbox-demo",
+      "timestamp": "2026-07-17T08:14:07.100Z",
+      "date": "2026-07-17",
+      "time": "10:15 AM",
+      "method": "login",
+      "methodLabel": "App Login",
+      "status": "Success"
+    },
+    {
+      "id": "evt-demo-2",
+      "uid": "sandbox-demo",
+      "timestamp": "2026-07-16T08:14:07.100Z",
+      "date": "2026-07-16",
+      "time": "09:30 AM",
+      "method": "manualButton",
+      "methodLabel": "Manual \"I'm Safe\"",
+      "status": "Success"
+    },
+    {
+      "id": "evt-demo-3",
+      "uid": "sandbox-demo",
+      "timestamp": "2026-07-15T08:14:07.100Z",
+      "date": "2026-07-15",
+      "time": "08:45 AM",
+      "method": "smsReply",
+      "methodLabel": "SMS Reply",
+      "status": "Success"
+    },
+    {
+      "id": "evt-demo-4",
+      "uid": "sandbox-demo",
+      "timestamp": "2026-07-14T08:14:07.100Z",
+      "date": "2026-07-14",
+      "time": "11:20 AM",
+      "method": "pushAction",
+      "methodLabel": "Push Notification",
+      "status": "Success"
+    },
+    {
+      "id": "evt-demo-5",
+      "uid": "sandbox-demo",
+      "timestamp": "2026-07-13T08:14:07.100Z",
+      "date": "2026-07-13",
+      "time": "08:00 PM",
+      "method": "missed",
+      "methodLabel": "Missed Check-In",
+      "status": "Missed"
+    },
+    {
+      "id": "evt-demo-6",
+      "uid": "sandbox-demo",
+      "timestamp": "2026-07-12T08:14:07.100Z",
+      "date": "2026-07-12",
+      "time": "10:00 AM",
+      "method": "login",
+      "methodLabel": "App Login",
+      "status": "Success"
+    },
+    {
+      "id": "evt-demo-7",
+      "uid": "sandbox-demo",
+      "timestamp": "2026-07-11T08:14:07.100Z",
+      "date": "2026-07-11",
+      "time": "01:15 PM",
+      "method": "pushAction",
+      "methodLabel": "Push Notification",
+      "status": "Success"
+    },
+    {
+      "id": "evt-demo-8",
+      "uid": "sandbox-demo",
+      "timestamp": "2026-07-10T08:14:07.100Z",
+      "date": "2026-07-10",
+      "time": "02:30 PM",
+      "method": "smsReply",
+      "methodLabel": "SMS Reply",
+      "status": "Success"
+    },
+    {
+      "id": "evt-demo-9",
+      "uid": "sandbox-demo",
+      "timestamp": "2026-07-09T08:14:07.100Z",
+      "date": "2026-07-09",
+      "time": "10:45 AM",
+      "method": "manualButton",
+      "methodLabel": "Manual \"I'm Safe\"",
+      "status": "Success"
+    },
+    {
+      "id": "evt-demo-10",
+      "uid": "sandbox-demo",
+      "timestamp": "2026-07-08T08:14:07.100Z",
+      "date": "2026-07-08",
+      "time": "08:00 PM",
+      "method": "missed",
+      "methodLabel": "Missed Check-In",
+      "status": "Missed"
+    }
+  ]
+}

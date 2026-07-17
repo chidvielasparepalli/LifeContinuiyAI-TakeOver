@@ -7,6 +7,7 @@ import dotenv from "dotenv";
 import crypto from "crypto";
 import JSZip from "jszip";
 import { createClient } from "@supabase/supabase-js";
+import { Composio } from "@composio/core";
 
 dotenv.config();
 
@@ -493,6 +494,19 @@ function getAI(): GoogleGenAI | null {
   return aiInstance;
 }
 
+let composioInstance: Composio | null = null;
+function getComposioClient(): Composio | null {
+  if (!composioInstance) {
+    const key = process.env.COMPOSIO_API_KEY;
+    if (!key) {
+      console.warn("COMPOSIO_API_KEY not found in environment. Composio integration is disabled.");
+      return null;
+    }
+    composioInstance = new Composio({ apiKey: key });
+  }
+  return composioInstance;
+}
+
 // Log security alerts helper
 function logAlert(uid: string, event: string, details: string) {
   const db = loadDb();
@@ -838,6 +852,97 @@ app.post("/api/auth/google-login", (req, res) => {
 
   recordCheckIn(user.uid, "login");
   logAlert(user.uid, "User Sign In", `Logged in via Google Authentication`);
+
+  res.json({ user });
+});
+
+// Clerk Authentication User Synchronization
+app.post("/api/auth/clerk-sync", (req, res) => {
+  const { email, name, uid } = req.body;
+  if (!email || !uid) {
+    return res.status(400).json({ error: "Missing Clerk profile info" });
+  }
+
+  const db = loadDb();
+  let user = db.users[uid];
+
+  if (!user) {
+    // If user exists with the same email but different ID, we can link them or keep separate.
+    // Given mock DB, let's look up by email as fallback, but primary index is uid (clerk ID).
+    user = Object.values(db.users).find((u: any) => u.email.toLowerCase() === email.toLowerCase()) as any;
+    
+    if (user) {
+      // Re-map user under their new Clerk uid
+      const oldUid = user.uid;
+      user.uid = uid;
+      db.users[uid] = user;
+      delete db.users[oldUid];
+      
+      // Update associated tables
+      if (db.emergencyProfiles[oldUid]) {
+        db.emergencyProfiles[uid] = { ...db.emergencyProfiles[oldUid], uid };
+        delete db.emergencyProfiles[oldUid];
+      }
+      if (db.checkInSettings[oldUid]) {
+        db.checkInSettings[uid] = { ...db.checkInSettings[oldUid], uid };
+        delete db.checkInSettings[oldUid];
+      }
+      if (db.checkInStats[oldUid]) {
+        db.checkInStats[uid] = { ...db.checkInStats[oldUid], uid };
+        delete db.checkInStats[oldUid];
+      }
+      
+      saveDb(db);
+      logAlert(uid, "Account Linked", `Linked existing user account ${email} to Clerk ID ${uid}`);
+    } else {
+      // Create new user under Clerk ID
+      user = {
+        uid,
+        email,
+        name: name || email.split("@")[0],
+        createdAt: new Date().toISOString()
+      };
+      db.users[uid] = user;
+
+      db.emergencyProfiles[uid] = {
+        uid,
+        name: name || email.split("@")[0],
+        age: 30,
+        bloodGroup: "O+",
+        emergencyContactName: "",
+        emergencyContactPhone: "",
+        medicalInfo: "",
+        nomineePin: "1111",
+        nomineePhone: "",
+        nomineeName: "",
+        trustedContacts: []
+      };
+
+      db.checkInSettings[uid] = {
+        uid,
+        checkInWindowStart: "08:00",
+        checkInWindowEnd: "20:00",
+        reminderIntervals: [120, 60, 15],
+        gracePeriodMinutes: 120
+      };
+
+      db.checkInStats[uid] = {
+        uid,
+        currentStreak: 0,
+        longestStreak: 0,
+        lastCheckInDate: null,
+        lastCheckInTimestamp: null,
+        status: "Verified",
+        lastKnownLocation: null
+      };
+
+      saveDb(db);
+      logAlert(uid, "Account Created", "User signed up/registered via Clerk.");
+    }
+  }
+
+  recordCheckIn(user.uid, "login");
+  logAlert(user.uid, "User Sign In", `Logged in via Clerk Authentication`);
 
   res.json({ user });
 });
@@ -1415,18 +1520,59 @@ app.get("/api/gmail/settings/:uid", (req, res) => {
 
 app.put("/api/gmail/settings/:uid", (req, res) => {
   const uid = req.params.uid;
-  const { sendersToSync, targetKeywords } = req.body;
+  const { targetKeywords } = req.body;
   const db = loadDb();
 
   if (!db.checkInSettings[uid]) {
     db.checkInSettings[uid] = { uid };
   }
 
-  db.checkInSettings[uid].sendersToSync = sendersToSync || "";
   db.checkInSettings[uid].targetKeywords = targetKeywords || "";
 
   saveDb(db);
   res.json({ success: true });
+});
+
+app.post("/api/composio/link", async (req, res) => {
+  const { uid } = req.body;
+  if (!uid) return res.status(400).json({ error: "uid required" });
+  const client = getComposioClient();
+  if (!client) return res.status(400).json({ error: "COMPOSIO_API_KEY is not configured" });
+
+  const authConfigId = process.env.COMPOSIO_GMAIL_AUTH_CONFIG_ID;
+  if (!authConfigId) {
+    return res.status(400).json({ error: "COMPOSIO_GMAIL_AUTH_CONFIG_ID is not configured. Run setup_composio_gmail.js first." });
+  }
+
+  try {
+    console.log(`[COMPOSIO LINK] Generating link for user=${uid} authConfigId=${authConfigId}`);
+    const connectionRequest = await client.connectedAccounts.link(uid, authConfigId);
+    console.log(`[COMPOSIO LINK] Success, redirectUrl=${connectionRequest.redirectUrl}`);
+    res.json({ success: true, redirectUrl: connectionRequest.redirectUrl });
+  } catch (err: any) {
+    console.error("[COMPOSIO LINK ERROR]", err);
+    const detail = err?.cause?.error?.error?.message || err?.message || "Failed to generate link";
+    res.status(500).json({ error: detail });
+  }
+});
+
+
+app.get("/api/composio/status/:uid", async (req, res) => {
+  const { uid } = req.params;
+  const client = getComposioClient();
+  if (!client) return res.json({ success: true, connected: false, message: "Composio is disabled" });
+  try {
+    const accounts = await client.connectedAccounts.list({ userIds: [uid], statuses: ["ACTIVE"] });
+    const isConnected = (accounts.items || []).some((acc: any) => 
+      (acc.toolkit && (acc.toolkit.slug === "gmail" || acc.toolkit.id === "gmail")) || 
+      (acc.app && (acc.app.slug === "gmail" || acc.app.id === "gmail")) || 
+      acc.appId === "gmail"
+    );
+    res.json({ success: true, connected: isConnected });
+  } catch (err: any) {
+    console.error("[COMPOSIO STATUS ERROR]", err);
+    res.json({ success: true, connected: false, error: err.message });
+  }
 });
 
 app.post("/api/gmail/sync", async (req, res) => {
@@ -1435,33 +1581,128 @@ app.post("/api/gmail/sync", async (req, res) => {
 
   const db = loadDb();
   const ai = getAI();
+  const composio = getComposioClient();
 
-  // Create a few mock emails representing synced records matching search.
-  // Then run classification through Gemini or simulated engine.
-  const sampleGmailInbox = [
-    {
-      subject: "Premium Notice for Policy #LI-94302-AM",
-      sender: "billing@lighthouse-ins.com",
-      body: "Hi Alex Mercer, your monthly premium of $75 is scheduled for debit on August 1st, 2026. Keep your policy active.",
-      date: new Date().toISOString()
-    },
-    {
-      subject: "Your Auto Loan Statement of Account",
-      sender: "statement@chase.com",
-      body: "Chase Auto Loan EMI amount $350.00 is outstanding for account ending 4032. Please confirm payment before July 20th, 2026 to avoid overdue penalties.",
-      date: new Date().toISOString()
-    },
-    {
-      subject: "Scheduled Pediatrician appointment confirmation",
-      sender: "appointments@kaiser.org",
-      body: "Hello Alex. Emma is scheduled for immunisations at Kaiser Redwood City on July 22nd at 2:30 PM. Room 4B.",
-      date: new Date().toISOString()
+  // Retrieve search filters from user settings
+  const settings = db.checkInSettings[uid] || {};
+  const targetKeywords = settings.targetKeywords || "";
+
+  const keywordList = targetKeywords.split(",").map((k: string) => k.trim().toLowerCase()).filter(Boolean);
+
+  // Build Gmail search query with deep search (looks for keyword in subject OR body/globally)
+  let gmailQuery = "";
+  if (keywordList.length > 0) {
+    const subTerms = keywordList.join(" OR ");
+    const globalTerms = keywordList.map(k => `"${k}"`).join(" OR ");
+    gmailQuery = `(subject:(${subTerms}) OR ${globalTerms})`;
+  }
+
+  const defaultQuery = "bill OR invoice OR renewal OR appointment OR booking OR flight OR check-in";
+  const finalQuery = gmailQuery || defaultQuery;
+
+  let fetchedEmails: any[] = [];
+
+  // Check Composio connection
+  if (!composio) {
+    return res.status(400).json({ error: "NEEDS_COMPOSIO_AUTH", message: "Composio is not configured. Please contact support." });
+  }
+
+  // Check if user has an active Gmail connection via Composio
+  let hasGmailConnection = false;
+  try {
+    const accounts = await composio.connectedAccounts.list({ userIds: [uid], statuses: ["ACTIVE"] });
+    hasGmailConnection = (accounts.items || []).some((acc: any) =>
+      (acc.toolkit && (acc.toolkit.slug === "gmail" || acc.toolkit.id === "gmail")) ||
+      (acc.app && (acc.app.slug === "gmail" || acc.app.id === "gmail")) ||
+      acc.appId === "gmail"
+    );
+  } catch (err) {
+    console.warn("[COMPOSIO SYNC CHECK FAILED]", err);
+  }
+
+  if (!hasGmailConnection) {
+    return res.status(403).json({
+      error: "NEEDS_COMPOSIO_AUTH",
+      message: "No Gmail connection found. Please click \"Connect Gmail via Composio\" to authorize access to your inbox, then try syncing again."
+    });
+  }
+
+  // Fetch emails via Composio
+  try {
+    console.log(`[COMPOSIO GMAIL SYNC] Fetching emails for user: ${uid} with query: "${finalQuery}"`);
+    const response = await composio.tools.execute("GMAIL_FETCH_EMAILS", {
+      userId: uid,
+      // dangerouslySkipVersionCheck allows execution without a pinned version string
+      // The alternative is to pass version: "20250909_00" (or whatever the current version is)
+      dangerouslySkipVersionCheck: true,
+      arguments: {
+        query: finalQuery,
+        max_results: 8
+      }
+    });
+
+    console.log("[COMPOSIO RESPONSE RECEIVED]", JSON.stringify(response)?.slice(0, 300));
+
+    let emailList: any[] = [];
+    if (response && typeof response === "object") {
+      const dataObj = (response as any).data || (response as any).result || response;
+      if (Array.isArray(dataObj)) {
+        emailList = dataObj;
+      } else if (dataObj && typeof dataObj === "object") {
+        const possibleArray = dataObj.messages || dataObj.emails || dataObj.data || dataObj.result;
+        if (Array.isArray(possibleArray)) {
+          emailList = possibleArray;
+        }
+      }
     }
-  ];
+
+    for (const email of emailList) {
+      if (!email) continue;
+      
+      let subject = email.subject || email.title || email.messageSubject || "No Subject";
+      let sender = email.from || email.sender || email.senderAddress || email.messageSender || "Unknown Sender";
+      let dateStr = email.date || email.dateTime || email.receivedAt || email.messageDate || new Date().toISOString();
+
+      // Extract details from payload headers if nested standard Gmail structure
+      const headers = email.payload?.headers || email.headers;
+      if (Array.isArray(headers)) {
+        const subHeader = headers.find((h: any) => h.name?.toLowerCase() === "subject");
+        if (subHeader) subject = subHeader.value;
+        const fromHeader = headers.find((h: any) => h.name?.toLowerCase() === "from");
+        if (fromHeader) sender = fromHeader.value;
+        const dateHeader = headers.find((h: any) => h.name?.toLowerCase() === "date");
+        if (dateHeader) dateStr = dateHeader.value;
+      }
+
+      // Handle HTML content stripping tags to save Gemini context tokens
+      let body = email.body || email.snippet || email.content || email.messageText || "";
+      if (body.includes("<html") || body.includes("<body") || body.includes("<div")) {
+        body = body.replace(/<style[^>]*>[\s\S]*?<\/style>/gi, "")
+                   .replace(/<script[^>]*>[\s\S]*?<\/script>/gi, "")
+                   .replace(/<[^>]+>/g, " ")
+                   .replace(/\s+/g, " ")
+                   .trim();
+      }
+
+      const gmailUrl = email.gmailUrl || email.webLink || email.display_url || `https://mail.google.com/mail/u/0/#search/from:${encodeURIComponent(sender)}+subject:(${encodeURIComponent(subject)})`;
+
+      fetchedEmails.push({ subject, sender, body, date: new Date(dateStr).toISOString(), gmailUrl });
+    }
+  } catch (err: any) {
+    console.error("[COMPOSIO GMAIL SYNC ERROR]", err);
+    return res.status(500).json({
+      error: "COMPOSIO_SYNC_FAILED",
+      message: err?.message || "Failed to fetch emails via Composio. Please try again."
+    });
+  }
+
+  if (fetchedEmails.length === 0) {
+    return res.json({ success: true, message: "Sync complete. No emails matched your filters.", records: [] });
+  }
 
   let processed: any[] = [];
 
-  if (ai) {
+  if (fetchedEmails.length > 0 && ai) {
     try {
       const prompt = `You are an email classifier. Given the following list of emails, classify each into one of these exact categories: "Bills", "Insurance", "Travel", "Healthcare", "Appointments".
 Then write a 1-sentence plain English summary of the critical action items or dates for each.
@@ -1475,7 +1716,7 @@ Respond with JSON ONLY as an array of objects matching this exact structure:
 ]
 
 Emails:
-${sampleGmailInbox.map((e, idx) => `Email #${idx}:\nSubject: ${e.subject}\nBody: ${e.body}`).join("\n\n")}`;
+${fetchedEmails.map((e, idx) => `Email #${idx}:\nSubject: ${e.subject}\nBody: ${e.body}`).join("\n\n")}`;
 
       const classification = await ai.models.generateContent({
         model: "gemini-3.5-flash",
@@ -1484,7 +1725,7 @@ ${sampleGmailInbox.map((e, idx) => `Email #${idx}:\nSubject: ${e.subject}\nBody:
       });
 
       const resultsArray = JSON.parse(classification.text || "[]");
-      processed = sampleGmailInbox.map((email, idx) => {
+      processed = fetchedEmails.map((email, idx) => {
         const matched = Array.isArray(resultsArray) ? resultsArray.find((r: any) => r.index === idx) : null;
         const category = matched?.category || "Bills";
         const summary = matched?.summary || email.body;
@@ -1497,7 +1738,8 @@ ${sampleGmailInbox.map((e, idx) => `Email #${idx}:\nSubject: ${e.subject}\nBody:
           category,
           date: email.date,
           extractedSummary: summary,
-          rawSnippet: email.body.substring(0, 150)
+          rawSnippet: email.body.substring(0, 150),
+          gmailUrl: email.gmailUrl
         };
       });
     } catch (err: any) {
@@ -1505,20 +1747,27 @@ ${sampleGmailInbox.map((e, idx) => `Email #${idx}:\nSubject: ${e.subject}\nBody:
     }
   }
 
-  if (processed.length === 0) {
-    processed = sampleGmailInbox.map((email) => {
+  if (fetchedEmails.length > 0 && processed.length === 0) {
+    processed = fetchedEmails.map((email) => {
       let category: "Bills" | "Insurance" | "Travel" | "Healthcare" | "Appointments" = "Bills";
       let summary = email.body;
 
-      if (email.subject.includes("appointment")) {
+      const sub = email.subject.toLowerCase();
+      if (sub.includes("appointment") || sub.includes("dent clean-up")) {
         category = "Appointments";
-        summary = "Emma is scheduled for pediatric checkup on July 22nd at Kaiser Redwood City.";
-      } else if (email.subject.includes("Policy")) {
+        summary = `Scheduled appointment: ${email.subject}.`;
+      } else if (sub.includes("policy") || sub.includes("insurance") || sub.includes("premium")) {
         category = "Insurance";
-        summary = "Lighthouse Life premium of $75 scheduled for monthly renewal.";
+        summary = `Insurance policy update: ${email.subject}.`;
+      } else if (sub.includes("flight") || sub.includes("confirmation") || sub.includes("booking") || sub.includes("cabin")) {
+        category = "Travel";
+        summary = `Travel booking details: ${email.subject}.`;
+      } else if (sub.includes("lab") || sub.includes("health") || sub.includes("medical") || sub.includes("results")) {
+        category = "Healthcare";
+        summary = `Healthcare action item: ${email.subject}.`;
       } else {
         category = "Bills";
-        summary = "Chase Auto loan payment of $350 due on July 20th, 2026.";
+        summary = `Billing notification: ${email.subject}.`;
       }
 
       return {
@@ -1529,15 +1778,20 @@ ${sampleGmailInbox.map((e, idx) => `Email #${idx}:\nSubject: ${e.subject}\nBody:
         category,
         date: email.date,
         extractedSummary: summary,
-        rawSnippet: email.body.substring(0, 150)
+        rawSnippet: email.body.substring(0, 150),
+        gmailUrl: email.gmailUrl
       };
     });
   }
 
-  db.emailRecords.push(...processed);
+  // Load existing records to prevent duplicates
+  const existingKeys = new Set(db.emailRecords.filter(r => r.uid === uid).map(r => `${r.subject}_${r.date}`));
+  const uniqueNewRecords = processed.filter(r => !existingKeys.has(`${r.subject}_${r.date}`));
+
+  db.emailRecords.push(...uniqueNewRecords);
 
   saveDb(db);
-  logAlert(uid, "Gmail Sync Completed", `Synchronized and classified ${processed.length} critical timeline emails`);
+  logAlert(uid, "Gmail Sync Completed", `Synchronized and classified ${uniqueNewRecords.length} new critical timeline emails`);
 
   res.json({ success: true, count: processed.length, records: processed });
 });
@@ -2408,6 +2662,7 @@ async function startServer() {
 
   app.listen(PORT, "0.0.0.0", () => {
     console.log(`Server running on port ${PORT}`);
+    console.log(`Local application URL: http://localhost:${PORT}`);
   });
 }
 
