@@ -22,7 +22,9 @@ import {
   Menu,
   X,
   ChevronLeft,
-  ChevronRight
+  ChevronRight,
+  AlertTriangle,
+  RefreshCw
 } from "lucide-react";
 import { motion, AnimatePresence } from "motion/react";
 import LoginScreen from "./components/LoginScreen";
@@ -55,6 +57,8 @@ export default function App() {
   const { theme, toggleTheme, language, setLanguage, t, languages, isTranslating } = useThemeLanguage();
   const [user, setUser] = useState<any | null>(null);
   const [role, setRole] = useState<"user" | "nominee" | null>(null);
+  const [syncError, setSyncError] = useState<string | null>(null);
+  const [syncRetryCount, setSyncRetryCount] = useState<number>(0);
 
   // Clerk authentication
   const { isSignedIn, user: clerkUser, isLoaded: isClerkLoaded } = useUser();
@@ -82,13 +86,14 @@ export default function App() {
       const uid = clerkUser.id;
 
       if (!user || user.uid !== uid) {
+        setSyncError(null);
         fetch("https://updated-project-life-continuity-production.up.railway.app/api/auth/clerk-sync", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({ email, name, uid })
         })
           .then((res) => {
-            if (!res.ok) throw new Error("Failed to sync Clerk session with backend");
+            if (!res.ok) throw new Error(`Failed to sync Clerk session (HTTP status ${res.status})`);
             return res.json();
           })
           .then((data) => {
@@ -97,6 +102,7 @@ export default function App() {
           })
           .catch((err) => {
             console.error("Clerk sync error:", err);
+            setSyncError(err.message || "Failed to connect to backend server");
           });
       }
     } else if (isClerkLoaded && !isSignedIn && role === "user" && user && (user.uid?.startsWith("user_") || user.uid?.startsWith("user-clerk"))) {
@@ -104,7 +110,7 @@ export default function App() {
       setUser(null);
       setRole(null);
     }
-  }, [isClerkLoaded, isSignedIn, clerkUser, user, role]);
+  }, [isClerkLoaded, isSignedIn, clerkUser, user, role, syncRetryCount]);
 
   // Shared check-in state
   const [justCheckedIn, setJustCheckedIn] = useState(false);
@@ -195,6 +201,60 @@ export default function App() {
 
   // Prevent blinking: do not render LoginScreen if signed in with Clerk but not yet synced
   if (isSignedIn && !role) {
+    if (syncError) {
+      return (
+        <div className="min-h-screen bg-[#2c3353] text-[#e0dafc] flex flex-col justify-center items-center p-4">
+          <div className="w-full max-w-md bg-white/5 backdrop-blur-xl border border-red-500/20 rounded-2xl p-6 shadow-2xl space-y-6 text-center animate-fade-in">
+            <div className="mx-auto h-16 w-16 bg-red-500/10 rounded-2xl flex items-center justify-center text-red-400 border border-red-500/20 animate-pulse">
+              <AlertTriangle className="h-8 w-8 text-red-500" />
+            </div>
+            
+            <div className="space-y-2">
+              <h2 className="text-xl font-bold tracking-tight text-white">Vault Sync Failed</h2>
+              <p className="text-sm text-[#a2aedb]">
+                We couldn't synchronize your secure vault session with the backend. This might be due to a temporary network issue or server offline.
+              </p>
+              <div className="p-3 bg-black/20 rounded-xl border border-[#5d6fa3]/10 text-left font-mono text-xs text-red-300/90 overflow-x-auto max-h-24">
+                {syncError}
+              </div>
+            </div>
+
+            <div className="flex flex-col gap-2.5">
+              <button
+                onClick={() => setSyncRetryCount((prev) => prev + 1)}
+                className="w-full bg-indigo-600 hover:bg-indigo-500 text-white font-semibold py-3 px-4 rounded-xl transition-all shadow-lg active:scale-98 cursor-pointer flex items-center justify-center gap-2"
+              >
+                <RefreshCw className="h-4 w-4 animate-spin" style={{ animationDuration: "3s" }} />
+                Retry Connection
+              </button>
+              
+              <button
+                onClick={() => {
+                  setUser({
+                    uid: "sandbox-demo",
+                    email: "sandbox@lighthouseresilience.com",
+                    name: "Alex Mercer (Offline)",
+                    createdAt: new Date().toISOString()
+                  });
+                  setRole("user");
+                }}
+                className="w-full border border-indigo-300/20 hover:bg-white/5 text-[#e0dafc] font-semibold py-3 px-4 rounded-xl transition-all active:scale-98 cursor-pointer"
+              >
+                Access Offline Sandbox Mode
+              </button>
+
+              <button
+                onClick={() => signOut()}
+                className="text-xs text-[#8c9fc2] hover:text-[#e0dafc] font-semibold underline underline-offset-4 cursor-pointer mt-2"
+              >
+                Sign Out
+              </button>
+            </div>
+          </div>
+        </div>
+      );
+    }
+
     return (
       <div className="min-h-screen bg-[#2c3353] text-[#e0dafc] flex flex-col justify-center items-center gap-4">
         <div className="h-12 w-12 bg-[#e0dafc] rounded-xl flex items-center justify-center text-[#2c3353] shadow-md border border-indigo-300/30 animate-pulse">

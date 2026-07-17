@@ -12,21 +12,30 @@ import cors from "cors";
 
 dotenv.config();
 
+const PORT = process.env.PORT || 3000;
+
 const app = express();
-app.use(
-  cors({
-    origin: [
-      "https://updated-project-life-continuity.vercel.app",
-    ],
-    credentials: true,
-  })
-);
 
-app.options("*", cors());
+const allowedOrigins = [
+  "https://updated-project-life-continuity.vercel.app",
+  "http://localhost:5173",
+  "http://localhost:3000"
+];
 
-const PORT = 3000;
+app.use(cors({
+  origin: (origin, callback) => {
+    if (!origin) return callback(null, true);
+    if (allowedOrigins.indexOf(origin) !== -1 || origin.startsWith("http://localhost:")) {
+      callback(null, true);
+    } else {
+      callback(null, false);
+    }
+  },
+  credentials: true,
+  methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+  allowedHeaders: ["Content-Type", "Authorization"],
+}));
 
-// Increase payload limits for base64 file uploads
 app.use(express.json({ limit: "50mb" }));
 
 // Setup folder for uploads
@@ -50,7 +59,7 @@ interface DatabaseSchema {
   appointments: any[];
   checkIns: Record<string, Record<string, any>>; // uid -> { date: entry }
   checkInStats: Record<string, any>;
-  checkInSettings: Record<string, any>;   
+  checkInSettings: Record<string, any>;
   continuityPlans: Record<string, any>;
   sessions: any[];
   checkInEvents?: any[];
