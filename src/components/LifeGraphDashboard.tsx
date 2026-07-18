@@ -69,7 +69,7 @@ export default function LifeGraphDashboard({
   const [customCategory, setCustomCategory] = useState<"Medical Consults" | "Financial / EMI" | "Family & School">("Medical Consults");
   const [customDate, setCustomDate] = useState("2026-07-04");
   const [customTime, setCustomTime] = useState("10:00 AM");
-  const [customPriority, setCustomPriority] = useState<"High" | "Medium" | "Low">("Medium");
+  const [customPriority, setCustomPriority] = useState<"Critical" | "High" | "Medium" | "Low">("Medium");
   const [customAmount, setCustomAmount] = useState("");
   const [customLocation, setCustomLocation] = useState("");
   const [customNotes, setCustomNotes] = useState("");
@@ -82,7 +82,7 @@ export default function LifeGraphDashboard({
   const [editDate, setEditDate] = useState("");
   const [editTime, setEditTime] = useState("10:00 AM");
   const [editCategory, setEditCategory] = useState<"Medical Consults" | "Financial / EMI" | "Family & School">("Medical Consults");
-  const [editPriority, setEditPriority] = useState<"High" | "Medium" | "Low">("Medium");
+  const [editPriority, setEditPriority] = useState<"Critical" | "High" | "Medium" | "Low">("Medium");
   const [editAmount, setEditAmount] = useState("");
   const [editNotes, setEditNotes] = useState("");
   const [editStatus, setEditStatus] = useState("Pending");

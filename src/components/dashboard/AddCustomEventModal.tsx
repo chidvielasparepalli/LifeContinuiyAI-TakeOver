@@ -5,8 +5,8 @@ interface AddCustomEventModalProps {
   setCustomTitle: (val: string) => void;
   customCategory: "Medical Consults" | "Financial / EMI" | "Family & School";
   setCustomCategory: (val: "Medical Consults" | "Financial / EMI" | "Family & School") => void;
-  customPriority: "High" | "Medium" | "Low";
-  setCustomPriority: (val: "High" | "Medium" | "Low") => void;
+  customPriority: "Critical" | "High" | "Medium" | "Low";
+  setCustomPriority: (val: "Critical" | "High" | "Medium" | "Low") => void;
   customDate: string;
   setCustomDate: (val: string) => void;
   customTime: string;

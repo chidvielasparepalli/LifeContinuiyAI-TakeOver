@@ -21,7 +21,7 @@ import {
 
 dotenv.config();
 
-const PORT = process.env.PORT || 3000;
+const PORT = Number(process.env.PORT || 3000);
 
 const app = express();
 
@@ -1523,7 +1523,8 @@ app.post("/api/emergency/activate", async (req, res) => {
       upcomingAppointments,
       medicinesToRefill: medicinesToRefill.length > 0 ? medicinesToRefill : ["Regular maintenance medications as detailed in medical logs"],
       insuranceClaimChecklist: insuranceClaimChecklist.length > 0 ? insuranceClaimChecklist : ["Lighthouse Life Insurance Claim #LI-94302-AM", "Kaiser copay submission"],
-      importantEmails
+      importantEmails,
+      aiSummary: ""
     };
 
     await settingsService.savePlaybook(uid, plan);
